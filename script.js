@@ -1,100 +1,280 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const highContrastBtn = document.getElementById('highContrast');
-  const dyslexiaBtn = document.getElementById('dyslexia');
-  const fontInc = document.getElementById('fontInc');
-  const fontDec = document.getElementById('fontDec');
-  const fontReset = document.getElementById('fontReset');
+/* style.css - Projeto Integrador - Versão Profissional */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-  highContrastBtn?.addEventListener('click', () => {
-    document.body.classList.toggle('high-contrast');
-    highContrastBtn.textContent = document.body.classList.contains('high-contrast') ? 'Contraste Normal' : 'Alto Contraste';
-  });
-  dyslexiaBtn?.addEventListener('click', () => {
-    document.body.classList.toggle('dyslexia');
-    dyslexiaBtn.textContent = document.body.classList.contains('dyslexia') ? 'Fonte Normal' : 'Fonte Dislexia';
-  });
+:root {
+  --blue-dark: #0a2540;
+  --blue: #1b6ca8;
+  --cyan: #4fc3f7;
+  --yellow: #ffca28;
+  --orange: #ff9800;
+  --bg: #f5f9fc;
+  --card: #ffffff;
+  --text: #0a2540;
+  --shadow: 0 8px 30px rgba(10, 37, 64, 0.1);
+}
 
-  let size = 100;
-  fontInc?.addEventListener('click', () => { if (size < 160) { size += 10; document.body.style.fontSize = size + '%'; } });
-  fontDec?.addEventListener('click', () => { if (size > 80) { size -= 10; document.body.style.fontSize = size + '%'; } });
-  fontReset?.addEventListener('click', () => { size = 100; document.body.style.fontSize = '100%'; });
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-  document.getElementById('calcEnergy')?.addEventListener('click', () => {
-    const freq = parseFloat(document.getElementById('photonFreq').value);
-    const h = 6.626e-34;
-    const eJ = h * freq;
-    const eV = eJ / 1.602e-19;
-    document.getElementById('energyResult').innerHTML =
-      `<strong>${eJ.toExponential(2)} J</strong><br>ou <strong>${eV.toFixed(2)} eV</strong>`;
-  });
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
 
-  const canvas = document.getElementById('simulatorCanvas');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    canvas.width = 640;
-    canvas.height = 320;
-    const metals = { cesio: 2.14, potassio: 2.30, sodio: 2.75, zinco: 4.31, cobre: 4.65 };
+body.high-contrast {
+  background: #000 !important;
+  color: #ffff00 !important;
+}
+body.high-contrast .card,
+body.high-contrast .simulator,
+body.high-contrast .calc-box,
+body.high-contrast header,
+body.high-contrast footer,
+body.high-contrast .sitemap {
+  background: #111 !important;
+  color: #ffff00 !important;
+  border-color: #ffff00 !important;
+}
+body.high-contrast a { color: #00ffff !important; }
+body.high-contrast .btn { background: #ffff00 !important; color: #000 !important; border: 2px solid #fff; }
 
-    function draw() {
-      const freq = parseFloat(document.getElementById('frequency').value);
-      const intensity = parseFloat(document.getElementById('intensity').value);
-      const metal = document.getElementById('metal').value;
-      const phi = metals[metal];
-      const h = 4.135667696e-15;
-      const energy = h * freq * 1e14;
-      const ke = energy - phi;
+body.dyslexia {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', sans-serif;
+  letter-spacing: 0.05em;
+  line-height: 1.95;
+}
 
-      document.getElementById('freqValue').textContent = freq.toFixed(1);
-      document.getElementById('intValue').textContent = intensity;
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/opendyslexic@5.3.0/latin-400-normal.woff2') format('woff2');
+  font-display: swap;
+}
 
-      let msg = `Energia do fóton: <strong>${energy.toFixed(2)} eV</strong><br>Função trabalho: <strong>${phi} eV</strong><br>`;
-      msg += ke > 0
-        ? `Energia cinética: <strong>${ke.toFixed(2)} eV</strong><br>✅ Elétrons ejetados!`
-        : `❌ Abaixo da frequência de corte. Nenhum elétron ejetado.`;
-      document.getElementById('simInfo').innerHTML = msg;
+.a11y-controls {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: white;
+  padding: 12px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+body.high-contrast .a11y-controls { background: #222; border: 2px solid #ff0; }
+.a11y-controls button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--blue);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
 
-      ctx.fillStyle = document.body.classList.contains('high-contrast') ? '#000' : '#001f3f';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#777';
-      ctx.fillRect(40, 90, 120, 140);
-      ctx.fillStyle = '#fff';
-      ctx.font = 'bold 16px Arial';
-      ctx.fillText(metal.toUpperCase(), 55, 165);
+header {
+  background: linear-gradient(90deg, var(--blue-dark), var(--blue));
+  color: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  transition: 0.2s;
+}
+nav a:hover, nav a:focus {
+  background: var(--yellow);
+  color: var(--blue-dark);
+}
 
-      const count = Math.floor(intensity / 15) + 1;
-      for (let i = 0; i < count; i++) {
-        const y = 70 + i * 35;
-        ctx.beginPath();
-        ctx.arc(220 + Math.sin(Date.now()/180 + i) * 12, y, 9, 0, Math.PI * 2);
-        ctx.fillStyle = freq > 6 ? '#ff6b6b' : '#4ecdc4';
-        ctx.fill();
-        ctx.strokeStyle = '#fff';
-        ctx.lineWidth = 2;
-        ctx.stroke();
-      }
-      if (ke > 0) {
-        const eCount = Math.min(8, Math.floor(intensity / 12));
-        for (let i = 0; i < eCount; i++) {
-          const x = 170 + i * 18;
-          const y = 130 + Math.sin(Date.now()/90 + i) * 25;
-          ctx.beginPath();
-          ctx.arc(x, y, 7, 0, Math.PI * 2);
-          ctx.fillStyle = '#ffd700';
-          ctx.fill();
-          ctx.beginPath();
-          ctx.moveTo(x + 12, y);
-          ctx.lineTo(x + 35, y);
-          ctx.strokeStyle = '#ffd700';
-          ctx.lineWidth = 3;
-          ctx.stroke();
-        }
-      }
-      requestAnimationFrame(draw);
-    }
-    ['frequency', 'intensity', 'metal'].forEach(id => {
-      document.getElementById(id)?.addEventListener('input', draw);
-      document.getElementById(id)?.addEventListener('change', draw);
-    });
-    draw();
+.hero {
+  text-align: center;
+  padding: 5.5rem 1.5rem 4.5rem;
+  background: linear-gradient(135deg, #0a2540 0%, #1b6ca8 45%, #ff9800 100%);
+  color: white;
+}
+.hero h1 {
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.hero p {
+  font-size: 1.3rem;
+  max-width: 850px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+main {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 3.2rem 0 1.3rem;
+  color: var(--blue-dark);
+  position: relative;
+  display: inline-block;
+}
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 70px;
+  height: 4px;
+  background: var(--orange);
+  border-radius: 2px;
+}
+body.high-contrast h2 { color: #ff0; }
+body.high-contrast h2::after { background: #ff0; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  margin: 2rem 0;
+}
+.card {
+  background: var(--card);
+  padding: 1.8rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  border-top: 5px solid var(--orange);
+  transition: transform 0.3s ease;
+}
+.card:hover { transform: translateY(-8px); }
+.card h3 { margin-bottom: 0.8rem; color: var(--blue); font-size: 1.3rem; }
+
+.simulator, .calc-box, .sitemap {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  margin: 2rem 0;
+  text-align: center;
+}
+.sitemap { text-align: left; }
+
+.equation {
+  font-size: 1.55rem;
+  font-weight: 700;
+  text-align: center;
+  background: #fff8e1;
+  padding: 1.1rem;
+  border-radius: 12px;
+  margin: 1.3rem 0;
+  border-left: 5px solid var(--orange);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+.controls label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+  min-width: 190px;
+}
+input[type="range"] { width: 200px; margin: 8px 0; }
+select, input[type="number"] {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+canvas {
+  border: 3px solid var(--blue);
+  border-radius: 16px;
+  background: #001f3f;
+  max-width: 100%;
+  margin: 1.5rem auto;
+  display: block;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.7rem;
+  background: var(--orange);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+.btn:hover, .btn:focus {
+  background: var(--yellow);
+  color: var(--blue-dark);
+}
+
+footer {
+  background: var(--blue-dark);
+  color: white;
+  text-align: center;
+  padding: 2.8rem 1rem;
+  margin-top: 4rem;
+  font-size: 0.95rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -50px;
+  left: 10px;
+  background: var(--yellow);
+  color: #000;
+  padding: 10px 16px;
+  z-index: 9999;
+  font-weight: 700;
+  border-radius: 8px;
+}
+.skip-link:focus { top: 10px; }
+
+*:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 1.9rem; }
+  .hero p { font-size: 1.1rem; }
+  nav ul { flex-direction: column; align-items: center; gap: 0.4rem; }
+  .a11y-controls {
+    top: auto;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    justify-content: center;
   }
-});
+  h2 { font-size: 1.7rem; }
+}
