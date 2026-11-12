@@ -1,280 +1,173 @@
-/* style.css - Projeto Integrador - Versão Profissional */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+document.addEventListener('DOMContentLoaded', () => {
 
-:root {
-  --blue-dark: #0a2540;
-  --blue: #1b6ca8;
-  --cyan: #4fc3f7;
-  --yellow: #ffca28;
-  --orange: #ff9800;
-  --bg: #f5f9fc;
-  --card: #ffffff;
-  --text: #0a2540;
-  --shadow: 0 8px 30px rgba(10, 37, 64, 0.1);
-}
+  // ====================== ACESSIBILIDADE ======================
+  const highContrastBtn = document.getElementById('highContrast');
+  const dyslexiaBtn = document.getElementById('dyslexia');
+  const fontInc = document.getElementById('fontInc');
+  const fontDec = document.getElementById('fontDec');
+  const fontReset = document.getElementById('fontReset');
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-}
-
-body.high-contrast {
-  background: #000 !important;
-  color: #ffff00 !important;
-}
-body.high-contrast .card,
-body.high-contrast .simulator,
-body.high-contrast .calc-box,
-body.high-contrast header,
-body.high-contrast footer,
-body.high-contrast .sitemap {
-  background: #111 !important;
-  color: #ffff00 !important;
-  border-color: #ffff00 !important;
-}
-body.high-contrast a { color: #00ffff !important; }
-body.high-contrast .btn { background: #ffff00 !important; color: #000 !important; border: 2px solid #fff; }
-
-body.dyslexia {
-  font-family: 'OpenDyslexic', 'Comic Sans MS', sans-serif;
-  letter-spacing: 0.05em;
-  line-height: 1.95;
-}
-
-@font-face {
-  font-family: 'OpenDyslexic';
-  src: url('https://cdn.jsdelivr.net/fontsource/fonts/opendyslexic@5.3.0/latin-400-normal.woff2') format('woff2');
-  font-display: swap;
-}
-
-.a11y-controls {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 1000;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  background: white;
-  padding: 12px;
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-}
-body.high-contrast .a11y-controls { background: #222; border: 2px solid #ff0; }
-.a11y-controls button {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 10px;
-  background: var(--blue);
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-header {
-  background: linear-gradient(90deg, var(--blue-dark), var(--blue));
-  color: white;
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 99;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  justify-content: center;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.6rem 1.2rem;
-  border-radius: 30px;
-  transition: 0.2s;
-}
-nav a:hover, nav a:focus {
-  background: var(--yellow);
-  color: var(--blue-dark);
-}
-
-.hero {
-  text-align: center;
-  padding: 5.5rem 1.5rem 4.5rem;
-  background: linear-gradient(135deg, #0a2540 0%, #1b6ca8 45%, #ff9800 100%);
-  color: white;
-}
-.hero h1 {
-  font-size: 2.7rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-.hero p {
-  font-size: 1.3rem;
-  max-width: 850px;
-  margin: 0 auto;
-  opacity: 0.95;
-}
-
-main {
-  max-width: 1150px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
-}
-
-h2 {
-  font-size: 2rem;
-  margin: 3.2rem 0 1.3rem;
-  color: var(--blue-dark);
-  position: relative;
-  display: inline-block;
-}
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 70px;
-  height: 4px;
-  background: var(--orange);
-  border-radius: 2px;
-}
-body.high-contrast h2 { color: #ff0; }
-body.high-contrast h2::after { background: #ff0; }
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.8rem;
-  margin: 2rem 0;
-}
-.card {
-  background: var(--card);
-  padding: 1.8rem;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  border-top: 5px solid var(--orange);
-  transition: transform 0.3s ease;
-}
-.card:hover { transform: translateY(-8px); }
-.card h3 { margin-bottom: 0.8rem; color: var(--blue); font-size: 1.3rem; }
-
-.simulator, .calc-box, .sitemap {
-  background: var(--card);
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  margin: 2rem 0;
-  text-align: center;
-}
-.sitemap { text-align: left; }
-
-.equation {
-  font-size: 1.55rem;
-  font-weight: 700;
-  text-align: center;
-  background: #fff8e1;
-  padding: 1.1rem;
-  border-radius: 12px;
-  margin: 1.3rem 0;
-  border-left: 5px solid var(--orange);
-}
-
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  margin: 1.5rem 0;
-}
-.controls label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-weight: 600;
-  min-width: 190px;
-}
-input[type="range"] { width: 200px; margin: 8px 0; }
-select, input[type="number"] {
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 2px solid #ddd;
-  font-size: 1rem;
-  font-family: inherit;
-}
-
-canvas {
-  border: 3px solid var(--blue);
-  border-radius: 16px;
-  background: #001f3f;
-  max-width: 100%;
-  margin: 1.5rem auto;
-  display: block;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.85rem 1.7rem;
-  background: var(--orange);
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  margin: 0.5rem;
-  font-size: 1rem;
-}
-.btn:hover, .btn:focus {
-  background: var(--yellow);
-  color: var(--blue-dark);
-}
-
-footer {
-  background: var(--blue-dark);
-  color: white;
-  text-align: center;
-  padding: 2.8rem 1rem;
-  margin-top: 4rem;
-  font-size: 0.95rem;
-}
-
-.skip-link {
-  position: absolute;
-  top: -50px;
-  left: 10px;
-  background: var(--yellow);
-  color: #000;
-  padding: 10px 16px;
-  z-index: 9999;
-  font-weight: 700;
-  border-radius: 8px;
-}
-.skip-link:focus { top: 10px; }
-
-*:focus-visible {
-  outline: 3px solid var(--yellow);
-  outline-offset: 3px;
-}
-
-@media (max-width: 768px) {
-  .hero h1 { font-size: 1.9rem; }
-  .hero p { font-size: 1.1rem; }
-  nav ul { flex-direction: column; align-items: center; gap: 0.4rem; }
-  .a11y-controls {
-    top: auto;
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
-    justify-content: center;
+  if (highContrastBtn) {
+    highContrastBtn.addEventListener('click', () => {
+      document.body.classList.toggle('high-contrast');
+      highContrastBtn.textContent = document.body.classList.contains('high-contrast')
+        ? 'Contraste Normal'
+        : 'Alto Contraste';
+    });
   }
-  h2 { font-size: 1.7rem; }
-}
+
+  if (dyslexiaBtn) {
+    dyslexiaBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dyslexia');
+      dyslexiaBtn.textContent = document.body.classList.contains('dyslexia')
+        ? 'Fonte Normal'
+        : 'Fonte Dislexia';
+    });
+  }
+
+  let currentSize = 100;
+  if (fontInc) {
+    fontInc.addEventListener('click', () => {
+      if (currentSize < 160) {
+        currentSize += 10;
+        document.body.style.fontSize = currentSize + '%';
+      }
+    });
+  }
+  if (fontDec) {
+    fontDec.addEventListener('click', () => {
+      if (currentSize > 85) {
+        currentSize -= 10;
+        document.body.style.fontSize = currentSize + '%';
+      }
+    });
+  }
+  if (fontReset) {
+    fontReset.addEventListener('click', () => {
+      currentSize = 100;
+      document.body.style.fontSize = '100%';
+    });
+  }
+
+  // ====================== CALCULADORA DE FÓTON ======================
+  const calcBtn = document.getElementById('calcEnergy');
+  if (calcBtn) {
+    calcBtn.addEventListener('click', () => {
+      const freq = parseFloat(document.getElementById('photonFreq').value);
+      const result = document.getElementById('energyResult');
+
+      if (isNaN(freq) || freq <= 0) {
+        result.innerHTML = '<span style="color:#d32f2f; font-weight:600;">Digite uma frequência válida.</span>';
+        return;
+      }
+
+      const h = 6.626e-34;
+      const energyJ = h * freq;
+      const energyEV = energyJ / 1.602e-19;
+
+      result.innerHTML = `
+        <div style="font-size:1.4rem; font-weight:700; color:#0d47a1;">
+          ${energyJ.toExponential(2)} J
+        </div>
+        <div style="font-size:1.2rem; margin-top:6px;">
+          ou <strong>${energyEV.toFixed(2)} eV</strong>
+        </div>
+      `;
+    });
+  }
+
+  // ====================== SIMULADOR DO EFEITO FOTOELÉTRICO ======================
+  const canvas = document.getElementById('simulatorCanvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    canvas.width = 720;
+    canvas.height = 360;
+
+    const metals = {
+      cesio: 2.14,
+      potassio: 2.30,
+      sodio: 2.75,
+      zinco: 4.31,
+      cobre: 4.65
+    };
+
+    function draw() {
+      const freq = parseFloat(document.getElementById('frequency').value);
+      const intensity = parseFloat(document.getElementById('intensity').value);
+      const metal = document.getElementById('metal').value;
+      const phi = metals[metal];
+
+      const h = 4.135667696e-15;
+      const energy = h * freq * 1e14;
+      const ke = energy - phi;
+
+      document.getElementById('freqValue').textContent = freq.toFixed(1);
+      document.getElementById('intValue').textContent = intensity;
+
+      let msg = `<strong>Energia do fóton:</strong> ${energy.toFixed(2)} eV<br>`;
+      msg += `<strong>Função trabalho:</strong> ${phi} eV<br>`;
+
+      if (ke > 0) {
+        msg += `<strong>Energia cinética:</strong> ${ke.toFixed(2)} eV<br>`;
+        msg += `<span style="color:#2e7d32; font-weight:700; font-size:1.1rem;">✅ Elétrons sendo ejetados</span>`;
+      } else {
+        msg += `<span style="color:#c62828; font-weight:700; font-size:1.1rem;">❌ Abaixo da frequência de corte</span>`;
+      }
+      document.getElementById('simInfo').innerHTML = msg;
+
+      // Fundo
+      const dark = document.body.classList.contains('high-contrast');
+      ctx.fillStyle = dark ? '#000' : '#001f3f';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Placa de metal
+      ctx.fillStyle = '#616161';
+      ctx.fillRect(60, 110, 150, 160);
+      ctx.fillStyle = '#fff';
+      ctx.font = 'bold 20px Poppins, Arial';
+      ctx.fillText(metal.toUpperCase(), 85, 200);
+
+      // Fótons
+      const photonCount = Math.floor(intensity / 10) + 1;
+      for (let i = 0; i < photonCount; i++) {
+        const y = 70 + i * 45;
+        const x = 260 + Math.sin(Date.now() / 160 + i) * 20;
+        ctx.beginPath();
+        ctx.arc(x, y, 12, 0, Math.PI * 2);
+        ctx.fillStyle = freq > 6.5 ? '#ff5252' : '#29b6f6';
+        ctx.fill();
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+
+      // Elétrons
+      if (ke > 0) {
+        const eCount = Math.min(8, Math.floor(intensity / 12));
+        for (let i = 0; i < eCount; i++) {
+          const x = 220 + i * 24;
+          const y = 150 + Math.sin(Date.now() / 90 + i) * 35;
+          ctx.beginPath();
+          ctx.arc(x, y, 9, 0, Math.PI * 2);
+          ctx.fillStyle = '#ffd700';
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.moveTo(x + 16, y);
+          ctx.lineTo(x + 48, y);
+          ctx.strokeStyle = '#ffd700';
+          ctx.lineWidth = 3;
+          ctx.stroke();
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    document.getElementById('frequency')?.addEventListener('input', draw);
+    document.getElementById('intensity')?.addEventListener('input', draw);
+    document.getElementById('metal')?.addEventListener('change', draw);
+
+    draw();
+  }
+});
