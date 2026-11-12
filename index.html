@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Efeito Fotoelétrico e Energia Solar | Projeto Integrador</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
 
+  <div class="a11y-controls" role="toolbar" aria-label="Controles de Acessibilidade">
+    <button id="highContrast">Alto Contraste</button>
+    <button id="dyslexia">Fonte Dislexia</button>
+    <button id="fontInc">A+</button>
+    <button id="fontDec">A-</button>
+    <button id="fontReset">A</button>
+  </div>
+
+  <header>
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#fotons">Fótons</a></li>
+        <li><a href="#efeito">Efeito Fotoelétrico</a></li>
+        <li><a href="#celula">Célula Fotovoltaica</a></li>
+        <li><a href="#comparativo">Térmico vs Fotovoltaico</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="inicio" class="hero">
+      <h1>☀️ Efeito Fotoelétrico e Conversão da Luz em Eletricidade 🌊</h1>
+      <p>Projeto Integrador - Física Quântica e Energia Solar Fotovoltaica<br>
+      Conexão com o Aquecimento da Nossa Piscina</p>
+    </section>
+
+    <section>
+      <h2>Bem-vindos!</h2>
+      <p>Este site explora o efeito fotoelétrico, fótons e a conversão da luz em eletricidade, integrado ao projeto da piscina.</p>
+      <div class="cards">
+        <article class="card"><h3>Coletor Solar Térmico</h3><p>Absorve radiação visível/infravermelha (comportamento de corpo negro) e converte em calor.</p></article>
+        <article class="card"><h3>Perda de Calor Noturna</h3><p>A piscina emite radiação infravermelha → a capa térmica reduz a perda.</p></article>
+        <article class="card"><h3>Painéis Fotovoltaicos</h3><p>Usam o efeito fotoelétrico para gerar eletricidade para bombas e sistemas da piscina.</p></article>
+      </div>
+    </section>
+
+    <section id="fotons">
+      <h2>O que são Fótons?</h2>
+      <p>Os fótons são as partículas de energia da luz. A energia depende da frequência:</p>
+      <p style="font-size:1.4rem;text-align:center;"><strong>E = h · f</strong></p>
+      <p>Onde h = 6,626 × 10⁻³⁴ J·s. Quanto maior a frequência, maior a energia do fóton.</p>
+
+      <div class="simulator">
+        <h3>Calculadora de Energia do Fóton</h3>
+        <label>Frequência (Hz): <input type="number" id="photonFreq" value="5e14"></label><br>
+        <button id="calcEnergy" class="btn">Calcular</button>
+        <div id="energyResult" style="margin-top:1rem;font-weight:bold;"></div>
+      </div>
+    </section>
+
+    <section id="efeito">
+      <h2>Efeito Fotoelétrico e Frequência de Corte</h2>
+      <p>A frequência de corte é a frequência mínima para ejetar elétrons. Abaixo dela, mesmo com luz intensa, nada acontece.</p>
+      <p style="text-align:center;font-size:1.3rem;"><strong>K<sub>máx</sub> = h f − φ</strong></p>
+
+      <div class="simulator">
+        <h3>Simulador Interativo</h3>
+        <div class="controls">
+          <label>Metal:
+            <select id="metal">
+              <option value="cesio">Césio (2,14 eV)</option>
+              <option value="potassio">Potássio (2,30 eV)</option>
+              <option value="sodio">Sódio (2,75 eV)</option>
+              <option value="zinco">Zinco (4,31 eV)</option>
+              <option value="cobre">Cobre (4,65 eV)</option>
+            </select>
+          </label>
+          <label>Frequência (×10¹⁴ Hz): <input type="range" id="frequency" min="3" max="12" step="0.1" value="6"> <span id="freqValue">6.0</span></label>
+          <label>Intensidade: <input type="range" id="intensity" min="10" max="100" value="50"> <span id="intValue">50</span></label>
+        </div>
+        <canvas id="simulatorCanvas" width="600" height="300"></canvas>
+        <div id="simInfo"></div>
+      </div>
+    </section>
+
+    <section id="celula">
+      <h2>Como a Célula Fotovoltaica Funciona</h2>
+      <ol>
+        <li>Fótons com energia suficiente atingem o silício.</li>
+        <li>Criação de pares elétron-lacuna.</li>
+        <li>A junção p-n separa as cargas.</li>
+        <li>Gera corrente elétrica contínua.</li>
+      </ol>
+      <p>Essa eletricidade pode alimentar bombas de calor ou sistemas da piscina.</p>
+    </section>
+
+    <section id="comparativo">
+      <h2>Térmico vs Fotovoltaico (Piscina)</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Coletor Solar Térmico</h3>
+          <p>Converte luz diretamente em calor. Ideal para aquecer a água da piscina.</p>
+        </article>
+        <article class="card">
+          <h3>Painel Fotovoltaico</h3>
+          <p>Converte luz em eletricidade (efeito fotoelétrico). Pode alimentar bombas e aquecedores.</p>
+        </article>
+      </div>
+      <p><strong>Capa térmica:</strong> reduz a perda de calor por radiação infravermelha à noite.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Projeto Integrador 3TRI | Acessível com VLibras + Alto Contraste + Fonte Dislexia</p>
+  </footer>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper">
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('frequency')?.addEventListener('input', function() {
+      document.getElementById('freqValue').textContent = parseFloat(this.value).toFixed(1);
+    });
+    document.getElementById('intensity')?.addEventListener('input', function() {
+      document.getElementById('intValue').textContent = this.value;
+    });
+  </script>
+</body>
+</html>
