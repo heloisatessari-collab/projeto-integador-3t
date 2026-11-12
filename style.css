@@ -1,1 +1,291 @@
+/* style.css - Tema Sol + Água */
+:root {
+  --blue-dark: #023047;
+  --blue: #0077B6;
+  --blue-light: #90E0EF;
+  --cyan: #00B4D8;
+  --yellow: #FFD166;
+  --orange: #F4A261;
+  --bg: linear-gradient(135deg, #e0f7fa 0%, #fff3e0 100%);
+  --text: #023047;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --accent: #F4A261;
+}
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+body.high-contrast {
+  --bg: #000000;
+  --text: #FFFF00;
+  --card-bg: #111111;
+  --blue: #00FFFF;
+  --yellow: #FFFF00;
+  --orange: #FFAA00;
+  background: #000;
+  color: #FFFF00;
+}
+
+body.high-contrast a { color: #00FFFF; }
+
+body.high-contrast button, body.high-contrast .btn {
+  background: #FFFF00;
+  color: #000;
+  border: 2px solid #FFF;
+}
+
+body.dyslexia {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', 'Segoe UI', sans-serif;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+  line-height: 1.8;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/opendyslexic@5.3.0/latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.a11y-controls {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: rgba(255,255,255,0.95);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+body.high-contrast .a11y-controls {
+  background: #222;
+  border: 2px solid #FFFF00;
+}
+
+.a11y-controls button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--blue);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.a11y-controls button:hover, .a11y-controls button:focus {
+  transform: scale(1.05);
+  outline: 3px solid var(--yellow);
+}
+
+header {
+  background: linear-gradient(90deg, var(--blue-dark), var(--blue));
+  color: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+body.high-contrast header {
+  background: #000;
+  border-bottom: 3px solid #FFFF00;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+
+nav a:hover, nav a:focus {
+  background: var(--yellow);
+  color: var(--blue-dark);
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--orange) 100%);
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+body.high-contrast .hero {
+  background: #111;
+  border: 3px solid #FFFF00;
+}
+
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+h1, h2, h3 { color: var(--blue-dark); margin: 1.5rem 0 1rem; }
+body.high-contrast h1, body.high-contrast h2, body.high-contrast h3 { color: #FFFF00; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border-left: 5px solid var(--orange);
+  transition: transform 0.3s;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+body.high-contrast .card {
+  background: #111;
+  border-left-color: #FFFF00;
+  color: #FFFF00;
+}
+
+.simulator {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+body.high-contrast .simulator { background: #111; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+}
+
+input[type="range"] { width: 200px; margin: 0.5rem 0; }
+
+canvas {
+  border: 2px solid var(--blue);
+  border-radius: 12px;
+  background: #001f3f;
+  max-width: 100%;
+  margin: 1rem auto;
+  display: block;
+}
+
+body.high-contrast canvas {
+  border-color: #FFFF00;
+  background: #000;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--orange);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  margin: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover, .btn:focus {
+  background: var(--yellow);
+  color: var(--blue-dark);
+  outline: 3px solid var(--blue);
+}
+
+footer {
+  background: var(--blue-dark);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+body.high-contrast footer {
+  background: #000;
+  border-top: 3px solid #FFFF00;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--yellow);
+  color: black;
+  padding: 8px;
+  z-index: 9999;
+}
+
+.skip-link:focus { top: 0; }
+
+*:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  header { padding: 0.5rem; }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .hero { padding: 2rem 1rem; }
+  h1 { font-size: 1.8rem; }
+  .a11y-controls {
+    top: auto;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    justify-content: center;
+  }
+}
