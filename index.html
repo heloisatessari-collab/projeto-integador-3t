@@ -24,7 +24,7 @@
         <li><a href="#fotons">Fótons</a></li>
         <li><a href="#efeito">Efeito Fotoelétrico</a></li>
         <li><a href="#celula">Célula Fotovoltaica</a></li>
-        <li><a href="#piscina">Piscina</a></li>
+        <li><a href="#piscina">Piscina do Colégio</a></li>
         <li><a href="#mapa">Mapa do Site</a></li>
       </ul>
     </nav>
@@ -32,50 +32,66 @@
 
   <section id="inicio" class="hero">
     <h1>☀️ Efeito Fotoelétrico e Conversão da Luz em Eletricidade</h1>
-    <p>Projeto Integrador 3TRI – Física Quântica • Energia Solar Fotovoltaica<br>Conexão direta com o Aquecimento da Piscina do Colégio</p>
+    <p>Projeto Integrador 3TRI – Programação • Física Quântica • Tecnociência • Robótica<br>
+    Conexão direta com o Aquecimento da Piscina do Colégio</p>
   </section>
 
   <main id="main">
+
     <section>
-      <h2>Questões Orientadoras</h2>
+      <h2>Questões Orientadoras do Projeto</h2>
       <div class="cards">
-        <article class="card"><h3>O que são fótons?</h3><p>Partículas de luz cuja energia depende da frequência (E = h·f).</p></article>
-        <article class="card"><h3>Frequência de corte</h3><p>Frequência mínima necessária para ejetar elétrons de um metal.</p></article>
-        <article class="card"><h3>Célula fotovoltaica</h3><p>Transforma energia luminosa em elétrica usando o efeito fotoelétrico.</p></article>
-        <article class="card"><h3>Térmico × Fotovoltaico</h3><p>Diferença entre aquecer a piscina com calor direto ou com eletricidade gerada por painéis.</p></article>
+        <article class="card">
+          <h3>O que são fótons?</h3>
+          <p>A luz é formada por partículas de energia chamadas fótons. A energia de cada fóton depende da frequência da radiação.</p>
+        </article>
+        <article class="card">
+          <h3>Frequência de corte</h3>
+          <p>É a frequência mínima necessária para que a luz consiga arrancar elétrons de um metal. Abaixo dela, nada acontece.</p>
+        </article>
+        <article class="card">
+          <h3>Célula fotovoltaica</h3>
+          <p>Dispositivo que transforma a energia da luz em eletricidade utilizando o efeito fotoelétrico em semicondutores.</p>
+        </article>
+        <article class="card">
+          <h3>Térmico × Fotovoltaico</h3>
+          <p>Diferença entre aquecer a piscina diretamente com calor ou usando eletricidade gerada por painéis solares.</p>
+        </article>
       </div>
     </section>
 
     <section id="fotons">
       <h2>Fótons e Energia da Luz</h2>
-      <p>A luz é composta por <strong>fótons</strong>. A energia de cada fóton é proporcional à frequência da radiação:</p>
+      <p>Os <strong>fótons</strong> são os quanta de energia da luz. Quanto maior a frequência da radiação, maior a energia carregada por cada fóton.</p>
       <div class="equation">E = h · f</div>
-      <p>h = 6,626 × 10⁻³⁴ J·s. Luz de maior frequência (violeta, UV) tem fótons mais energéticos que o infravermelho. Isso explica por que o coletor solar térmico da piscina absorve tanto a luz visível quanto o infravermelho do Sol.</p>
+      <p>Onde <strong>h</strong> é a constante de Planck (6,626 × 10⁻³⁴ J·s) e <strong>f</strong> é a frequência da luz. Isso explica por que a radiação ultravioleta e violeta tem mais energia que o infravermelho — informação importante para entender tanto o efeito fotoelétrico quanto o aquecimento solar da piscina.</p>
+
       <div class="calc-box">
         <h3>Calculadora Interativa de Energia do Fóton</h3>
-        <label>Frequência (Hz):<br>
-          <input type="number" id="photonFreq" value="5e14" step="1e13" style="width:220px; padding:8px; margin:8px 0;">
-        </label><br>
+        <label for="photonFreq">Frequência da luz (Hz):</label><br>
+        <input type="number" id="photonFreq" value="5e14" step="1e13" min="1e13" max="2e16" style="width:240px; margin:10px 0;">
+        <br>
         <button id="calcEnergy" class="btn">Calcular Energia</button>
-        <div id="energyResult" style="margin-top:1rem; font-size:1.2rem;"></div>
+        <div id="energyResult" style="margin-top:1.2rem; font-size:1.15rem;"></div>
       </div>
     </section>
 
     <section id="efeito">
       <h2>Efeito Fotoelétrico e Frequência de Corte</h2>
-      <p>O efeito fotoelétrico ocorre quando fótons com energia suficiente arrancam elétrons de um material. A <strong>frequência de corte</strong> é a menor frequência capaz de ejetar elétrons. Abaixo dela, mesmo com luz muito intensa, nada acontece.</p>
+      <p>O <strong>efeito fotoelétrico</strong> é a emissão de elétrons de um material quando ele é iluminado por luz de frequência suficientemente alta. A <strong>frequência de corte</strong> é o valor mínimo de frequência necessário para que isso aconteça.</p>
       <div class="equation">K<sub>máx</sub> = h·f − φ</div>
-      <p>φ = função trabalho do metal. A intensidade aumenta o número de elétrons; a frequência determina a energia de cada um.</p>
+      <p>Nessa equação, <strong>φ</strong> é a função trabalho do metal. A intensidade da luz aumenta a quantidade de elétrons ejetados, mas a energia de cada elétron depende apenas da frequência da luz.</p>
+
       <div class="simulator">
         <h3>Simulador Interativo do Efeito Fotoelétrico</h3>
         <div class="controls">
           <label>Metal
             <select id="metal">
-              <option value="cesio">Césio (2,14 eV)</option>
-              <option value="potassio">Potássio (2,30 eV)</option>
-              <option value="sodio">Sódio (2,75 eV)</option>
-              <option value="zinco">Zinco (4,31 eV)</option>
-              <option value="cobre">Cobre (4,65 eV)</option>
+              <option value="cesio">Césio (φ = 2,14 eV)</option>
+              <option value="potassio">Potássio (φ = 2,30 eV)</option>
+              <option value="sodio">Sódio (φ = 2,75 eV)</option>
+              <option value="zinco">Zinco (φ = 4,31 eV)</option>
+              <option value="cobre">Cobre (φ = 4,65 eV)</option>
             </select>
           </label>
           <label>Frequência (×10¹⁴ Hz)
@@ -87,20 +103,33 @@
             <span id="intValue">50</span>
           </label>
         </div>
-        <canvas id="simulatorCanvas" width="640" height="320" aria-label="Animação do efeito fotoelétrico"></canvas>
-        <div id="simInfo" style="margin-top:1rem; font-size:1.1rem;"></div>
+        <canvas id="simulatorCanvas" width="680" height="340" aria-label="Animação interativa do efeito fotoelétrico"></canvas>
+        <div id="simInfo" style="margin-top:1.2rem; font-size:1.1rem;"></div>
       </div>
     </section>
 
     <section id="celula">
-      <h2>Como a Célula Fotovoltaica Transforma Luz em Eletricidade</h2>
+      <h2>Como a Célula Fotovoltaica Funciona</h2>
+      <p>As células fotovoltaicas usam o efeito fotoelétrico em materiais semicondutores (principalmente silício) para gerar eletricidade.</p>
       <div class="cards">
-        <article class="card"><h3>1. Absorção</h3><p>Fótons com energia acima do bandgap do silício (~1,1 eV) são absorvidos.</p></article>
-        <article class="card"><h3>2. Excitação</h3><p>Criação de pares elétron-lacuna.</p></article>
-        <article class="card"><h3>3. Separação</h3><p>A junção p-n separa as cargas.</p></article>
-        <article class="card"><h3>4. Corrente</h3><p>Elétrons fluem pelo circuito gerando eletricidade contínua.</p></article>
+        <article class="card">
+          <h3>1. Absorção do fóton</h3>
+          <p>Fótons com energia maior que o bandgap do silício (~1,1 eV) são absorvidos pelo material.</p>
+        </article>
+        <article class="card">
+          <h3>2. Criação de pares</h3>
+          <p>O fóton gera um par elétron-lacuna dentro do semicondutor.</p>
+        </article>
+        <article class="card">
+          <h3>3. Separação das cargas</h3>
+          <p>A junção p-n separa o elétron da lacuna por meio de seu campo elétrico interno.</p>
+        </article>
+        <article class="card">
+          <h3>4. Geração de corrente</h3>
+          <p>Os elétrons fluem pelo circuito externo, produzindo corrente elétrica contínua.</p>
+        </article>
       </div>
-      <p>Essa eletricidade pode alimentar bombas de calor ou aquecedores da piscina — uma alternativa ao aquecimento puramente térmico.</p>
+      <p>Essa eletricidade pode ser usada para alimentar bombas de calor ou sistemas elétricos da piscina do colégio.</p>
     </section>
 
     <section id="piscina">
@@ -108,38 +137,46 @@
       <div class="cards">
         <article class="card">
           <h3>Coletor Solar Térmico</h3>
-          <p>Absorve radiação visível e infravermelha (comportamento aproximado de corpo negro) e converte em calor. A água circula pelos tubos e aquece a piscina diretamente. Alta eficiência para aquecimento de água.</p>
+          <p>Absorve radiação visível e infravermelha (comportamento aproximado de corpo negro) e converte diretamente em calor. A água circula pelos tubos e aquece a piscina. É a forma mais eficiente de aquecimento solar direto.</p>
         </article>
         <article class="card">
-          <h3>Perda de Calor Noturna (Radiação IR)</h3>
-          <p>À noite a água da piscina emite radiação infravermelha (radiação de corpo negro). Isso causa perda de calor. A <strong>capa térmica</strong> reduz essa radiação, a evaporação e a convecção.</p>
+          <h3>Perda de Calor Noturna</h3>
+          <p>À noite a água da piscina emite radiação infravermelha (radiação de corpo negro). Essa emissão causa perda de calor. A capa térmica reduz significativamente essa perda radiativa, além de diminuir a evaporação e a convecção.</p>
         </article>
         <article class="card">
           <h3>Painéis Fotovoltaicos</h3>
-          <p>Usam o efeito fotoelétrico para gerar eletricidade. Podem alimentar bombas de circulação, bombas de calor ou aquecedores elétricos da piscina. Mais versátil que o sistema térmico puro.</p>
+          <p>Usam o efeito fotoelétrico para gerar eletricidade. Essa energia pode alimentar bombas de circulação, bombas de calor ou aquecedores elétricos da piscina — uma alternativa versátil ao sistema térmico puro.</p>
         </article>
       </div>
-      <p style="margin-top:1.2rem;"><strong>Inovação – Automação com sensores (Robótica):</strong> Sensores de luz e de temperatura podem ligar automaticamente as bombas quando há sol suficiente e a temperatura da piscina está abaixo do ideal. Isso aumenta a eficiência e reduz desperdício de energia.</p>
-      <p><strong>Sustentabilidade e inclusão:</strong> O uso de energia solar reduz o consumo de energia convencional. Este site foi construído com acessibilidade total para que todos possam aprender sobre essas tecnologias.</p>
+
+      <div class="card" style="margin-top:1.5rem;">
+        <h3>Integração com Robótica e Automação</h3>
+        <p>Sensores de luz (LDR ou fotodiodos) e sensores de temperatura podem ser usados para automatizar o sistema. Quando a intensidade solar é alta e a temperatura da piscina está abaixo do ideal, as bombas são acionadas automaticamente. Isso aumenta a eficiência energética e reduz o desperdício.</p>
+      </div>
+
+      <p style="margin-top:1.5rem;"><strong>Sustentabilidade:</strong> O uso de energia solar (térmica ou fotovoltaica) reduz o consumo de energia convencional do colégio e contribui para um projeto mais consciente e eficiente.</p>
     </section>
 
     <section id="mapa" class="sitemap">
       <h2>Mapa do Site</h2>
-      <ul>
+      <ul style="margin-left:1.5rem; line-height:2;">
         <li><a href="#inicio">Início e Questões Orientadoras</a></li>
-        <li><a href="#fotons">Fótons e Energia (E = h·f) + Calculadora</a></li>
+        <li><a href="#fotons">Fótons e Energia da Luz + Calculadora</a></li>
         <li><a href="#efeito">Efeito Fotoelétrico + Frequência de Corte + Simulador</a></li>
         <li><a href="#celula">Funcionamento da Célula Fotovoltaica</a></li>
         <li><a href="#piscina">Conexão com o Aquecimento da Piscina + Automação</a></li>
       </ul>
     </section>
+
   </main>
 
   <footer>
-    <p>Projeto Integrador 3TRI – CEP<br>
+    <p><strong>Projeto Integrador 3TRI – CEP</strong><br>
+    Programação • Física Quântica • Tecnociência • Robótica<br>
     Site 100% acessível: VLibras • Alto Contraste • Fonte Dislexia • Navegação completa por teclado</p>
   </footer>
 
+  <!-- VLibras -->
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>
@@ -147,7 +184,9 @@
     </div>
   </div>
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
