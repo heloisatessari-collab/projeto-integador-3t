@@ -6,73 +6,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Luz em Energia: plataforma educacional interativa sobre física quântica, efeito fotoelétrico, energia solar fotovoltaica, sustentabilidade e robótica aplicada a piscinas inteligentes.">
+    <meta name="description" content="Projeto Integrador sobre Física Quântica, ondas eletromagnéticas, efeito fotoelétrico, energia solar e robótica.">
+    <meta name="author" content="Projeto Integrador - Colégio Estadual do Paraná">
 
-    <meta name="keywords" content="efeito fotoelétrico, física quântica, fótons, energia solar, fotovoltaica, Arduino, robótica, piscina inteligente">
+    <title>Luz em Energia | Projeto Integrador CEP</title>
 
-    <meta name="author" content="Projeto Integrador CEP">
-
-    <meta name="theme-color" content="#071b35">
-
-    <title>LUZ EM ENERGIA | Ciência, Tecnologia e Sustentabilidade</title>
+    <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
-
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <!-- =====================================================
-     ACESSIBILIDADE E NAVEGAÇÃO
+     TELA DE CARREGAMENTO
 ===================================================== -->
 
-<a class="skip-link" href="#conteudo">
-    Pular para o conteúdo principal
-</a>
+<div class="loader" id="loader">
+    <div class="loader-content">
+        <div class="loader-sun"></div>
+        <h2>LUZ EM ENERGIA</h2>
+        <p>Preparando uma experiência científica...</p>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     CABEÇALHO
+===================================================== -->
 
 <header class="header" id="inicio">
 
     <div class="header-container">
 
-        <a href="#inicio" class="logo" aria-label="Luz em Energia, página inicial">
-
+        <a href="#inicio" class="logo">
             <span class="logo-icon">☀</span>
-
-            <span class="logo-text">
-                LUZ <strong>EM ENERGIA</strong>
-                <small>CIÊNCIA • TECNOLOGIA • SUSTENTABILIDADE</small>
+            <span>
+                LUZ EM <strong>ENERGIA</strong>
+                <small>PROJETO INTEGRADOR CEP</small>
             </span>
-
         </a>
 
         <button class="menu-toggle"
-                id="menuToggle"
                 aria-label="Abrir menu"
-                aria-expanded="false"
-                aria-controls="mainNav">
-
-            <i data-lucide="menu"></i>
-
+                aria-expanded="false">
+            ☰
         </button>
 
-        <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+        <nav class="main-nav">
 
             <a href="#inicio">Início</a>
-            <a href="#introducao">Introdução</a>
-            <a href="#fundamentos">A luz</a>
-            <a href="#fotoeletrico">Efeito fotoelétrico</a>
-            <a href="#fotovoltaica">Fotovoltaica</a>
-            <a href="#aplicacoes">Aplicações</a>
+            <a href="#explorar">Explorar</a>
+            <a href="#ondas">Ondas</a>
+            <a href="#corpo-negro">Corpo negro</a>
+            <a href="#fotoeletrico">Fotoelétrico</a>
             <a href="#robotica">Robótica</a>
-            <a href="#laboratorio">Simuladores</a>
+            <a href="#quiz">Desafio</a>
 
         </nav>
 
@@ -82,111 +74,51 @@
 
 
 <!-- =====================================================
-     PAINEL DE ACESSIBILIDADE
+     ABERTURA / HERO
 ===================================================== -->
 
-<section class="accessibility-bar" id="acessibilidade"
-         aria-label="Ferramentas de acessibilidade">
+<main>
 
-    <div class="accessibility-container">
+<section class="hero">
 
-        <span class="accessibility-title">
-            <i data-lucide="accessibility"></i>
-            ACESSIBILIDADE
-        </span>
+    <div class="hero-background">
 
-        <div class="accessibility-controls">
+        <div class="hero-orbit orbit-one"></div>
+        <div class="hero-orbit orbit-two"></div>
+        <div class="hero-orbit orbit-three"></div>
 
-            <button id="decreaseFont"
-                    aria-label="Diminuir fonte">
-                A-
-            </button>
-
-            <button id="increaseFont"
-                    aria-label="Aumentar fonte">
-                A+
-            </button>
-
-            <button id="highContrast"
-                    aria-pressed="false">
-                <i data-lucide="contrast"></i>
-                Alto contraste
-            </button>
-
-            <button id="dyslexiaFont"
-                    aria-pressed="false">
-                <i data-lucide="book-open"></i>
-                Fonte acessível
-            </button>
-
-            <button id="readingMode"
-                    aria-pressed="false">
-                <i data-lucide="book-text"></i>
-                Modo leitura
-            </button>
-
-            <button id="resetAccess">
-                <i data-lucide="rotate-ccw"></i>
-                Restaurar
-            </button>
-
-        </div>
+        <div class="hero-particle particle-one"></div>
+        <div class="hero-particle particle-two"></div>
+        <div class="hero-particle particle-three"></div>
 
     </div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTEÚDO PRINCIPAL
-===================================================== -->
-
-<main id="conteudo">
-
-
-<!-- =====================================================
-     01 - PÁGINA INICIAL
-===================================================== -->
-
-<section class="hero" id="apresentacao">
 
     <div class="hero-content">
 
         <span class="eyebrow">
-            <span class="status-dot"></span>
-            PROJETO INTEGRADOR CEP • 3º TRIMESTRE
+            FÍSICA QUÂNTICA • TECNOLOGIA • ROBÓTICA
         </span>
 
         <h1>
-            LUZ EM ENERGIA.
-            <span>Uma revolução invisível.</span>
+            A LUZ PODE
+            <span>GERAR ENERGIA?</span>
         </h1>
 
         <p class="hero-description">
-
-            Como a luz pode se transformar em eletricidade?
-
-            Descubra os segredos da física quântica, conheça
-            o efeito fotoelétrico e explore a tecnologia
-            que permite transformar a radiação solar em
-            energia elétrica.
-
-            Da descoberta científica às aplicações tecnológicas,
-            vamos investigar como a ciência pode transformar
-            nosso futuro.
-
+            Descubra como a luz se comporta, como a Física Quântica
+            explica a transformação da energia luminosa e como
+            podemos aplicar esse conhecimento na construção de
+            tecnologias inteligentes.
         </p>
 
         <div class="hero-buttons">
 
-            <a href="#introducao" class="btn-primary">
-                Começar a explorar
-                <i data-lucide="arrow-right"></i>
+            <a href="#explorar" class="btn btn-primary">
+                Explorar o projeto →
             </a>
 
-            <a href="#robotica" class="btn-secondary">
-                Conhecer o projeto de robótica
-                <i data-lucide="cpu"></i>
+            <a href="#robotica" class="btn btn-outline">
+                Conhecer o robô
             </a>
 
         </div>
@@ -195,44 +127,50 @@
 
             <div>
                 <strong>01</strong>
-                <span>Física quântica</span>
+                <span>Ondas eletromagnéticas</span>
             </div>
 
             <div>
                 <strong>02</strong>
-                <span>Energia fotovoltaica</span>
+                <span>Radiação térmica</span>
             </div>
 
             <div>
                 <strong>03</strong>
-                <span>Robótica inteligente</span>
+                <span>Efeito fotoelétrico</span>
+            </div>
+
+            <div>
+                <strong>04</strong>
+                <span>Robótica aplicada</span>
             </div>
 
         </div>
 
     </div>
 
-    <div class="hero-visual" aria-hidden="true">
+    <div class="hero-visual">
 
-        <div class="sun-glow"></div>
-        <div class="sun"></div>
-
-        <div class="energy-orbit orbit-one"></div>
-        <div class="energy-orbit orbit-two"></div>
-
-        <div class="solar-panel-illustration">
-            <div class="solar-panel-grid"></div>
+        <div class="sun-animation">
+            <div class="sun-core"></div>
+            <div class="sun-rays"></div>
         </div>
 
-        <span class="floating-label label-photon">
-            ✦ FÓTONS
-        </span>
+        <div class="energy-wave wave-a"></div>
+        <div class="energy-wave wave-b"></div>
+        <div class="energy-wave wave-c"></div>
 
-        <span class="floating-label label-energy">
-            ⚡ ENERGIA
-        </span>
+        <div class="hero-caption">
+            <span class="live-dot"></span>
+            ENERGIA EM MOVIMENTO
+        </div>
 
     </div>
+
+    <a href="#explorar" class="scroll-indicator">
+        <span>ROLE PARA DESCOBRIR</span>
+        ↓
+    </a>
 
 </section>
 
@@ -241,101 +179,86 @@
      INTRODUÇÃO
 ===================================================== -->
 
-<section class="section-padding intro-section" id="introducao">
+<section class="intro section" id="explorar">
 
     <div class="section-heading">
 
-        <span class="section-tag">
-            BEM-VINDO AO UNIVERSO DA CIÊNCIA
-        </span>
+        <span class="section-tag">COMECE A EXPLORAR</span>
 
-        <h2>Você já parou para pensar na energia da luz?</h2>
+        <h2>
+            Uma descoberta pode
+            <span>transformar o mundo.</span>
+        </h2>
 
         <p>
-
-            Todos os dias recebemos energia proveniente do Sol.
-            Ela ilumina nosso planeta, aquece a superfície terrestre,
-            participa dos processos naturais e pode ser utilizada
-            para produzir eletricidade.
-
-            Mas como isso acontece?
-
+            A luz está presente em praticamente tudo ao nosso redor.
+            Ela permite enxergar, aquece os objetos e pode até ser
+            utilizada para produzir eletricidade.
         </p>
 
     </div>
 
     <div class="intro-grid">
 
-        <article class="info-card">
+        <article class="intro-card interactive-card">
 
-            <span class="card-icon">☀️</span>
+            <div class="card-icon">〰️</div>
 
-            <h3>A energia solar</h3>
+            <h3>Como a luz se propaga?</h3>
 
             <p>
-
-                O Sol é uma estrela que emite grandes quantidades
-                de energia por meio de radiação eletromagnética.
-
-                Essa energia atravessa o espaço e chega à Terra,
-                podendo ser aproveitada por diferentes tecnologias.
-
+                Conheça as ondas eletromagnéticas, suas frequências,
+                seus comprimentos de onda e suas aplicações.
             </p>
+
+            <a href="#ondas">Descobrir →</a>
 
         </article>
 
-        <article class="info-card">
+        <article class="intro-card interactive-card">
 
-            <span class="card-icon">⚛️</span>
+            <div class="card-icon">🌡️</div>
 
-            <h3>A física quântica</h3>
+            <h3>Por que os objetos brilham?</h3>
 
             <p>
-
-                A física quântica estuda o comportamento da matéria
-                e da energia em escalas microscópicas.
-
-                Ela nos ajuda a compreender como a luz interage
-                com os átomos e transfere energia aos elétrons.
-
+                Entenda como a temperatura influencia a radiação
+                emitida pelos corpos e como surgiu a Física Quântica.
             </p>
+
+            <a href="#corpo-negro">Descobrir →</a>
 
         </article>
 
-        <article class="info-card">
+        <article class="intro-card interactive-card">
 
-            <span class="card-icon">⚡</span>
+            <div class="card-icon">⚡</div>
 
-            <h3>A transformação energética</h3>
+            <h3>Como a luz gera eletricidade?</h3>
 
             <p>
-
-                Células fotovoltaicas utilizam materiais
-                semicondutores para converter parte da energia
-                luminosa em energia elétrica.
-
-                Essa tecnologia está presente em residências,
-                empresas e sistemas de geração de energia.
-
+                Explore os fótons, os elétrons e o efeito fotoelétrico
+                relacionado às tecnologias fotovoltaicas.
             </p>
+
+            <a href="#fotoeletrico">Descobrir →</a>
 
         </article>
 
-    </div>
+        <article class="intro-card interactive-card">
 
-    <div class="highlight-box">
+            <div class="card-icon">🤖</div>
 
-        <strong>O grande desafio deste projeto</strong>
+            <h3>Como aplicar na prática?</h3>
 
-        <p>
+            <p>
+                Conheça nosso protótipo robótico que utiliza sensores
+                de luminosidade para acompanhar a luz.
+            </p>
 
-            Entender como a energia da luz é transferida,
-            como os elétrons participam desse processo e
-            como os conhecimentos da física podem ser
-            utilizados para desenvolver tecnologias
-            sustentáveis, incluindo uma piscina inteligente.
+            <a href="#robotica">Descobrir →</a>
 
-        </p>
+        </article>
 
     </div>
 
@@ -343,633 +266,545 @@
 
 
 <!-- =====================================================
-     CAPÍTULO 01 - FUNDAMENTOS DA LUZ
+     EXPERIÊNCIA 1 — ONDAS ELETROMAGNÉTICAS
 ===================================================== -->
 
-<section class="content-section section-padding" id="fundamentos">
+<section class="science-section section" id="ondas">
 
     <div class="section-heading">
 
-        <span class="section-tag">
-            CAPÍTULO 01 • FUNDAMENTOS CIENTÍFICOS
-        </span>
+        <span class="section-tag">EXPERIÊNCIA 01</span>
 
-        <h2>O que é a luz?</h2>
+        <h2>
+            O universo das
+            <span>ondas eletromagnéticas</span>
+        </h2>
 
         <p>
-
-            Para compreender o efeito fotoelétrico,
-            precisamos começar pela própria natureza
-            da luz e pelas diferentes maneiras de
-            descrever seu comportamento.
-
+            A luz visível é apenas uma pequena parte de um conjunto
+            muito maior de radiações que existem no universo.
         </p>
 
     </div>
 
-    <div class="content-grid">
+    <div class="science-layout">
 
-        <div class="content-text">
+        <div class="science-text">
 
-            <h3>A luz como onda eletromagnética</h3>
+            <h3>O que são ondas eletromagnéticas?</h3>
 
             <p>
-
-                A luz é uma forma de radiação eletromagnética.
-                Ela pode se propagar pelo vácuo e transporta
-                energia de um lugar para outro.
-
+                São oscilações dos campos elétrico e magnético que
+                transportam energia pelo espaço. Diferentemente das
+                ondas sonoras, elas não precisam de um meio material
+                para se propagar.
             </p>
 
             <p>
-
-                Uma onda eletromagnética é formada por um
-                campo elétrico e um campo magnético que
-                oscilam perpendicularmente entre si e
-                também em relação à direção de propagação.
-
+                No vácuo, todas as ondas eletromagnéticas se propagam
+                à mesma velocidade: aproximadamente 300 mil quilômetros
+                por segundo.
             </p>
 
-            <p>
+            <div class="formula-card">
 
-                A luz visível é apenas uma pequena parte
-                do espectro eletromagnético.
+                <span>RELAÇÃO FUNDAMENTAL</span>
 
-                Existem outras formas de radiação,
-                como ondas de rádio, micro-ondas,
-                infravermelho, ultravioleta,
-                raios X e raios gama.
+                <div class="formula">
+                    c = λ × f
+                </div>
 
-            </p>
+                <p>
+                    Velocidade da luz = comprimento de onda × frequência
+                </p>
 
-            <h3>O que é comprimento de onda?</h3>
+            </div>
 
-            <p>
-
-                O comprimento de onda representa a distância
-                entre dois pontos equivalentes consecutivos
-                de uma onda, como duas cristas.
-
-                É representado pela letra grega lambda (λ)
-                e geralmente medido em metros.
-
-            </p>
-
-            <h3>O que é frequência?</h3>
-
-            <p>
-
-                A frequência indica quantas oscilações
-                completas acontecem em um segundo.
-
-                Sua unidade de medida é o hertz (Hz).
-
-                Quanto maior a frequência, maior será
-                a energia transportada por cada fóton.
-
-            </p>
+            <div class="info-pills">
+                <span>Frequência</span>
+                <span>Comprimento de onda</span>
+                <span>Energia</span>
+            </div>
 
         </div>
 
         <div class="science-visual">
 
-            <div class="visual-placeholder">
+            <div class="wave-illustration">
 
-                <i data-lucide="waves"></i>
+                <div class="wave-label">CAMPO ELÉTRICO</div>
 
-                <h3>Ondas eletromagnéticas</h3>
+                <svg viewBox="0 0 600 260"
+                     role="img"
+                     aria-label="Representação ilustrativa de uma onda eletromagnética">
 
+                    <path d="M0 130 C40 20 80 20 120 130 S200 240 240 130 S320 20 360 130 S440 240 480 130 S560 20 600 130"
+                          fill="none"
+                          stroke="#20d6d0"
+                          stroke-width="5"/>
+
+                    <path d="M0 130 C40 80 80 80 120 130 S200 180 240 130 S320 80 360 130 S440 180 480 130 S560 80 600 130"
+                          fill="none"
+                          stroke="#f5b942"
+                          stroke-width="3"
+                          stroke-dasharray="8 7"/>
+
+                </svg>
+
+                <div class="wave-label bottom">
+                    PROPAGAÇÃO DA ENERGIA
+                </div>
+
+            </div>
+
+            <p class="visual-caption">
+                Representação simplificada de uma onda eletromagnética.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ESPECTRO ELETROMAGNÉTICO -->
+
+    <div class="spectrum-container">
+
+        <h3>Explore o espectro eletromagnético</h3>
+
+        <p>
+            Clique nas faixas para descobrir onde cada radiação
+            aparece e como é utilizada.
+        </p>
+
+        <div class="spectrum-bar">
+
+            <button class="spectrum-item radio"
+                    data-spectrum="radio">
+                Rádio
+            </button>
+
+            <button class="spectrum-item microwave"
+                    data-spectrum="microwave">
+                Micro-ondas
+            </button>
+
+            <button class="spectrum-item infrared"
+                    data-spectrum="infrared">
+                Infravermelho
+            </button>
+
+            <button class="spectrum-item visible"
+                    data-spectrum="visible">
+                Visível
+            </button>
+
+            <button class="spectrum-item ultraviolet"
+                    data-spectrum="ultraviolet">
+                Ultravioleta
+            </button>
+
+            <button class="spectrum-item xray"
+                    data-spectrum="xray">
+                Raios X
+            </button>
+
+            <button class="spectrum-item gamma"
+                    data-spectrum="gamma">
+                Gama
+            </button>
+
+        </div>
+
+        <div class="spectrum-info" id="spectrumInfo">
+
+            <div class="spectrum-info-icon">🌈</div>
+
+            <div>
+                <h4>Escolha uma faixa do espectro</h4>
                 <p>
-                    Representação dos campos elétrico e
-                    magnético e da propagação da radiação.
+                    Selecione uma das regiões acima para conhecer
+                    suas características e aplicações.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SIMULADOR DE ONDAS -->
+
+    <div class="simulator-section">
+
+        <div class="simulator-heading">
+
+            <span class="section-tag">LABORATÓRIO VIRTUAL</span>
+
+            <h3>Controle a frequência da luz</h3>
+
+            <p>
+                Modifique o comprimento de onda e observe como
+                a frequência se altera.
+            </p>
+
+        </div>
+
+        <div class="simulator-card">
+
+            <div class="simulator-control">
+
+                <label for="wavelength">
+                    Comprimento de onda (metros)
+                </label>
+
+                <input type="range"
+                       id="wavelength"
+                       min="0.0000000001"
+                       max="0.000001"
+                       step="0.0000000001"
+                       value="0.0000000005">
+
+                <div class="range-labels">
+                    <span>Menor</span>
+                    <span>Maior</span>
+                </div>
+
+                <div class="simulator-readout">
+                    <span>Comprimento de onda</span>
+                    <strong id="wavelengthValue">500 nm</strong>
+                </div>
+
+            </div>
+
+            <div class="simulator-result">
+
+                <span class="result-label">FREQUÊNCIA CALCULADA</span>
+
+                <strong id="frequencyValue">5,99 × 10¹⁴ Hz</strong>
+
+                <p id="waveResult">
+                    Modifique o controle para observar os resultados.
                 </p>
 
-                <span>
-                    Ilustração científica preparada para
-                    representação visual no CSS.
+                <div class="mini-wave" id="miniWave"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EXPERIÊNCIA 2 — RADIAÇÃO DO CORPO NEGRO
+===================================================== -->
+
+<section class="dark-section section" id="corpo-negro">
+
+    <div class="section-heading">
+
+        <span class="section-tag">EXPERIÊNCIA 02</span>
+
+        <h2>
+            A temperatura também
+            <span>produz luz.</span>
+        </h2>
+
+        <p>
+            Todo corpo com temperatura acima do zero absoluto
+            emite radiação eletromagnética.
+        </p>
+
+    </div>
+
+    <div class="blackbody-grid">
+
+        <div class="blackbody-description">
+
+            <div class="large-icon">🔥</div>
+
+            <h3>Radiação do corpo negro</h3>
+
+            <p>
+                O corpo negro é um modelo físico ideal que absorve
+                toda a radiação que recebe. Quando aquecido, ele
+                também emite radiação, cuja distribuição depende
+                de sua temperatura.
+            </p>
+
+            <p>
+                Esse estudo foi fundamental para o desenvolvimento
+                da Física Quântica, especialmente com os trabalhos
+                de Max Planck.
+            </p>
+
+            <div class="formula-card dark-formula">
+
+                <span>LEI DO DESLOCAMENTO DE WIEN</span>
+
+                <div class="formula">
+                    λmáx = b / T
+                </div>
+
+                <p>
+                    Quanto maior a temperatura, menor o comprimento
+                    de onda de máxima emissão.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="temperature-lab">
+
+            <h3>Experimente mudar a temperatura</h3>
+
+            <p>
+                Observe como a aparência da fonte de radiação
+                muda conforme a temperatura.
+            </p>
+
+            <div class="temperature-display">
+
+                <div class="temperature-object" id="temperatureObject">
+                    ☀
+                </div>
+
+                <div class="temperature-number">
+                    <strong id="temperatureValue">3000 K</strong>
+                    <span>Temperatura simulada</span>
+                </div>
+
+            </div>
+
+            <label for="temperature">
+                Ajuste a temperatura
+            </label>
+
+            <input type="range"
+                   id="temperature"
+                   min="1000"
+                   max="10000"
+                   step="100"
+                   value="3000">
+
+            <div class="range-labels">
+                <span>1.000 K</span>
+                <span>10.000 K</span>
+            </div>
+
+            <div class="temperature-result" id="blackbodyResult">
+
+                <strong>Resultado da experiência</strong>
+
+                <p>
+                    Ajuste a temperatura para visualizar a mudança.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="history-strip">
+
+        <div>
+            <span class="history-year">1900</span>
+            <h4>Max Planck</h4>
+            <p>
+                Apresentou a ideia de quantização da energia
+                para explicar a radiação do corpo negro.
+            </p>
+        </div>
+
+        <div class="history-arrow">→</div>
+
+        <div>
+            <span class="history-year">1905</span>
+            <h4>Albert Einstein</h4>
+            <p>
+                Explicou o efeito fotoelétrico utilizando
+                a hipótese dos quanta de luz.
+            </p>
+        </div>
+
+        <div class="history-arrow">→</div>
+
+        <div>
+            <span class="history-year">ATUALIDADE</span>
+            <h4>Tecnologia</h4>
+            <p>
+                A Física Quântica contribui para tecnologias
+                como sensores, células solares e eletrônica.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EXPERIÊNCIA 3 — EFEITO FOTOELÉTRICO
+===================================================== -->
+
+<section class="science-section section" id="fotoeletrico">
+
+    <div class="section-heading">
+
+        <span class="section-tag">EXPERIÊNCIA 03</span>
+
+        <h2>
+            Quando a luz libera
+            <span>elétrons.</span>
+        </h2>
+
+        <p>
+            A energia da luz pode ser transferida para elétrons
+            de determinados materiais.
+        </p>
+
+    </div>
+
+    <div class="photoelectric-content">
+
+        <div class="photoelectric-visual">
+
+            <div class="photoelectric-scene">
+
+                <div class="light-source">
+                    <span>☀</span>
+                    <small>Fótons</small>
+                </div>
+
+                <div class="light-beams">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="metal-plate">
+                    <div class="electron e-one">−</div>
+                    <div class="electron e-two">−</div>
+                    <div class="electron e-three">−</div>
+                </div>
+
+                <div class="scene-caption">
+                    LUZ INCIDINDO SOBRE UM MATERIAL
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="photoelectric-description">
+
+            <h3>O que acontece?</h3>
+
+            <p>
+                Quando a luz incide sobre determinados materiais,
+                seus fótons podem transferir energia aos elétrons.
+                Se a energia recebida for suficiente para superar
+                a função trabalho do material, ocorre a emissão
+                de elétrons.
+            </p>
+
+            <p>
+                Einstein explicou esse fenômeno em 1905, mostrando
+                que a energia da luz está relacionada à frequência
+                dos fótons.
+            </p>
+
+            <div class="formula-card">
+
+                <span>EQUAÇÃO DE EINSTEIN</span>
+
+                <div class="formula">
+                    Ec = h × f − Φ
+                </div>
+
+                <p>
+                    Energia cinética máxima = energia do fóton
+                    menos a função trabalho.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LABORATÓRIO FOTOELÉTRICO -->
+
+    <div class="photoelectric-lab">
+
+        <div class="simulator-heading">
+
+            <span class="section-tag">EXPERIMENTO INTERATIVO</span>
+
+            <h3>Será que a luz consegue liberar elétrons?</h3>
+
+            <p>
+                Escolha uma frequência e uma função trabalho
+                para descobrir o que acontece.
+            </p>
+
+        </div>
+
+        <div class="simulator-card">
+
+            <div class="simulator-control">
+
+                <label for="photoFrequency">
+                    Frequência da luz (Hz)
+                </label>
+
+                <input type="range"
+                       id="photoFrequency"
+                       min="1e14"
+                       max="1.5e15"
+                       step="1e13"
+                       value="8e14">
+
+                <output id="photoFrequencyValue">
+                    8,0 × 10¹⁴ Hz
+                </output>
+
+                <label for="workFunction">
+                    Função trabalho (J)
+                </label>
+
+                <input type="range"
+                       id="workFunction"
+                       min="1e-19"
+                       max="8e-19"
+                       step="1e-20"
+                       value="3e-19">
+
+                <output id="workFunctionValue">
+                    3,0 × 10⁻¹⁹ J
+                </output>
+
+            </div>
+
+            <div class="simulator-result">
+
+                <span class="result-label">
+                    RESULTADO DO EXPERIMENTO
                 </span>
 
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>O espectro eletromagnético</h3>
-
-        <p>
-
-            O espectro eletromagnético reúne todas as
-            frequências possíveis da radiação eletromagnética.
-
-            As diferentes regiões apresentam características
-            próprias e aplicações tecnológicas distintas.
-
-        </p>
-
-        <div class="spectrum-container">
-
-            <div class="spectrum-item radio">
-                <strong>Ondas de rádio</strong>
-                <span>Comunicação</span>
-            </div>
-
-            <div class="spectrum-item micro">
-                <strong>Micro-ondas</strong>
-                <span>Radar e comunicação</span>
-            </div>
-
-            <div class="spectrum-item infrared">
-                <strong>Infravermelho</strong>
-                <span>Calor e sensores</span>
-            </div>
-
-            <div class="spectrum-item visible">
-                <strong>Luz visível</strong>
-                <span>Visão humana</span>
-            </div>
-
-            <div class="spectrum-item ultraviolet">
-                <strong>Ultravioleta</strong>
-                <span>Radiação solar</span>
-            </div>
-
-            <div class="spectrum-item xray">
-                <strong>Raios X</strong>
-                <span>Radiografias</span>
-            </div>
-
-            <div class="spectrum-item gamma">
-                <strong>Raios gama</strong>
-                <span>Processos nucleares</span>
-            </div>
-
-        </div>
-
-        <div class="science-note">
-
-            <strong>Observe:</strong>
-
-            <p>
-
-                Quando caminhamos da região das ondas de rádio
-                para os raios gama, a frequência aumenta,
-                enquanto o comprimento de onda diminui.
-
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>A relação entre frequência e comprimento de onda</h3>
-
-        <p>
-
-            A frequência e o comprimento de onda estão
-            relacionados pela velocidade de propagação
-            da luz no vácuo.
-
-        </p>
-
-        <div class="formula-card">
-
-            <span>VELOCIDADE DA LUZ</span>
-
-            <strong>c = λ · f</strong>
-
-            <p>
-                c = velocidade da luz no vácuo<br>
-                λ = comprimento de onda<br>
-                f = frequência
-            </p>
-
-        </div>
-
-        <p>
-
-            A velocidade da luz no vácuo é aproximadamente
-            300.000.000 metros por segundo.
-
-        </p>
-
-        <p>
-
-            Isso significa que, para uma velocidade constante,
-            quando o comprimento de onda diminui,
-            a frequência aumenta.
-
-        </p>
-
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>O que são fótons?</h3>
-
-        <p>
-
-            A física clássica descreve muitos comportamentos
-            da luz utilizando o modelo ondulatório.
-
-            Entretanto, experimentos demonstraram que a luz
-            também apresenta comportamento corpuscular.
-
-        </p>
-
-        <p>
-
-            Os fótons são os quanta da radiação eletromagnética.
-            Cada fóton transporta uma quantidade determinada
-            de energia, relacionada à frequência da radiação.
-
-        </p>
-
-        <p>
-
-            Um fóton de luz ultravioleta possui mais energia
-            individual que um fóton de luz vermelha, pois
-            sua frequência é maior.
-
-        </p>
-
-        <div class="formula-card">
-
-            <span>ENERGIA DE UM FÓTON</span>
-
-            <strong>E = h · f</strong>
-
-            <p>
-                E = energia do fóton<br>
-                h = constante de Planck<br>
-                f = frequência
-            </p>
-
-        </div>
-
-        <h3>A constante de Planck</h3>
-
-        <p>
-
-            A constante de Planck é uma das constantes
-            fundamentais da física.
-
-            Seu valor é aproximadamente:
-
-        </p>
-
-        <div class="number-highlight">
-            <strong>6,626 × 10⁻³⁴</strong>
-            <span>joule vezes segundo (J·s)</span>
-        </div>
-
-        <p>
-
-            Ela aparece na relação entre a energia
-            de um fóton e sua frequência.
-
-            Seu papel foi essencial para o desenvolvimento
-            da teoria quântica.
-
-        </p>
-
-    </div>
-
-
-    <div class="example-box">
-
-        <h3>Exemplo resolvido: energia de um fóton</h3>
-
-        <p>
-
-            Imagine uma luz com frequência de
-            5 × 10¹⁴ Hz.
-
-            Qual é a energia de cada fóton?
-
-        </p>
-
-        <p><strong>Dados:</strong></p>
-
-        <ul>
-            <li>h = 6,626 × 10⁻³⁴ J·s</li>
-            <li>f = 5 × 10¹⁴ Hz</li>
-        </ul>
-
-        <p><strong>Aplicando a equação:</strong></p>
-
-        <p>E = h · f</p>
-
-        <p>E = 6,626 × 10⁻³⁴ × 5 × 10¹⁴</p>
-
-        <p><strong>Resultado:</strong></p>
-
-        <p>
-            E = 3,313 × 10⁻¹⁹ J
-        </p>
-
-        <p>
-
-            Portanto, cada fóton possui aproximadamente
-            3,313 × 10⁻¹⁹ joules de energia.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CAPÍTULO 02 - FÍSICA QUÂNTICA
-===================================================== -->
-
-<section class="dark-section content-section section-padding"
-         id="quantica">
-
-    <div class="section-heading">
-
-        <span class="section-tag">
-            CAPÍTULO 02 • FÍSICA QUÂNTICA
-        </span>
-
-        <h2>Uma nova maneira de compreender o universo</h2>
-
-        <p>
-
-            A física quântica surgiu para explicar fenômenos
-            que não podiam ser compreendidos adequadamente
-            apenas pelas leis da física clássica.
-
-        </p>
-
-    </div>
-
-    <div class="content-text">
-
-        <h3>Por que surgiu a física quântica?</h3>
-
-        <p>
-
-            No final do século XIX e início do século XX,
-            diversos experimentos apresentaram resultados
-            que desafiaram as explicações tradicionais
-            da física.
-
-        </p>
-
-        <p>
-
-            Entre os problemas investigados estavam
-            a radiação do corpo negro, o efeito fotoelétrico
-            e os espectros de emissão dos átomos.
-
-        </p>
-
-        <p>
-
-            Max Planck propôs que a energia trocada
-            pela matéria e pela radiação poderia ocorrer
-            em quantidades discretas, chamadas quanta.
-
-        </p>
-
-        <p>
-
-            Essa ideia abriu caminho para uma nova
-            compreensão da natureza da energia.
-
-        </p>
-
-        <h3>O que significa quantização?</h3>
-
-        <p>
-
-            Quantização significa que determinadas
-            grandezas físicas podem assumir valores
-            discretos, em vez de qualquer valor contínuo.
-
-        </p>
-
-        <p>
-
-            Na radiação eletromagnética, a energia
-            de cada fóton está relacionada à frequência
-            pela expressão E = h · f.
-
-        </p>
-
-        <h3>Dualidade onda-partícula</h3>
-
-        <p>
-
-            A luz apresenta características ondulatórias
-            e corpusculares.
-
-            Em alguns experimentos, seu comportamento
-            é descrito de maneira mais adequada pelo
-            modelo ondulatório.
-
-            Em outros, a descrição em termos de fótons
-            é essencial.
-
-        </p>
-
-        <p>
-
-            Essa dualidade é uma das ideias fundamentais
-            para compreender os fenômenos quânticos.
-
-        </p>
-
-    </div>
-
-
-    <div class="timeline">
-
-        <h3>Uma breve história da física quântica</h3>
-
-        <article class="timeline-item">
-
-            <span>1900</span>
-
-            <div>
-                <h4>Max Planck</h4>
-                <p>
-                    Introduz a hipótese dos quanta de energia
-                    ao estudar a radiação do corpo negro.
-                </p>
-            </div>
-
-        </article>
-
-        <article class="timeline-item">
-
-            <span>1905</span>
-
-            <div>
-                <h4>Albert Einstein</h4>
-                <p>
-                    Explica o efeito fotoelétrico utilizando
-                    a hipótese dos quanta de luz.
-                </p>
-            </div>
-
-        </article>
-
-        <article class="timeline-item">
-
-            <span>1913</span>
-
-            <div>
-                <h4>Niels Bohr</h4>
-                <p>
-                    Desenvolve um modelo atômico com níveis
-                    de energia quantizados.
-                </p>
-            </div>
-
-        </article>
-
-        <article class="timeline-item">
-
-            <span>1924</span>
-
-            <div>
-                <h4>Louis de Broglie</h4>
-                <p>
-                    Propõe a hipótese de ondas de matéria.
-                </p>
-            </div>
-
-        </article>
-
-        <article class="timeline-item">
-
-            <span>1925–1926</span>
-
-            <div>
-                <h4>Heisenberg e Schrödinger</h4>
-                <p>
-                    Desenvolvem formulações fundamentais
-                    da mecânica quântica.
-                </p>
-            </div>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CAPÍTULO 03 - EFEITO FOTOELÉTRICO
-===================================================== -->
-
-<section class="content-section section-padding" id="fotoeletrico">
-
-    <div class="section-heading">
-
-        <span class="section-tag">
-            CAPÍTULO 03 • O FENÔMENO CENTRAL
-        </span>
-
-        <h2>O efeito fotoelétrico</h2>
-
-        <p>
-
-            Como a luz consegue retirar elétrons de um material?
-
-            Essa pergunta ajudou a transformar profundamente
-            a compreensão científica da luz e da matéria.
-
-        </p>
-
-    </div>
-
-    <div class="content-grid">
-
-        <div class="content-text">
-
-            <h3>O que é o efeito fotoelétrico?</h3>
-
-            <p>
-
-                O efeito fotoelétrico externo ocorre quando
-                a luz incide sobre a superfície de um material
-                e provoca a emissão de elétrons.
-
-            </p>
-
-            <p>
-
-                Esses elétrons emitidos são chamados
-                fotoelétrons.
-
-            </p>
-
-            <p>
-
-                Entretanto, não basta iluminar qualquer
-                material com qualquer luz.
-
-                Para que ocorra emissão, a energia individual
-                dos fótons precisa ser igual ou superior
-                à energia mínima exigida para retirar
-                um elétron do material.
-
-            </p>
-
-            <h3>A contribuição de Einstein</h3>
-
-            <p>
-
-                Em 1905, Albert Einstein explicou o efeito
-                fotoelétrico utilizando a hipótese de que
-                a luz é formada por quanta de energia.
-
-            </p>
-
-            <p>
-
-                Cada fóton pode transferir sua energia
-                a um elétron.
-
-                Se essa energia for suficiente para superar
-                a função trabalho do material, o elétron
-                poderá escapar da superfície.
-
-            </p>
-
-            <p>
-
-                Por sua explicação teórica do efeito fotoelétrico,
-                Einstein recebeu o Prêmio Nobel de Física de 1921.
-
-            </p>
-
-        </div>
-
-        <div class="science-visual">
-
-            <div class="visual-placeholder">
-
-                <i data-lucide="atom"></i>
-
-                <h3>Emissão fotoelétrica</h3>
-
-                <p>
-                    Fótons atingindo uma superfície metálica
-                    e transferindo energia aos elétrons.
-                </p>
+                <div id="photoelectricStatus">
+                    ⚡
+                </div>
+
+                <div id="photoelectricResult">
+                    Ajuste os valores para iniciar o experimento.
+                </div>
 
             </div>
 
@@ -978,1021 +813,51 @@
     </div>
 
 
-    <div class="subsection">
+    <!-- APLICAÇÕES -->
 
-        <h3>Como acontece o efeito fotoelétrico?</h3>
+    <div class="applications">
 
-        <div class="steps-grid">
+        <h3>Onde encontramos essa tecnologia?</h3>
 
-            <article class="step-card">
+        <div class="application-grid">
 
-                <span>01</span>
-
-                <h4>Incidência da luz</h4>
-
-                <p>
-                    A radiação eletromagnética atinge
-                    a superfície do material.
-                </p>
-
-            </article>
-
-            <article class="step-card">
-
-                <span>02</span>
-
-                <h4>Transferência de energia</h4>
-
-                <p>
-                    Os fótons transferem sua energia
-                    aos elétrons.
-                </p>
-
-            </article>
-
-            <article class="step-card">
-
-                <span>03</span>
-
-                <h4>Superação da função trabalho</h4>
-
-                <p>
-                    O elétron recebe energia suficiente
-                    para superar a barreira energética.
-                </p>
-
-            </article>
-
-            <article class="step-card">
-
-                <span>04</span>
-
-                <h4>Emissão do elétron</h4>
-
-                <p>
-                    O elétron consegue escapar da superfície
-                    do material.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>O que é função trabalho?</h3>
-
-        <p>
-
-            A função trabalho é a energia mínima necessária
-            para retirar um elétron da superfície de determinado
-            material.
-
-        </p>
-
-        <p>
-
-            Cada material possui uma função trabalho
-            característica, que depende de suas propriedades
-            físicas e químicas e das condições da superfície.
-
-        </p>
-
-        <p>
-
-            Geralmente, ela é representada pela letra grega
-            Φ (phi) e pode ser expressa em elétron-volts (eV).
-
-        </p>
-
-        <h3>O que é frequência de corte?</h3>
-
-        <p>
-
-            A frequência de corte é a frequência mínima
-            que a radiação precisa apresentar para que
-            seus fótons tenham energia suficiente
-            para provocar a emissão fotoelétrica.
-
-        </p>
-
-        <p>
-
-            Se a frequência estiver abaixo desse limite,
-            não ocorrerá emissão de fotoelétrons,
-            mesmo que a intensidade da luz aumente.
-
-        </p>
-
-        <div class="formula-card">
-
-            <span>FREQUÊNCIA DE CORTE</span>
-
-            <strong>f₀ = Φ / h</strong>
-
-            <p>
-                f₀ = frequência de corte<br>
-                Φ = função trabalho<br>
-                h = constante de Planck
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>Equação de Einstein para o efeito fotoelétrico</h3>
-
-        <p>
-
-            A energia de um fóton é utilizada primeiro
-            para superar a função trabalho do material.
-
-            Caso exista energia excedente, ela aparece
-            como energia cinética do elétron emitido.
-
-        </p>
-
-        <div class="formula-card">
-
-            <span>EQUAÇÃO FUNDAMENTAL</span>
-
-            <strong>h · f = Φ + Ec</strong>
-
-            <p>
-                h = constante de Planck<br>
-                f = frequência da luz<br>
-                Φ = função trabalho<br>
-                Ec = energia cinética máxima
-            </p>
-
-        </div>
-
-        <p>
-
-            Podemos reorganizar a expressão:
-
-        </p>
-
-        <div class="formula-card">
-
-            <strong>Ec = h · f - Φ</strong>
-
-        </div>
-
-        <p>
-
-            A energia cinética máxima aumenta quando
-            a frequência da luz aumenta, desde que
-            a frequência esteja acima da frequência de corte.
-
-        </p>
-
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>Quais fatores influenciam o fenômeno?</h3>
-
-        <div class="table-wrapper">
-
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>Fator</th>
-                        <th>O que representa</th>
-                        <th>Influência</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>Frequência</td>
-                        <td>Energia individual dos fótons.</td>
-                        <td>Determina se a emissão pode ocorrer e influencia a energia cinética máxima.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Intensidade</td>
-                        <td>Quantidade de energia luminosa incidente por unidade de área e tempo.</td>
-                        <td>Acima da frequência de corte, pode aumentar a quantidade de elétrons emitidos por segundo.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Material</td>
-                        <td>Propriedades da superfície.</td>
-                        <td>Determina a função trabalho.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Função trabalho</td>
-                        <td>Energia mínima para retirar elétrons.</td>
-                        <td>Define a frequência mínima necessária.</td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
-
-    <div class="highlight-box">
-
-        <strong>Uma descoberta fundamental</strong>
-
-        <p>
-
-            O efeito fotoelétrico mostrou que aumentar
-            a intensidade da luz não substitui aumentar
-            sua frequência.
-
-            A energia de cada fóton depende da frequência,
-            não da intensidade.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CAPÍTULO 04 - RADIAÇÃO DO CORPO NEGRO
-===================================================== -->
-
-<section class="content-section section-padding dark-section"
-         id="corpo-negro">
-
-    <div class="section-heading">
-
-        <span class="section-tag">
-            CAPÍTULO 04 • RADIAÇÃO TÉRMICA
-        </span>
-
-        <h2>O que é um corpo negro?</h2>
-
-        <p>
-
-            Antes de compreender a energia solar e suas aplicações,
-            também precisamos conhecer a maneira como os corpos
-            absorvem e emitem radiação térmica.
-
-        </p>
-
-    </div>
-
-    <div class="content-text">
-
-        <h3>Definição de corpo negro</h3>
-
-        <p>
-
-            Um corpo negro é um modelo físico ideal que absorve
-            toda a radiação eletromagnética incidente sobre ele,
-            independentemente do comprimento de onda ou direção.
-
-        </p>
-
-        <p>
-
-            Em equilíbrio térmico, ele também é um emissor
-            ideal de radiação.
-
-            Seu espectro de emissão depende somente
-            da temperatura.
-
-        </p>
-
-        <h3>Como a temperatura influencia a emissão?</h3>
-
-        <p>
-
-            Quanto maior a temperatura de um corpo negro,
-            maior será a potência total irradiada por unidade
-            de área.
-
-        </p>
-
-        <p>
-
-            Além disso, o comprimento de onda no qual a emissão
-            é máxima diminui quando a temperatura aumenta.
-
-        </p>
-
-        <h3>Lei de Stefan-Boltzmann</h3>
-
-        <p>
-
-            A lei de Stefan-Boltzmann relaciona a potência
-            irradiada por um corpo negro à quarta potência
-            de sua temperatura absoluta.
-
-        </p>
-
-        <div class="formula-card">
-
-            <span>LEI DE STEFAN-BOLTZMANN</span>
-
-            <strong>P = σ · A · T⁴</strong>
-
-            <p>
-                P = potência irradiada<br>
-                σ = constante de Stefan-Boltzmann<br>
-                A = área da superfície<br>
-                T = temperatura absoluta em kelvin
-            </p>
-
-        </div>
-
-        <h3>Lei do deslocamento de Wien</h3>
-
-        <p>
-
-            A lei de Wien mostra que o comprimento de onda
-            correspondente ao máximo de emissão é inversamente
-            proporcional à temperatura absoluta.
-
-        </p>
-
-        <div class="formula-card">
-
-            <span>LEI DE WIEN</span>
-
-            <strong>λmáx · T = b</strong>
-
-            <p>
-                λmáx = comprimento de onda de máxima emissão<br>
-                T = temperatura absoluta<br>
-                b = constante de Wien
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="highlight-box">
-
-        <strong>Relação com a piscina</strong>
-
-        <p>
-
-            A água da piscina, por estar em uma temperatura
-            muito inferior à superfície solar, emite principalmente
-            radiação infravermelha.
-
-            Essa emissão é uma das formas de troca de energia
-            térmica com o ambiente.
-
-        </p>
-
-        <p>
-
-            Entretanto, a perda de calor de uma piscina
-            não acontece apenas por radiação.
-
-            Evaporação e convecção também possuem papel importante.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CAPÍTULO 05 - CÉLULAS FOTOVOLTAICAS
-===================================================== -->
-
-<section class="content-section section-padding" id="fotovoltaica">
-
-    <div class="section-heading">
-
-        <span class="section-tag">
-            CAPÍTULO 05 • CONVERSÃO DE ENERGIA
-        </span>
-
-        <h2>Como uma célula fotovoltaica transforma luz em eletricidade?</h2>
-
-        <p>
-
-            A tecnologia fotovoltaica utiliza propriedades
-            dos materiais semicondutores para transformar
-            a energia luminosa em energia elétrica.
-
-        </p>
-
-    </div>
-
-
-    <div class="content-text">
-
-        <h3>O que é energia fotovoltaica?</h3>
-
-        <p>
-
-            Energia fotovoltaica é a energia elétrica
-            produzida por dispositivos que utilizam
-            o efeito fotovoltaico.
-
-        </p>
-
-        <p>
-
-            As células solares são normalmente fabricadas
-            com materiais semicondutores, especialmente
-            o silício.
-
-        </p>
-
-        <p>
-
-            Quando a radiação solar incide sobre a célula,
-            os fótons podem transferir energia aos elétrons
-            do material.
-
-        </p>
-
-        <p>
-
-            Se a energia absorvida for suficiente para
-            superar a energia de bandgap do semicondutor,
-            podem ser formados pares elétron-lacuna.
-
-        </p>
-
-        <h3>O que são semicondutores?</h3>
-
-        <p>
-
-            São materiais cujas propriedades elétricas
-            ficam entre as características de condutores
-            e isolantes.
-
-        </p>
-
-        <p>
-
-            Sua capacidade de conduzir eletricidade
-            pode ser modificada por fatores como temperatura,
-            iluminação e dopagem.
-
-        </p>
-
-        <h3>O silício</h3>
-
-        <p>
-
-            O silício é um dos materiais mais utilizados
-            na fabricação de células fotovoltaicas.
-
-            Ele apresenta propriedades adequadas para
-            a construção de dispositivos semicondutores
-            capazes de converter luz em eletricidade.
-
-        </p>
-
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>O que é dopagem?</h3>
-
-        <p>
-
-            Dopagem é a introdução controlada de pequenas
-            quantidades de impurezas em um semicondutor
-            para modificar suas propriedades elétricas.
-
-        </p>
-
-        <p>
-
-            No silício, podemos produzir dois tipos
-            principais de regiões:
-
-        </p>
-
-        <div class="comparison-grid">
-
-            <article class="comparison-card">
-
-                <span class="card-icon">🔵</span>
-
-                <h3>Semicondutor tipo N</h3>
-
-                <p>
-
-                    É produzido utilizando dopantes que
-                    fornecem elétrons adicionais.
-
-                    Os elétrons são os portadores majoritários
-                    de carga nessa região.
-
-                </p>
-
-            </article>
-
-            <article class="comparison-card">
-
-                <span class="card-icon">🟠</span>
-
-                <h3>Semicondutor tipo P</h3>
-
-                <p>
-
-                    É produzido utilizando dopantes que
-                    favorecem a presença de lacunas.
-
-                    As lacunas são os portadores majoritários
-                    de carga nessa região.
-
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>A junção P-N</h3>
-
-        <p>
-
-            Quando as regiões P e N são colocadas em contato,
-            ocorre uma redistribuição de cargas nas proximidades
-            da junção.
-
-            Forma-se uma região de depleção e um campo elétrico
-            interno.
-
-        </p>
-
-        <p>
-
-            Na célula fotovoltaica, esse campo interno
-            contribui para separar os elétrons e as lacunas
-            gerados pela absorção da luz.
-
-        </p>
-
-        <p>
-
-            Essa separação ajuda a estabelecer uma diferença
-            de potencial elétrico entre os terminais da célula.
-
-        </p>
-
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>As etapas da conversão fotovoltaica</h3>
-
-        <div class="steps-grid">
-
-            <article class="step-card">
-                <span>01</span>
-                <h4>Absorção</h4>
-                <p>
-                    A luz solar atinge a célula e os fótons
-                    podem ser absorvidos pelo semicondutor.
-                </p>
-            </article>
-
-            <article class="step-card">
-                <span>02</span>
-                <h4>Geração de cargas</h4>
-                <p>
-                    A energia absorvida pode formar
-                    pares elétron-lacuna.
-                </p>
-            </article>
-
-            <article class="step-card">
-                <span>03</span>
-                <h4>Separação</h4>
-                <p>
-                    O campo elétrico interno auxilia
-                    a separação das cargas.
-                </p>
-            </article>
-
-            <article class="step-card">
-                <span>04</span>
-                <h4>Corrente elétrica</h4>
-                <p>
-                    Com o circuito conectado, as cargas
-                    podem realizar trabalho elétrico.
-                </p>
-            </article>
-
-        </div>
-
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>O que acontece com a eletricidade produzida?</h3>
-
-        <p>
-
-            As células fotovoltaicas produzem corrente contínua,
-            conhecida pela sigla CC.
-
-            Várias células são conectadas para formar módulos
-            e painéis solares.
-
-        </p>
-
-        <p>
-
-            Um inversor pode converter a corrente contínua
-            em corrente alternada (CA), utilizada por muitos
-            equipamentos elétricos e pela rede de distribuição.
-
-        </p>
-
-        <p>
-
-            Em sistemas isolados, também podem ser utilizados
-            controladores de carga e baterias para armazenar
-            energia elétrica.
-
-        </p>
-
-    </div>
-
-
-    <div class="science-note">
-
-        <strong>Não confunda:</strong>
-
-        <p>
-
-            O efeito fotoelétrico externo envolve a emissão
-            de elétrons para fora de um material.
-
-            O efeito fotovoltaico ocorre dentro de um dispositivo
-            semicondutor e produz uma diferença de potencial
-            que pode alimentar um circuito.
-
-            Os fenômenos estão relacionados à interação
-            da luz com a matéria, mas não são idênticos.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CAPÍTULO 06 - AQUECIMENTO TÉRMICO X FOTOVOLTAICA
-===================================================== -->
-
-<section class="content-section section-padding comparison-section"
-         id="comparacao">
-
-    <div class="section-heading">
-
-        <span class="section-tag">
-            CAPÍTULO 06 • TECNOLOGIAS SOLARES
-        </span>
-
-        <h2>Duas formas de aproveitar a energia do Sol</h2>
-
-        <p>
-
-            Embora ambas utilizem a radiação solar,
-            o aquecimento térmico e a tecnologia fotovoltaica
-            possuem princípios de funcionamento diferentes.
-
-        </p>
-
-    </div>
-
-
-    <div class="comparison-grid">
-
-        <article class="comparison-card">
-
-            <span class="card-icon">🌡️</span>
-
-            <h3>Aquecimento solar térmico</h3>
-
-            <p>
-
-                O sistema utiliza coletores solares para
-                absorver energia da radiação solar e transferir
-                calor para a água.
-
-            </p>
-
-            <h4>Como funciona?</h4>
-
-            <ol>
-                <li>A radiação solar atinge o coletor.</li>
-                <li>A superfície absorve energia.</li>
-                <li>O calor é transferido para a água.</li>
-                <li>A água aquecida retorna ao sistema.</li>
-            </ol>
-
-            <h4>Principais características</h4>
-
-            <ul>
-                <li>Produção direta de energia térmica.</li>
-                <li>Utilização de coletores solares.</li>
-                <li>Aplicação no aquecimento de piscinas.</li>
-                <li>Menor dependência de eletricidade para o processo térmico principal.</li>
-            </ul>
-
-        </article>
-
-
-        <article class="comparison-card">
-
-            <span class="card-icon">⚡</span>
-
-            <h3>Energia solar fotovoltaica</h3>
-
-            <p>
-
-                O sistema utiliza células semicondutoras
-                para transformar parte da energia luminosa
-                em eletricidade.
-
-            </p>
-
-            <h4>Como funciona?</h4>
-
-            <ol>
-                <li>A luz atinge as células fotovoltaicas.</li>
-                <li>Os fótons transferem energia aos elétrons.</li>
-                <li>São geradas e separadas cargas elétricas.</li>
-                <li>A eletricidade é utilizada pelos equipamentos.</li>
-            </ol>
-
-            <h4>Principais características</h4>
-
-            <ul>
-                <li>Produção de energia elétrica.</li>
-                <li>Utilização de painéis fotovoltaicos.</li>
-                <li>Alimentação de bombas e equipamentos.</li>
-                <li>Possibilidade de alimentar uma bomba de calor.</li>
-            </ul>
-
-        </article>
-
-    </div>
-
-
-    <div class="table-wrapper">
-
-        <table>
-
-            <thead>
-
-                <tr>
-                    <th>Característica</th>
-                    <th>Solar térmico</th>
-                    <th>Fotovoltaico</th>
-                </tr>
-
-            </thead>
-
-            <tbody>
-
-                <tr>
-                    <td>Energia obtida</td>
-                    <td>Energia térmica</td>
-                    <td>Energia elétrica</td>
-                </tr>
-
-                <tr>
-                    <td>Equipamento principal</td>
-                    <td>Coletor solar</td>
-                    <td>Painel fotovoltaico</td>
-                </tr>
-
-                <tr>
-                    <td>Aplicação na piscina</td>
-                    <td>Aquecimento direto da água</td>
-                    <td>Alimentação de equipamentos elétricos</td>
-                </tr>
-
-                <tr>
-                    <td>Princípio físico</td>
-                    <td>Absorção e transferência de calor</td>
-                    <td>Efeito fotovoltaico</td>
-                </tr>
-
-                <tr>
-                    <td>Armazenamento</td>
-                    <td>Tanque térmico, quando utilizado</td>
-                    <td>Baterias, quando utilizadas</td>
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CAPÍTULO 07 - APLICAÇÃO NA PISCINA
-===================================================== -->
-
-<section class="pool-section section-padding" id="aplicacoes">
-
-    <div class="section-heading">
-
-        <span class="section-tag">
-            CAPÍTULO 07 • A CIÊNCIA NA PRÁTICA
-        </span>
-
-        <h2>Como aplicar tudo isso em uma piscina?</h2>
-
-        <p>
-
-            A piscina é um excelente exemplo para demonstrar
-            como conhecimentos de física, energia solar,
-            eletricidade e automação podem trabalhar juntos.
-
-        </p>
-
-    </div>
-
-
-    <div class="content-grid">
-
-        <div class="content-text">
-
-            <h3>Painéis fotovoltaicos na piscina</h3>
-
-            <p>
-
-                Os painéis fotovoltaicos podem gerar eletricidade
-                para alimentar equipamentos utilizados no
-                funcionamento da piscina.
-
-            </p>
-
-            <p>
-
-                Entre as aplicações estão bombas de circulação,
-                sistemas de controle, sensores e iluminação.
-
-            </p>
-
-            <h3>Alimentação de uma bomba de calor</h3>
-
-            <p>
-
-                Uma bomba de calor utiliza energia elétrica
-                para transferir energia térmica de uma fonte
-                para a água da piscina.
-
-            </p>
-
-            <p>
-
-                Quando alimentada por eletricidade produzida
-                por painéis fotovoltaicos, pode aproveitar
-                a energia solar de maneira indireta para
-                aquecer a água.
-
-            </p>
-
-            <h3>O papel da capa térmica</h3>
-
-            <p>
-
-                Uma piscina perde energia para o ambiente.
-                Uma parte importante dessa perda ocorre
-                pela evaporação da água.
-
-            </p>
-
-            <p>
-
-                A capa térmica reduz a evaporação e também
-                pode diminuir outras trocas de energia
-                com o ambiente.
-
-            </p>
-
-            <h3>Por que a piscina emite infravermelho?</h3>
-
-            <p>
-
-                Todo corpo com temperatura acima do zero
-                absoluto emite radiação térmica.
-
-                A água da piscina também emite radiação,
-                principalmente na região do infravermelho.
-
-            </p>
-
-        </div>
-
-        <div class="science-visual">
-
-            <div class="visual-placeholder">
-
-                <i data-lucide="waves"></i>
-
-                <h3>Piscina inteligente</h3>
-
-                <p>
-                    Integração entre energia solar,
-                    equipamentos elétricos e automação.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>Como a energia circula no sistema?</h3>
-
-        <div class="energy-flow">
-
-            <div class="energy-flow-item">
+            <article class="application-card">
                 <span>☀️</span>
-                <strong>Sol</strong>
-                <small>Energia solar</small>
-            </div>
+                <h4>Painéis solares</h4>
+                <p>
+                    Convertem a energia luminosa em energia elétrica
+                    por meio do efeito fotovoltaico.
+                </p>
+            </article>
 
-            <div class="energy-arrow">→</div>
+            <article class="application-card">
+                <span>📷</span>
+                <h4>Câmeras digitais</h4>
+                <p>
+                    Sensores fotossensíveis transformam a luz
+                    em sinais elétricos.
+                </p>
+            </article>
 
-            <div class="energy-flow-item">
-                <span>🔋</span>
-                <strong>Painel solar</strong>
-                <small>Conversão fotovoltaica</small>
-            </div>
+            <article class="application-card">
+                <span>🚨</span>
+                <h4>Sensores de luz</h4>
+                <p>
+                    Detectam variações de iluminação e permitem
+                    o funcionamento de sistemas automáticos.
+                </p>
+            </article>
 
-            <div class="energy-arrow">→</div>
-
-            <div class="energy-flow-item">
-                <span>⚡</span>
-                <strong>Eletricidade</strong>
-                <small>Energia elétrica</small>
-            </div>
-
-            <div class="energy-arrow">→</div>
-
-            <div class="energy-flow-item">
-                <span>🏊</span>
-                <strong>Piscina</strong>
-                <small>Equipamentos e aquecimento</small>
-            </div>
+            <article class="application-card">
+                <span>🔬</span>
+                <h4>Instrumentos científicos</h4>
+                <p>
+                    A interação entre luz e matéria é utilizada
+                    em diferentes equipamentos de medição.
+                </p>
+            </article>
 
         </div>
-
-    </div>
-
-
-    <div class="highlight-box">
-
-        <strong>Uma solução sustentável</strong>
-
-        <p>
-
-            Integrar painéis fotovoltaicos, sensores
-            e equipamentos eficientes permite desenvolver
-            um sistema de piscina mais inteligente.
-
-            A economia efetiva depende do dimensionamento
-            dos painéis, do consumo dos equipamentos,
-            das condições climáticas e da forma de utilização.
-
-        </p>
 
     </div>
 
@@ -2000,205 +865,76 @@
 
 
 <!-- =====================================================
-     CAPÍTULO 08 - ROBÓTICA
+     EXPERIÊNCIA 4 — ENERGIA DOS FÓTONS
 ===================================================== -->
 
-<section class="content-section section-padding dark-section"
-         id="robotica">
+<section class="energy-section section" id="energia">
 
     <div class="section-heading">
 
-        <span class="section-tag">
-            CAPÍTULO 08 • ROBÓTICA E AUTOMAÇÃO
-        </span>
+        <span class="section-tag">EXPERIÊNCIA 04</span>
 
-        <h2>Da ciência à inteligência artificial das máquinas</h2>
+        <h2>
+            A energia está
+            <span>na frequência.</span>
+        </h2>
 
         <p>
-
-            A robótica permite unir programação, eletrônica,
-            sensores e sistemas de controle para criar
-            soluções que monitoram o ambiente e executam
-            tarefas automaticamente.
-
+            Cada fóton transporta uma quantidade de energia
+            que depende da frequência da radiação.
         </p>
 
     </div>
 
+    <div class="energy-equation">
 
-    <div class="content-text">
-
-        <h3>O que é robótica?</h3>
-
-        <p>
-
-            Robótica é uma área interdisciplinar que reúne
-            conhecimentos de engenharia, programação,
-            eletrônica, mecânica e computação.
-
-        </p>
+        <div class="equation-symbol">E = h × f</div>
 
         <p>
-
-            Os sistemas robóticos podem receber informações
-            do ambiente, processar esses dados e executar
-            ações por meio de atuadores.
-
-        </p>
-
-        <h3>O que é automação?</h3>
-
-        <p>
-
-            Automação é a utilização de sistemas tecnológicos
-            para executar tarefas com pouca ou nenhuma
-            intervenção humana contínua.
-
-        </p>
-
-        <p>
-
-            Em uma piscina inteligente, a automação pode
-            monitorar a temperatura da água, identificar
-            alterações no nível e controlar equipamentos.
-
+            Energia do fóton = constante de Planck × frequência
         </p>
 
     </div>
 
+    <div class="photon-lab">
 
-    <div class="subsection">
+        <div class="photon-control">
 
-        <h3>O que são sensores?</h3>
+            <h3>Calcule a energia de um fóton</h3>
 
-        <p>
+            <label for="photonFrequency">
+                Frequência da radiação (Hz)
+            </label>
 
-            Sensores são dispositivos capazes de detectar
-            grandezas físicas ou químicas e transformá-las
-            em sinais que podem ser interpretados por
-            um sistema eletrônico.
+            <input type="range"
+                   id="photonFrequency"
+                   min="1e12"
+                   max="1e20"
+                   step="1e12"
+                   value="5e14">
 
-        </p>
+            <output id="photonFrequencyValue">
+                5 × 10¹⁴ Hz
+            </output>
 
-        <div class="intro-grid">
-
-            <article class="info-card">
-
-                <span class="card-icon">🌡️</span>
-
-                <h3>Sensor de temperatura</h3>
-
-                <p>
-
-                    Mede a temperatura da água.
-                    Pode auxiliar no controle do aquecimento
-                    e na identificação de alterações térmicas.
-
-                </p>
-
-                <strong>Exemplo: DS18B20</strong>
-
-            </article>
-
-            <article class="info-card">
-
-                <span class="card-icon">☀️</span>
-
-                <h3>Sensor de luminosidade</h3>
-
-                <p>
-
-                    Detecta a intensidade luminosa do ambiente.
-                    Pode auxiliar no monitoramento das
-                    condições de iluminação solar.
-
-                </p>
-
-                <strong>Exemplo: LDR</strong>
-
-            </article>
-
-            <article class="info-card">
-
-                <span class="card-icon">💧</span>
-
-                <h3>Sensor de nível</h3>
-
-                <p>
-
-                    Pode identificar a distância entre
-                    um sensor e a superfície da água,
-                    permitindo estimar seu nível.
-
-                </p>
-
-                <strong>Exemplo: HC-SR04</strong>
-
-            </article>
+            <div class="photon-visual">
+                <div class="photon-particle">●</div>
+                <span>FÓTON EM MOVIMENTO</span>
+            </div>
 
         </div>
 
-    </div>
+        <div class="photon-result">
 
+            <span>ENERGIA CALCULADA</span>
 
-    <div class="subsection">
+            <strong id="photonEnergyValue">—</strong>
 
-        <h3>Como funciona um sistema automatizado?</h3>
-
-        <div class="steps-grid">
-
-            <article class="step-card">
-                <span>01</span>
-                <h4>Sensor</h4>
-                <p>
-                    Capta informações do ambiente.
-                </p>
-            </article>
-
-            <article class="step-card">
-                <span>02</span>
-                <h4>Controlador</h4>
-                <p>
-                    Recebe e interpreta os dados.
-                </p>
-            </article>
-
-            <article class="step-card">
-                <span>03</span>
-                <h4>Decisão</h4>
-                <p>
-                    Compara os dados com condições programadas.
-                </p>
-            </article>
-
-            <article class="step-card">
-                <span>04</span>
-                <h4>Atuador</h4>
-                <p>
-                    Executa uma ação, como acender um LED
-                    ou acionar uma bomba.
-                </p>
-            </article>
+            <p id="photonResult">
+                Mova o controle para calcular a energia.
+            </p>
 
         </div>
-
-    </div>
-
-
-    <div class="science-note">
-
-        <strong>Exemplo prático:</strong>
-
-        <p>
-
-            Se a temperatura da piscina estiver abaixo
-            do valor programado, o sistema poderá emitir
-            um alerta e indicar a necessidade de aquecimento.
-
-            Se o nível da água estiver muito baixo,
-            poderá emitir outro alerta.
-
-        </p>
 
     </div>
 
@@ -2206,210 +942,180 @@
 
 
 <!-- =====================================================
-     PROJETO PRÁTICO DE ROBÓTICA
+     PROJETO DE ROBÓTICA
 ===================================================== -->
 
-<section class="robotics-project section-padding"
-         id="projeto-robotica">
+<section class="robotics-section section" id="robotica">
 
     <div class="section-heading">
 
-        <span class="section-tag">
-            PROJETO PRÁTICO • AULA DE ROBÓTICA
-        </span>
+        <span class="section-tag">PROJETO PRÁTICO • ROBÓTICA</span>
 
-        <h2>Projeto: Piscina Solar Inteligente</h2>
+        <h2>
+            Da teoria para a
+            <span>prática!</span>
+        </h2>
 
         <p>
-
-            Vamos construir um protótipo funcional de um
-            sistema automatizado capaz de monitorar
-            temperatura, luminosidade e nível da água.
-
+            Vamos construir um robô capaz de identificar
+            a direção de maior luminosidade e ajustar
+            automaticamente a posição de um painel solar.
         </p>
 
     </div>
 
 
-    <div class="project-introduction">
+    <!-- APRESENTAÇÃO DO PROTÓTIPO -->
 
-        <div class="project-badge">
-            <i data-lucide="cpu"></i>
-            PROJETO EXECUTÁVEL
+    <div class="robot-project">
+
+        <div class="robot-project-info">
+
+            <span class="project-status">
+                PROTÓTIPO EDUCACIONAL
+            </span>
+
+            <h3>Seguidor solar inteligente</h3>
+
+            <p>
+                O projeto consiste em uma estrutura robótica
+                com painel fotovoltaico, sensores de luminosidade
+                e motores servo. O sistema identifica de qual lado
+                vem mais luz e ajusta a posição do painel.
+            </p>
+
+            <p>
+                O objetivo é demonstrar como a luz pode ser detectada
+                eletronicamente e como essa informação pode ser
+                utilizada para controlar um sistema automatizado.
+            </p>
+
+            <div class="project-features">
+
+                <div>
+                    <span>☀️</span>
+                    <strong>Captação solar</strong>
+                </div>
+
+                <div>
+                    <span>👁️</span>
+                    <strong>Detecção luminosa</strong>
+                </div>
+
+                <div>
+                    <span>⚙️</span>
+                    <strong>Movimento automático</strong>
+                </div>
+
+                <div>
+                    <span>💻</span>
+                    <strong>Programação</strong>
+                </div>
+
+            </div>
+
         </div>
 
-        <h3>Uma piscina que monitora suas próprias condições</h3>
+        <div class="robot-project-image">
+
+            <!-- Coloque aqui a imagem conceitual do protótipo -->
+            <div class="robot-image-placeholder">
+                <span>🤖</span>
+                <h3>PROTÓTIPO ROBÓTICO</h3>
+                <p>
+                    Sistema de rastreamento solar com Arduino,
+                    sensores LDR e servomotores.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- OBJETIVO DO PROJETO -->
+
+    <div class="project-objective">
+
+        <h3>Qual é a finalidade do projeto?</h3>
 
         <p>
-
-            O objetivo é desenvolver um protótipo utilizando
-            Arduino, sensores eletrônicos e programação.
-
-            O sistema fará leituras do ambiente, exibirá
-            os valores no computador e poderá acionar
-            indicadores luminosos conforme as condições
-            detectadas.
-
-        </p>
-
-        <p>
-
-            O projeto representa, em escala didática,
-            como funcionaria parte da automação de
-            uma piscina sustentável.
-
+            Demonstrar a aplicação prática dos conhecimentos
+            de Física, Programação e Robótica por meio de um
+            protótipo capaz de acompanhar a posição de uma fonte
+            luminosa, simulando o funcionamento de um sistema
+            de rastreamento solar.
         </p>
 
     </div>
 
 
-    <!-- OBJETIVOS -->
+    <!-- COMPONENTES -->
 
-    <div class="subsection">
+    <div class="components-section">
 
-        <h3>1. Objetivos do projeto</h3>
-
-        <ul class="detailed-list">
-
-            <li>
-                <strong>Monitorar a temperatura:</strong>
-                medir a temperatura de uma amostra de água
-                utilizando um sensor digital.
-            </li>
-
-            <li>
-                <strong>Monitorar a luminosidade:</strong>
-                identificar a intensidade luminosa recebida
-                por um sensor LDR.
-            </li>
-
-            <li>
-                <strong>Monitorar o nível:</strong>
-                estimar a distância entre o sensor ultrassônico
-                e a superfície da água.
-            </li>
-
-            <li>
-                <strong>Processar informações:</strong>
-                utilizar o Arduino para interpretar
-                as leituras dos sensores.
-            </li>
-
-            <li>
-                <strong>Automatizar respostas:</strong>
-                acender LEDs de sinalização de acordo
-                com condições programadas.
-            </li>
-
-            <li>
-                <strong>Relacionar ciência e tecnologia:</strong>
-                demonstrar como a energia solar e os sensores
-                podem contribuir para uma piscina inteligente.
-            </li>
-
-        </ul>
-
-    </div>
-
-
-    <!-- MATERIAIS -->
-
-    <div class="subsection">
-
-        <h3>2. Materiais necessários</h3>
+        <h3>Materiais necessários para a construção</h3>
 
         <p>
-            Para construir o protótipo, serão necessários:
+            Os componentes podem ser encontrados em kits
+            educacionais de eletrônica e robótica.
         </p>
 
-        <div class="materials-grid">
+        <div class="components-grid">
 
-            <article class="material-card">
+            <article class="component-card">
+                <span>🧠</span>
+                <h4>Arduino Uno</h4>
+                <p>
+                    Controla os sensores, processa as informações
+                    e envia comandos aos motores.
+                </p>
+            </article>
+
+            <article class="component-card">
+                <span>☀️</span>
+                <h4>Mini painel solar</h4>
+                <p>
+                    Recebe a luz e permite demonstrar a conversão
+                    fotovoltaica de energia.
+                </p>
+            </article>
+
+            <article class="component-card">
+                <span>👁️</span>
+                <h4>Sensores LDR</h4>
+                <p>
+                    Detectam a intensidade da luz em diferentes
+                    direções.
+                </p>
+            </article>
+
+            <article class="component-card">
+                <span>⚙️</span>
+                <h4>Servomotores</h4>
+                <p>
+                    Movimentam o suporte do painel para ajustar
+                    sua orientação.
+                </p>
+            </article>
+
+            <article class="component-card">
                 <span>🔌</span>
-                <strong>Arduino Uno</strong>
-                <p>Controlador responsável pelo processamento.</p>
-                <small>1 unidade</small>
+                <h4>Protoboard e fios</h4>
+                <p>
+                    Permitem montar as conexões elétricas
+                    sem soldagem.
+                </p>
             </article>
 
-            <article class="material-card">
-                <span>🌡️</span>
-                <strong>Sensor DS18B20</strong>
-                <p>Mede a temperatura da água.</p>
-                <small>1 unidade</small>
-            </article>
-
-            <article class="material-card">
-                <span>☀️</span>
-                <strong>Sensor LDR</strong>
-                <p>Detecta a intensidade luminosa.</p>
-                <small>1 unidade</small>
-            </article>
-
-            <article class="material-card">
-                <span>💧</span>
-                <strong>Sensor HC-SR04</strong>
-                <p>Mede a distância até a superfície da água.</p>
-                <small>1 unidade</small>
-            </article>
-
-            <article class="material-card">
+            <article class="component-card">
                 <span>💡</span>
-                <strong>LEDs</strong>
-                <p>Indicadores visuais de funcionamento.</p>
-                <small>3 unidades</small>
+                <h4>Fonte luminosa</h4>
+                <p>
+                    Uma luminária LED pode simular o Sol
+                    durante a demonstração em sala.
+                </p>
             </article>
-
-            <article class="material-card">
-                <span>🔋</span>
-                <strong>Protoboard</strong>
-                <p>Permite montar o circuito sem soldagem.</p>
-                <small>1 unidade</small>
-            </article>
-
-            <article class="material-card">
-                <span>🧵</span>
-                <strong>Jumpers</strong>
-                <p>Fios para realizar as conexões.</p>
-                <small>Conjunto</small>
-            </article>
-
-            <article class="material-card">
-                <span>📏</span>
-                <strong>Resistores</strong>
-                <p>Utilizados na montagem do circuito.</p>
-                <small>Conforme montagem</small>
-            </article>
-
-            <article class="material-card">
-                <span>🖥️</span>
-                <strong>Computador</strong>
-                <p>Para programar o Arduino e visualizar os dados.</p>
-                <small>1 unidade</small>
-            </article>
-
-            <article class="material-card">
-                <span>🔌</span>
-                <strong>Cabo USB</strong>
-                <p>Para conectar o Arduino ao computador.</p>
-                <small>1 unidade</small>
-            </article>
-
-        </div>
-
-        <div class="science-note">
-
-            <strong>Observação:</strong>
-
-            <p>
-
-                O DS18B20 à prova d'água deve ter sua ponta
-                de medição protegida e ser utilizado conforme
-                as especificações do fabricante.
-
-                A placa Arduino e as conexões elétricas
-                devem permanecer longe da água.
-
-            </p>
 
         </div>
 
@@ -2418,1318 +1124,332 @@
 
     <!-- FUNCIONAMENTO -->
 
-    <div class="subsection">
+    <div class="robot-process">
 
-        <h3>3. Como o protótipo funcionará?</h3>
+        <h3>Como o robô vai funcionar?</h3>
 
-        <p>
+        <div class="process-steps">
 
-            O sistema será organizado em três etapas:
-            coleta de dados, processamento e resposta.
+            <article class="process-step">
+                <div class="step-number">01</div>
+                <span>☀️</span>
+                <h4>Receber luz</h4>
+                <p>
+                    A luz atinge os sensores de luminosidade.
+                </p>
+            </article>
 
-        </p>
+            <div class="step-arrow">→</div>
 
-        <div class="table-wrapper">
+            <article class="process-step">
+                <div class="step-number">02</div>
+                <span>👁️</span>
+                <h4>Detectar</h4>
+                <p>
+                    Os sensores identificam a diferença de iluminação.
+                </p>
+            </article>
 
-            <table>
+            <div class="step-arrow">→</div>
 
-                <thead>
+            <article class="process-step">
+                <div class="step-number">03</div>
+                <span>🧠</span>
+                <h4>Processar</h4>
+                <p>
+                    O Arduino compara os valores recebidos.
+                </p>
+            </article>
 
-                    <tr>
-                        <th>Sensor</th>
-                        <th>Informação coletada</th>
-                        <th>Resposta programada</th>
-                    </tr>
+            <div class="step-arrow">→</div>
 
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>DS18B20</td>
-                        <td>Temperatura da água.</td>
-                        <td>Indicação de temperatura baixa ou adequada.</td>
-                    </tr>
-
-                    <tr>
-                        <td>LDR</td>
-                        <td>Intensidade luminosa.</td>
-                        <td>Indicação de luminosidade baixa ou alta.</td>
-                    </tr>
-
-                    <tr>
-                        <td>HC-SR04</td>
-                        <td>Distância até a superfície da água.</td>
-                        <td>Alerta de nível abaixo do limite definido.</td>
-                    </tr>
-
-                </tbody>
-
-            </table>
+            <article class="process-step">
+                <div class="step-number">04</div>
+                <span>⚙️</span>
+                <h4>Movimentar</h4>
+                <p>
+                    Os servomotores ajustam a posição do painel.
+                </p>
+            </article>
 
         </div>
 
     </div>
 
 
-    <!-- LIGAÇÕES -->
+    <!-- SIMULADOR DE ROBÔ -->
 
-    <div class="subsection">
+    <div class="robot-simulator">
 
-        <h3>4. Ligações dos componentes</h3>
+        <div class="simulator-heading">
 
-        <p>
+            <span class="section-tag">SIMULADOR VIRTUAL</span>
 
-            As conexões abaixo apresentam uma configuração
-            didática para Arduino Uno.
-
-        </p>
-
-        <div class="table-wrapper">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-                        <th>Componente</th>
-                        <th>Pino do componente</th>
-                        <th>Pino Arduino</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>DS18B20</td>
-                        <td>DATA</td>
-                        <td>D2</td>
-                    </tr>
-
-                    <tr>
-                        <td>DS18B20</td>
-                        <td>VCC</td>
-                        <td>5V</td>
-                    </tr>
-
-                    <tr>
-                        <td>DS18B20</td>
-                        <td>GND</td>
-                        <td>GND</td>
-                    </tr>
-
-                    <tr>
-                        <td>LDR</td>
-                        <td>Saída do divisor de tensão</td>
-                        <td>A0</td>
-                    </tr>
-
-                    <tr>
-                        <td>HC-SR04</td>
-                        <td>TRIG</td>
-                        <td>D9</td>
-                    </tr>
-
-                    <tr>
-                        <td>HC-SR04</td>
-                        <td>ECHO</td>
-                        <td>D10</td>
-                    </tr>
-
-                    <tr>
-                        <td>HC-SR04</td>
-                        <td>VCC / GND</td>
-                        <td>5V / GND</td>
-                    </tr>
-
-                    <tr>
-                        <td>LED vermelho</td>
-                        <td>Anodo com resistor</td>
-                        <td>D5</td>
-                    </tr>
-
-                    <tr>
-                        <td>LED amarelo</td>
-                        <td>Anodo com resistor</td>
-                        <td>D6</td>
-                    </tr>
-
-                    <tr>
-                        <td>LED verde</td>
-                        <td>Anodo com resistor</td>
-                        <td>D7</td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-        <div class="science-note">
-
-            <strong>Importante para a montagem:</strong>
+            <h3>Controle o robô!</h3>
 
             <p>
-
-                O DS18B20 utiliza um resistor pull-up de
-                aproximadamente 4,7 kΩ entre DATA e VCC.
-
-                O LDR deve ser montado em um divisor de tensão,
-                utilizando um resistor adequado, por exemplo,
-                10 kΩ.
-
-                Cada LED deve utilizar um resistor limitador
-                de corrente, dimensionado para o componente.
-
+                Antes de construir o protótipo físico,
+                experimente movimentar o robô virtualmente.
             </p>
 
         </div>
 
-    </div>
+        <div class="robot-game">
 
+            <div class="robot-game-screen">
 
-    <!-- LÓGICA -->
+                <div class="game-sun" id="gameSun">☀️</div>
 
-    <div class="subsection">
+                <div class="robot-character" id="robot">
+                    🤖
+                </div>
 
-        <h3>5. Lógica de funcionamento</h3>
+                <div class="game-ground"></div>
 
-        <p>
+            </div>
 
-            O Arduino executará continuamente as seguintes
-            operações:
+            <div class="robot-game-controls">
 
-        </p>
+                <h4>Painel de controle</h4>
 
-        <ol class="detailed-list">
+                <div class="control-grid">
 
-            <li>Realizar a leitura da temperatura.</li>
+                    <button data-robot-action="forward"
+                            aria-label="Avançar">↑</button>
 
-            <li>Medir a luminosidade do ambiente.</li>
+                    <button data-robot-action="left"
+                            aria-label="Mover para a esquerda">←</button>
 
-            <li>Calcular a distância até a superfície da água.</li>
+                    <button data-robot-action="stop"
+                            aria-label="Parar">■</button>
 
-            <li>Comparar os valores com os limites programados.</li>
+                    <button data-robot-action="right"
+                            aria-label="Mover para a direita">→</button>
 
-            <li>Acionar os LEDs correspondentes.</li>
+                    <button data-robot-action="backward"
+                            aria-label="Recuar">↓</button>
 
-            <li>Enviar os resultados ao monitor serial do computador.</li>
+                </div>
 
-        </ol>
+                <div class="rotation-controls">
 
-        <div class="example-box">
+                    <button data-robot-action="rotate-left">
+                        ↶ Girar esquerda
+                    </button>
 
-            <h4>Exemplo de regras programadas</h4>
+                    <button data-robot-action="rotate-right">
+                        ↷ Girar direita
+                    </button>
 
-            <ul>
+                    <button data-robot-action="reset">
+                        ⟳ Reiniciar
+                    </button>
 
-                <li>
-                    Temperatura inferior a 26 °C:
-                    acender LED vermelho.
-                </li>
+                </div>
 
-                <li>
-                    Temperatura entre 26 °C e 29 °C:
-                    acender LED amarelo.
-                </li>
+                <p id="robotMessage">
+                    Robô pronto para receber comandos.
+                </p>
 
-                <li>
-                    Temperatura superior a 29 °C:
-                    acender LED verde.
-                </li>
-
-                <li>
-                    Luminosidade baixa:
-                    exibir alerta de pouca luz solar.
-                </li>
-
-                <li>
-                    Nível abaixo do limite:
-                    emitir alerta de nível.
-                </li>
-
-            </ul>
-
-            <p>
-                Os valores são parâmetros didáticos
-                para demonstração e não representam
-                recomendações universais de temperatura
-                ou operação de piscinas.
-            </p>
+            </div>
 
         </div>
 
     </div>
 
 
-    <!-- CÓDIGO ARDUINO -->
+    <!-- PROGRAMAÇÃO ARDUINO -->
 
-    <div class="subsection">
+    <div class="arduino-section">
 
-        <h3>6. Programação do Arduino</h3>
+        <div class="arduino-heading">
 
-        <p>
+            <span class="section-tag">PROGRAMAÇÃO DO PROTÓTIPO</span>
 
-            O código abaixo realiza as leituras dos três sensores,
-            compara os dados e controla os LEDs.
+            <h3>Como vamos programar o Arduino?</h3>
 
-        </p>
+            <p>
+                A lógica será comparar a luminosidade captada
+                pelos sensores e movimentar os servomotores
+                quando houver diferença significativa.
+            </p>
 
-        <p>
-
-            Antes de carregar o programa, instale as bibliotecas
-            OneWire e DallasTemperature na Arduino IDE.
-
-        </p>
+        </div>
 
         <div class="code-explanation">
 
-            <span class="code-language">
-                ARDUINO IDE • C++
-            </span>
+            <div class="code-header">
+                <span>ARDUINO IDE</span>
+                <span>LINGUAGEM C++</span>
+            </div>
 
-            <pre><code id="arduinoCode">// PROJETO: PISCINA SOLAR INTELIGENTE
-// Projeto Integrador CEP
+            <pre><code>
+#include &lt;Servo.h&gt;
 
-#include &lt;OneWire.h&gt;
-#include &lt;DallasTemperature.h&gt;
+Servo motorHorizontal;
 
-// SENSOR DE TEMPERATURA
-#define PINO_TEMP 2
+const int sensorEsquerda = A0;
+const int sensorDireita = A1;
 
-OneWire oneWire(PINO_TEMP);
-DallasTemperature sensorTemp(&amp;oneWire);
-
-// SENSOR DE LUMINOSIDADE
-#define PINO_LDR A0
-
-// SENSOR ULTRASSONICO
-#define TRIG 9
-#define ECHO 10
-
-// LEDS
-#define LED_VERMELHO 5
-#define LED_AMARELO 6
-#define LED_VERDE 7
-
-// DISTANCIA DE REFERENCIA EM CM
-const float LIMITE_DISTANCIA = 15.0;
-
-// PARAMETROS DIDATICOS
-const float TEMP_BAIXA = 26.0;
-const float TEMP_ALTA = 29.0;
-
-// VARIAVEL PARA MEDIR DISTANCIA
-float medirDistancia() {
-
-    digitalWrite(TRIG, LOW);
-    delayMicroseconds(2);
-
-    digitalWrite(TRIG, HIGH);
-    delayMicroseconds(10);
-
-    digitalWrite(TRIG, LOW);
-
-    long duracao = pulseIn(ECHO, HIGH, 30000);
-
-    if (duracao == 0) {
-        return -1;
-    }
-
-    float distancia = duracao * 0.0343 / 2;
-
-    return distancia;
-}
+int posicao = 90;
+int tolerancia = 30;
 
 void setup() {
 
+    motorHorizontal.attach(9);
+
+    motorHorizontal.write(posicao);
+
     Serial.begin(9600);
-
-    sensorTemp.begin();
-
-    pinMode(PINO_LDR, INPUT);
-
-    pinMode(TRIG, OUTPUT);
-    pinMode(ECHO, INPUT);
-
-    pinMode(LED_VERMELHO, OUTPUT);
-    pinMode(LED_AMARELO, OUTPUT);
-    pinMode(LED_VERDE, OUTPUT);
-
-    Serial.println("PISCINA SOLAR INTELIGENTE");
-    Serial.println("Sistema iniciado!");
 
 }
 
 void loop() {
 
-    // LEITURA DE TEMPERATURA
-    sensorTemp.requestTemperatures();
+    int esquerda = analogRead(sensorEsquerda);
+    int direita = analogRead(sensorDireita);
 
-    float temperatura =
-        sensorTemp.getTempCByIndex(0);
+    int diferenca = esquerda - direita;
 
-    // LEITURA DE LUMINOSIDADE
-    int luminosidade =
-        analogRead(PINO_LDR);
+    if (diferenca &gt; tolerancia) {
 
-    // LEITURA DE DISTANCIA
-    float distancia =
-        medirDistancia();
-
-    // DESLIGA OS LEDS ANTES DA NOVA LEITURA
-    digitalWrite(LED_VERMELHO, LOW);
-    digitalWrite(LED_AMARELO, LOW);
-    digitalWrite(LED_VERDE, LOW);
-
-    // CONTROLE DE TEMPERATURA
-    if (temperatura == DEVICE_DISCONNECTED_C) {
-
-        Serial.println("Erro no sensor de temperatura!");
-
-    } else if (temperatura &lt; TEMP_BAIXA) {
-
-        digitalWrite(LED_VERMELHO, HIGH);
-
-    } else if (temperatura &lt;= TEMP_ALTA) {
-
-        digitalWrite(LED_AMARELO, HIGH);
-
-    } else {
-
-        digitalWrite(LED_VERDE, HIGH);
+        posicao++;
 
     }
 
-    // EXIBICAO DOS RESULTADOS
-    Serial.println("-------------------------");
+    else if (diferenca &lt; -tolerancia) {
 
-    Serial.print("Temperatura: ");
-    Serial.print(temperatura);
-    Serial.println(" C");
-
-    Serial.print("Luminosidade: ");
-    Serial.println(luminosidade);
-
-    if (distancia &gt;= 0) {
-
-        Serial.print("Distancia da agua: ");
-        Serial.print(distancia);
-        Serial.println(" cm");
-
-        if (distancia &gt; LIMITE_DISTANCIA) {
-            Serial.println("ALERTA: NIVEL ABAIXO DO LIMITE!");
-        } else {
-            Serial.println("Nivel dentro do limite definido.");
-        }
-
-    } else {
-
-        Serial.println("Falha na leitura ultrassonica.");
+        posicao--;
 
     }
 
-    // ALERTA DE LUMINOSIDADE
-    if (luminosidade &lt; 300) {
+    posicao = constrain(posicao, 0, 180);
 
-        Serial.println("Pouca luminosidade detectada.");
+    motorHorizontal.write(posicao);
 
-    } else {
+    Serial.print("Esquerda: ");
+    Serial.print(esquerda);
 
-        Serial.println("Luminosidade detectada.");
+    Serial.print(" | Direita: ");
+    Serial.println(direita);
 
-    }
+    delay(50);
 
-    delay(2000);
+}
+            </code></pre>
 
-}</code></pre>
+            <p class="code-note">
+                Exemplo didático de controle horizontal. O circuito
+                real deverá incluir alimentação adequada, montagem
+                dos sensores e calibração dos limites dos motores.
+            </p>
 
         </div>
-
-        <p>
-
-            O limite de distância precisa ser ajustado
-            de acordo com a altura e a posição do sensor
-            no recipiente utilizado na demonstração.
-
-        </p>
 
     </div>
 
 
-    <!-- TESTES -->
+    <!-- RESULTADOS ESPERADOS -->
 
-    <div class="subsection">
+    <div class="expected-results">
 
-        <h3>7. Como executar o projeto na aula?</h3>
+        <h3>O que esperamos demonstrar?</h3>
 
-        <div class="steps-grid">
+        <div class="expected-grid">
 
-            <article class="step-card">
-
+            <div>
                 <span>01</span>
-
-                <h4>Montagem</h4>
-
+                <h4>Detecção de luz</h4>
                 <p>
-                    Montar o circuito na protoboard,
-                    conectar os sensores e conferir
-                    todas as ligações.
+                    O sistema identifica mudanças na iluminação.
                 </p>
+            </div>
 
-            </article>
-
-            <article class="step-card">
-
+            <div>
                 <span>02</span>
-
-                <h4>Programação</h4>
-
+                <h4>Automação</h4>
                 <p>
-                    Instalar as bibliotecas, abrir
-                    a Arduino IDE e carregar o código.
+                    O robô responde automaticamente aos sensores.
                 </p>
+            </div>
 
-            </article>
-
-            <article class="step-card">
-
+            <div>
                 <span>03</span>
-
-                <h4>Experimentação</h4>
-
+                <h4>Integração</h4>
                 <p>
-                    Modificar a iluminação, a temperatura
-                    da amostra e a distância do sensor.
+                    Física, programação e robótica trabalham juntas.
                 </p>
+            </div>
 
-            </article>
-
-            <article class="step-card">
-
+            <div>
                 <span>04</span>
-
-                <h4>Apresentação</h4>
-
+                <h4>Energia sustentável</h4>
                 <p>
-                    Mostrar as leituras, os LEDs e explicar
-                    como a automação funciona.
+                    A tecnologia solar é apresentada como
+                    uma alternativa energética.
                 </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-
-    <!-- EXPERIMENTOS -->
-
-    <div class="subsection">
-
-        <h3>8. Experimentos para demonstrar</h3>
-
-        <div class="experiment-list">
-
-            <article>
-
-                <h4>Experimento 1 — Temperatura</h4>
-
-                <p>
-                    Coloque o sensor DS18B20 em uma amostra
-                    de água em recipiente adequado.
-
-                    Compare as leituras em diferentes
-                    temperaturas, utilizando água fria
-                    e água morna.
-                </p>
-
-                <strong>Resultado esperado:</strong>
-
-                <p>
-                    O valor da temperatura será atualizado
-                    no monitor serial e os LEDs mudarão
-                    conforme os limites programados.
-                </p>
-
-            </article>
-
-            <article>
-
-                <h4>Experimento 2 — Luminosidade</h4>
-
-                <p>
-                    Aproxime uma fonte de luz do LDR
-                    e depois diminua a iluminação,
-                    cobrindo parcialmente o sensor.
-                </p>
-
-                <strong>Resultado esperado:</strong>
-
-                <p>
-                    O valor analógico sofrerá alterações,
-                    demonstrando a capacidade de medir
-                    a intensidade luminosa.
-                </p>
-
-            </article>
-
-            <article>
-
-                <h4>Experimento 3 — Nível da água</h4>
-
-                <p>
-                    Posicione o HC-SR04 acima de um recipiente
-                    e altere a altura da água.
-                </p>
-
-                <strong>Resultado esperado:</strong>
-
-                <p>
-                    A distância medida será diferente
-                    conforme a posição da superfície.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-
-    <!-- SEGURANÇA -->
-
-    <div class="safety-box">
-
-        <i data-lucide="shield-alert"></i>
-
-        <h3>Segurança durante a atividade</h3>
-
-        <ul>
-
-            <li>
-                Utilizar somente alimentação de baixa tensão
-                adequada ao Arduino e aos componentes.
-            </li>
-
-            <li>
-                Manter o Arduino, a protoboard, os fios
-                e as conexões longe da água.
-            </li>
-
-            <li>
-                Não utilizar equipamentos ligados diretamente
-                à rede elétrica para realizar demonstrações.
-            </li>
-
-            <li>
-                Não conectar o protótipo a uma piscina
-                real ou a bombas de circulação reais.
-            </li>
-
-            <li>
-                Utilizar água apenas em recipiente separado
-                e manter o sensor apropriado protegido.
-            </li>
-
-            <li>
-                Realizar a montagem e os testes com
-                acompanhamento do professor.
-            </li>
-
-        </ul>
-
-        <p>
-
-            O protótipo é educacional e demonstra
-            princípios de automação. Ele não substitui
-            equipamentos certificados de controle,
-            segurança ou tratamento de piscinas.
-
-        </p>
-
-    </div>
-
-
-    <!-- RESULTADOS -->
-
-    <div class="subsection">
-
-        <h3>9. Resultados esperados</h3>
-
-        <p>
-
-            Ao final da atividade, os estudantes deverão
-            conseguir demonstrar:
-
-        </p>
-
-        <ul>
-
-            <li>Leitura digital de temperatura.</li>
-            <li>Leitura analógica de luminosidade.</li>
-            <li>Medição de distância por ultrassom.</li>
-            <li>Processamento de dados pelo Arduino.</li>
-            <li>Acionamento de indicadores luminosos.</li>
-            <li>Integração entre sensores e programação.</li>
-            <li>Aplicação da automação em um sistema sustentável.</li>
-
-        </ul>
-
-    </div>
-
-
-    <!-- EXPANSÃO -->
-
-    <div class="subsection">
-
-        <h3>10. Como melhorar o projeto no futuro?</h3>
-
-        <p>
-
-            Depois de construir a primeira versão,
-            podemos acrescentar novos recursos.
-
-        </p>
-
-        <div class="intro-grid">
-
-            <article class="info-card">
-                <span class="card-icon">📱</span>
-                <h3>Monitoramento digital</h3>
-                <p>
-                    Criar uma interface para acompanhar
-                    as informações em tempo real.
-                </p>
-            </article>
-
-            <article class="info-card">
-                <span class="card-icon">🔋</span>
-                <h3>Energia fotovoltaica</h3>
-                <p>
-                    Alimentar o sistema de monitoramento
-                    utilizando um pequeno painel solar
-                    e um circuito de alimentação adequado.
-                </p>
-            </article>
-
-            <article class="info-card">
-                <span class="card-icon">🤖</span>
-                <h3>Controle automático</h3>
-                <p>
-                    Implementar atuadores de baixa tensão
-                    para demonstrar o acionamento automático
-                    de equipamentos.
-                </p>
-            </article>
-
-        </div>
-
-    </div>
-
-
-    <div class="highlight-box">
-
-        <strong>Integração com o efeito fotoelétrico e a energia solar</strong>
-
-        <p>
-
-            O painel fotovoltaico que poderá alimentar
-            o protótipo utiliza o efeito fotovoltaico
-            para converter luz em eletricidade.
-
-            A eletricidade pode alimentar o Arduino,
-            que recebe informações dos sensores e
-            controla os indicadores.
-
-            Dessa maneira, o projeto conecta física quântica,
-            energia solar, eletrônica, programação e robótica.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CAPÍTULO 09 - SIMULADORES
-===================================================== -->
-
-<section class="laboratory-section dark-section section-padding"
-         id="laboratorio">
-
-    <div class="section-heading">
-
-        <span class="section-tag">
-            CAPÍTULO 09 • LABORATÓRIO VIRTUAL
-        </span>
-
-        <h2>Experimente a ciência na prática</h2>
-
-        <p>
-
-            Agora você poderá alterar variáveis,
-            realizar experiências e observar
-            os resultados de modelos científicos.
-
-        </p>
-
-    </div>
-
-
-    <!-- SIMULADOR 1 -->
-
-    <article class="simulator-card">
-
-        <span class="simulator-number">
-            SIMULADOR 01
-        </span>
-
-        <h3>Energia dos fótons</h3>
-
-        <p>
-
-            Descubra como a frequência da luz
-            influencia a energia de cada fóton.
-
-        </p>
-
-        <label for="frequency">
-            Frequência da luz (THz)
-        </label>
-
-        <input type="range"
-               id="frequency"
-               min="100"
-               max="1200"
-               value="500"
-               step="10">
-
-        <output id="frequencyValue" for="frequency">
-            500 THz
-        </output>
-
-        <div class="result-box">
-
-            <span>Energia do fóton</span>
-
-            <strong id="photonEnergy">
-                Aguardando cálculo
-            </strong>
-
-        </div>
-
-        <p id="photonExplanation" aria-live="polite">
-            Modifique a frequência para observar o resultado.
-        </p>
-
-        <div class="formula-card">
-            E = h · f
-        </div>
-
-    </article>
-
-
-    <!-- SIMULADOR 2 -->
-
-    <article class="simulator-card">
-
-        <span class="simulator-number">
-            SIMULADOR 02
-        </span>
-
-        <h3>Laboratório do efeito fotoelétrico</h3>
-
-        <p>
-
-            Escolha a frequência da luz e a função
-            trabalho do material.
-
-            Descubra se haverá emissão de elétrons.
-
-        </p>
-
-        <label for="lightFrequency">
-            Frequência da luz (THz)
-        </label>
-
-        <input type="range"
-               id="lightFrequency"
-               min="100"
-               max="1500"
-               value="500"
-               step="10">
-
-        <output id="lightFrequencyValue">
-            500 THz
-        </output>
-
-        <label for="workFunction">
-            Função trabalho (eV)
-        </label>
-
-        <input type="range"
-               id="workFunction"
-               min="1"
-               max="6"
-               value="2"
-               step="0.1">
-
-        <output id="workFunctionValue">
-            2,0 eV
-        </output>
-
-        <div class="result-box">
-
-            <span>Resultado</span>
-
-            <strong id="photoelectricResult">
-                Aguardando simulação
-            </strong>
-
-        </div>
-
-        <p id="photoelectricExplanation"
-           aria-live="polite">
-            Ajuste as variáveis.
-        </p>
-
-        <div class="formula-card">
-            Ec = h · f - Φ
-        </div>
-
-    </article>
-
-
-    <!-- SIMULADOR 3 -->
-
-    <article class="simulator-card">
-
-        <span class="simulator-number">
-            SIMULADOR 03
-        </span>
-
-        <h3>Usina solar fotovoltaica</h3>
-
-        <p>
-
-            Modifique a quantidade de painéis
-            e a intensidade solar para estimar
-            a geração de eletricidade.
-
-        </p>
-
-        <label for="panelCount">
-            Quantidade de painéis
-        </label>
-
-        <input type="range"
-               id="panelCount"
-               min="1"
-               max="30"
-               value="10">
-
-        <output id="panelCountValue">
-            10 painéis
-        </output>
-
-        <label for="solarIntensity">
-            Intensidade solar (%)
-        </label>
-
-        <input type="range"
-               id="solarIntensity"
-               min="10"
-               max="100"
-               value="80">
-
-        <output id="solarIntensityValue">
-            80%
-        </output>
-
-        <label for="solarHours">
-            Horas equivalentes de sol por dia
-        </label>
-
-        <input type="range"
-               id="solarHours"
-               min="1"
-               max="8"
-               value="5"
-               step="0.5">
-
-        <output id="solarHoursValue">
-            5 horas
-        </output>
-
-        <div class="result-box">
-
-            <span>Energia diária estimada</span>
-
-            <strong id="solarPower">
-                Aguardando cálculo
-            </strong>
-
-        </div>
-
-        <p id="solarExplanation">
-            Modelo didático de geração fotovoltaica.
-        </p>
-
-    </article>
-
-
-    <!-- SIMULADOR 4 -->
-
-    <article class="simulator-card">
-
-        <span class="simulator-number">
-            SIMULADOR 04
-        </span>
-
-        <h3>Consumo elétrico da piscina</h3>
-
-        <p>
-
-            Calcule o consumo aproximado de um
-            equipamento utilizado na piscina.
-
-        </p>
-
-        <label for="equipmentPower">
-            Potência do equipamento (W)
-        </label>
-
-        <input type="range"
-               id="equipmentPower"
-               min="100"
-               max="3000"
-               value="1000"
-               step="100">
-
-        <output id="equipmentPowerValue">
-            1000 W
-        </output>
-
-        <label for="operatingHours">
-            Horas de funcionamento por dia
-        </label>
-
-        <input type="range"
-               id="operatingHours"
-               min="1"
-               max="24"
-               value="6">
-
-        <output id="operatingHoursValue">
-            6 horas
-        </output>
-
-        <div class="result-box">
-
-            <span>Consumo diário</span>
-
-            <strong id="poolConsumption">
-                Aguardando cálculo
-            </strong>
-
-        </div>
-
-        <p id="poolExplanation">
-            O resultado será calculado em kWh.
-        </p>
-
-    </article>
-
-
-    <!-- SIMULADOR 5 -->
-
-    <article class="simulator-card">
-
-        <span class="simulator-number">
-            SIMULADOR 05
-        </span>
-
-        <h3>Comparação entre aquecimento solar</h3>
-
-        <p>
-
-            Explore como diferentes tecnologias
-            aproveitam a energia do Sol para
-            aquecer uma piscina.
-
-        </p>
-
-        <label for="poolVolume">
-            Volume da piscina (litros)
-        </label>
-
-        <input type="range"
-               id="poolVolume"
-               min="1000"
-               max="50000"
-               value="20000"
-               step="1000">
-
-        <output id="poolVolumeValue">
-            20.000 litros
-        </output>
-
-        <label for="temperatureIncrease">
-            Aumento desejado da temperatura (°C)
-        </label>
-
-        <input type="range"
-               id="temperatureIncrease"
-               min="1"
-               max="10"
-               value="3">
-
-        <output id="temperatureIncreaseValue">
-            3 °C
-        </output>
-
-        <div class="result-box">
-
-            <span>Energia térmica necessária</span>
-
-            <strong id="thermalEnergy">
-                Aguardando cálculo
-            </strong>
-
-        </div>
-
-        <p id="thermalExplanation">
-            Estimativa baseada na massa de água
-            e no calor específico.
-        </p>
-
-    </article>
-
-</section>
-
-
-<!-- =====================================================
-     CAPÍTULO 10 - SUSTENTABILIDADE
-===================================================== -->
-
-<section class="sustainability-section section-padding"
-         id="sustentabilidade">
-
-    <div class="section-heading">
-
-        <span class="section-tag">
-            CAPÍTULO 10 • IMPACTO AMBIENTAL
-        </span>
-
-        <h2>Tecnologia e sustentabilidade</h2>
-
-        <p>
-
-            O desenvolvimento tecnológico precisa caminhar
-            junto com a responsabilidade ambiental.
-
-            A energia solar representa uma alternativa
-            importante para diversificar a geração
-            de eletricidade.
-
-        </p>
-
-    </div>
-
-
-    <div class="sustainability-grid">
-
-        <article>
-
-            <i data-lucide="leaf"></i>
-
-            <h3>Energia renovável</h3>
-
-            <p>
-
-                A radiação solar é uma fonte renovável
-                de energia disponível em grande quantidade
-                em escala humana.
-
-            </p>
-
-        </article>
-
-        <article>
-
-            <i data-lucide="recycle"></i>
-
-            <h3>Uso consciente</h3>
-
-            <p>
-
-                Tecnologias eficientes ajudam a utilizar
-                melhor os recursos naturais e energéticos.
-
-            </p>
-
-        </article>
-
-        <article>
-
-            <i data-lucide="lightbulb"></i>
-
-            <h3>Inovação científica</h3>
-
-            <p>
-
-                A pesquisa científica permite desenvolver
-                novas formas de produzir, armazenar
-                e utilizar energia.
-
-            </p>
-
-        </article>
-
-        <article>
-
-            <i data-lucide="droplets"></i>
-
-            <h3>Economia de água e energia</h3>
-
-            <p>
-
-                Sistemas inteligentes de monitoramento
-                podem ajudar a identificar desperdícios
-                e melhorar a eficiência operacional.
-
-            </p>
-
-        </article>
-
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>Vantagens da energia fotovoltaica</h3>
-
-        <ul>
-
-            <li>Utiliza a radiação solar como fonte de energia.</li>
-
-            <li>Pode reduzir o consumo de eletricidade
-                proveniente da rede.</li>
-
-            <li>Possui aplicação em residências,
-                empresas e sistemas isolados.</li>
-
-            <li>É uma tecnologia que pode ser integrada
-                a sistemas de automação.</li>
-
-            <li>Não produz emissões diretas durante
-                a geração de eletricidade.</li>
-
-        </ul>
-
-        <h3>Quais são os desafios?</h3>
-
-        <ul>
-
-            <li>Investimento inicial na instalação.</li>
-
-            <li>Dependência das condições de irradiância solar.</li>
-
-            <li>Necessidade de espaço adequado.</li>
-
-            <li>Armazenamento de energia pode exigir baterias.</li>
-
-            <li>Fabricação, transporte e descarte dos equipamentos
-                também possuem impactos ambientais.</li>
-
-        </ul>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CAPÍTULO 11 - QUIZ
-===================================================== -->
-
-<section class="quiz-section section-padding" id="quiz">
-
-    <div class="section-heading">
-
-        <span class="section-tag">
-            DESAFIO DO CONHECIMENTO
-        </span>
-
-        <h2>Teste o que você aprendeu</h2>
-
-        <p>
-
-            Responda às perguntas e descubra
-            quanto você compreendeu sobre
-            física quântica e energia solar.
-
-        </p>
-
-    </div>
-
-
-    <div class="quiz-container" id="quizContainer">
-
-        <div class="quiz-progress">
-
-            <span id="quizProgress">
-                Questão 1 de 10
-            </span>
-
-            <div class="progress-track">
-                <div id="progressBar"></div>
             </div>
 
         </div>
 
+    </div>
 
-        <h3 id="quizQuestion">
-            O que é um fóton?
-        </h3>
+</section>
 
 
-        <div id="quizOptions" class="quiz-options">
+<!-- =====================================================
+     QUIZ
+===================================================== -->
 
-            <button class="quiz-option" data-answer="a">
-                A) Uma molécula de água.
-            </button>
+<section class="quiz-section section" id="quiz">
 
-            <button class="quiz-option" data-answer="b">
-                B) Um quantum de radiação eletromagnética.
-            </button>
+    <div class="section-heading">
 
-            <button class="quiz-option" data-answer="c">
-                C) Um tipo de próton.
-            </button>
+        <span class="section-tag">DESAFIO DO CONHECIMENTO</span>
 
-            <button class="quiz-option" data-answer="d">
-                D) Uma onda sonora.
-            </button>
+        <h2>
+            Você aprendeu?
+            <span>Vamos testar!</span>
+        </h2>
+
+        <p>
+            Responda às perguntas e descubra quanto você
+            sabe sobre Física Quântica, luz e energia.
+        </p>
+
+    </div>
+
+    <div class="quiz-card">
+
+        <div class="quiz-top">
+
+            <span>DESAFIO CIENTÍFICO</span>
+
+            <span id="quizScore">Pontuação: 0</span>
 
         </div>
 
+        <div class="quiz-progress">
+            <div id="progressBar"></div>
+        </div>
 
-        <p id="quizFeedback" aria-live="polite"></p>
+        <div class="quiz-content">
 
+            <span class="quiz-number">SUA MISSÃO</span>
 
-        <button id="nextQuestion"
-                class="btn-primary"
-                disabled>
+            <h3 id="quizQuestion">
+                Prepare-se para começar!
+            </h3>
 
-            Próxima questão
-            <i data-lucide="arrow-right"></i>
+            <div id="quizOptions" class="quiz-options"></div>
 
-        </button>
+            <div id="quizFeedback" aria-live="polite"></div>
+
+            <button id="nextQuestion" class="btn btn-primary" disabled>
+                Próxima pergunta
+            </button>
+
+        </div>
 
     </div>
 
@@ -3737,290 +1457,59 @@ void loop() {
 
 
 <!-- =====================================================
-     CAPÍTULO 12 - GLOSSÁRIO
+     CURIOSIDADES
 ===================================================== -->
 
-<section class="content-section section-padding" id="glossario">
+<section class="curiosities-section section" id="curiosidades">
 
     <div class="section-heading">
 
-        <span class="section-tag">
-            DICIONÁRIO DA CIÊNCIA
-        </span>
+        <span class="section-tag">VOCÊ SABIA?</span>
 
-        <h2>Glossário científico</h2>
-
-        <p>
-
-            Consulte os principais termos utilizados
-            neste projeto.
-
-        </p>
+        <h2>
+            A ciência é mais
+            <span>surpreendente do que parece.</span>
+        </h2>
 
     </div>
 
+    <div class="curiosity-grid">
 
-    <div class="glossary-grid">
-
-        <article>
-            <strong>Fóton</strong>
-            <p>Quantum de radiação eletromagnética.</p>
-        </article>
-
-        <article>
-            <strong>Frequência</strong>
-            <p>Número de oscilações de uma onda por segundo.</p>
-        </article>
-
-        <article>
-            <strong>Comprimento de onda</strong>
-            <p>Distância entre dois pontos equivalentes consecutivos de uma onda.</p>
-        </article>
-
-        <article>
-            <strong>Constante de Planck</strong>
-            <p>Constante fundamental que relaciona energia e frequência.</p>
-        </article>
-
-        <article>
-            <strong>Frequência de corte</strong>
-            <p>Frequência mínima para ocorrer emissão fotoelétrica.</p>
-        </article>
-
-        <article>
-            <strong>Função trabalho</strong>
-            <p>Energia mínima necessária para remover um elétron da superfície.</p>
-        </article>
-
-        <article>
-            <strong>Fotoelétron</strong>
-            <p>Elétron emitido devido à incidência de radiação.</p>
-        </article>
-
-        <article>
-            <strong>Semicondutor</strong>
-            <p>Material com propriedades elétricas controláveis.</p>
-        </article>
-
-        <article>
-            <strong>Junção P-N</strong>
-            <p>Contato entre regiões de semicondutores tipo P e tipo N.</p>
-        </article>
-
-        <article>
-            <strong>Bandgap</strong>
-            <p>Energia necessária para promover um elétron da banda de valência à banda de condução.</p>
-        </article>
-
-        <article>
-            <strong>Efeito fotovoltaico</strong>
-            <p>Fenômeno de conversão de luz em energia elétrica em determinados dispositivos.</p>
-        </article>
-
-        <article>
-            <strong>Corrente elétrica</strong>
-            <p>Fluxo ordenado de cargas elétricas.</p>
-        </article>
-
-        <article>
-            <strong>Potência elétrica</strong>
-            <p>Taxa de transferência ou conversão de energia elétrica.</p>
-        </article>
-
-        <article>
-            <strong>Inversor</strong>
-            <p>Equipamento que converte corrente contínua em corrente alternada.</p>
-        </article>
-
-        <article>
-            <strong>Arduino</strong>
-            <p>Plataforma de prototipagem eletrônica programável.</p>
-        </article>
-
-        <article>
-            <strong>Sensor</strong>
-            <p>Dispositivo que detecta grandezas do ambiente.</p>
-        </article>
-
-        <article>
-            <strong>Atuador</strong>
-            <p>Dispositivo que executa uma ação física a partir de um comando.</p>
-        </article>
-
-        <article>
-            <strong>Automação</strong>
-            <p>Execução de tarefas por sistemas tecnológicos programados.</p>
-        </article>
-
-        <article>
-            <strong>Radiação infravermelha</strong>
-            <p>Região do espectro eletromagnético com frequências inferiores às da luz vermelha visível.</p>
-        </article>
-
-        <article>
-            <strong>Corpo negro</strong>
-            <p>Modelo ideal que absorve toda a radiação incidente e emite radiação térmica.</p>
-        </article>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CAPÍTULO 13 - ACESSIBILIDADE
-===================================================== -->
-
-<section class="content-section section-padding dark-section"
-         id="inclusao">
-
-    <div class="section-heading">
-
-        <span class="section-tag">
-            CIÊNCIA PARA TODOS
-        </span>
-
-        <h2>A tecnologia precisa ser acessível</h2>
-
-        <p>
-
-            A inclusão digital significa permitir
-            que pessoas com diferentes necessidades
-            possam acessar, compreender e utilizar
-            os recursos tecnológicos.
-
-        </p>
-
-    </div>
-
-
-    <div class="intro-grid">
-
-        <article class="info-card">
-
-            <span class="card-icon">⌨️</span>
-
-            <h3>Navegação por teclado</h3>
-
+        <article class="curiosity-card">
+            <span>🌌</span>
+            <h3>A luz viaja muito rápido</h3>
             <p>
-
-                O site deve permitir que todas as
-                funcionalidades sejam acessadas
-                sem depender exclusivamente do mouse.
-
+                A luz do Sol leva aproximadamente 8 minutos
+                e 20 segundos para chegar à Terra.
             </p>
-
         </article>
 
-        <article class="info-card">
-
-            <span class="card-icon">👁️</span>
-
-            <h3>Conforto visual</h3>
-
+        <article class="curiosity-card">
+            <span>⚛️</span>
+            <h3>A energia é quantizada</h3>
             <p>
-
-                Ajustes de contraste, tamanho das fontes,
-                espaçamento e apresentação do conteúdo
-                podem facilitar a leitura.
-
+                Na descrição de Planck, a energia é emitida
+                e absorvida em quantidades discretas.
             </p>
-
         </article>
 
-        <article class="info-card">
-
-            <span class="card-icon">🤟</span>
-
-            <h3>Libras</h3>
-
+        <article class="curiosity-card">
+            <span>🔋</span>
+            <h3>A luz pode gerar eletricidade</h3>
             <p>
-
-                A integração com recursos de tradução
-                para Libras e vídeos sinalizados amplia
-                as possibilidades de acesso ao conteúdo.
-
+                As células fotovoltaicas transformam
+                energia luminosa em energia elétrica.
             </p>
-
         </article>
 
-    </div>
-
-
-    <div class="subsection">
-
-        <h3>Vídeos explicativos em Libras</h3>
-
-        <p>
-
-            Esta área está preparada para receber
-            vídeos com explicações dos principais
-            conceitos do projeto em Língua Brasileira
-            de Sinais.
-
-        </p>
-
-        <div class="video-placeholder">
-
-            <i data-lucide="video"></i>
-
-            <h4>Vídeo 01 — O que é o efeito fotoelétrico?</h4>
-
+        <article class="curiosity-card">
+            <span>🤖</span>
+            <h3>Robôs podem seguir a luz</h3>
             <p>
-                Espaço reservado para vídeo em Libras.
+                Sensores e algoritmos permitem que sistemas
+                automatizados reajam à iluminação.
             </p>
-
-            <span>Vídeo a ser inserido após gravação.</span>
-
-        </div>
-
-        <div class="video-placeholder">
-
-            <i data-lucide="video"></i>
-
-            <h4>Vídeo 02 — Como funciona a energia fotovoltaica?</h4>
-
-            <p>
-                Espaço reservado para vídeo em Libras.
-            </p>
-
-            <span>Vídeo a ser inserido após gravação.</span>
-
-        </div>
-
-        <div class="video-placeholder">
-
-            <i data-lucide="video"></i>
-
-            <h4>Vídeo 03 — Projeto Piscina Solar Inteligente</h4>
-
-            <p>
-                Espaço reservado para vídeo em Libras.
-            </p>
-
-            <span>Vídeo a ser inserido após gravação.</span>
-
-        </div>
-
-    </div>
-
-
-    <div class="science-note">
-
-        <strong>Nosso compromisso:</strong>
-
-        <p>
-
-            A acessibilidade não deve ser um recurso
-            adicional, mas uma característica presente
-            desde o planejamento do site.
-
-            Por isso, estamos preparando estrutura
-            semântica, navegação por teclado,
-            alternativas textuais e recursos
-            de acessibilidade.
-
-        </p>
+        </article>
 
     </div>
 
@@ -4031,300 +1520,104 @@ void loop() {
      CONCLUSÃO
 ===================================================== -->
 
-<section class="final-section section-padding" id="conclusao">
+<section class="conclusion-section section" id="conclusao">
 
-    <span class="section-tag">
-        CONCLUSÃO • O CONHECIMENTO TRANSFORMA
-    </span>
+    <div class="conclusion-content">
 
-    <h2>A ciência transforma o futuro.</h2>
+        <span class="section-tag">CONSIDERAÇÕES FINAIS</span>
 
-    <p>
+        <h2>
+            Da luz à tecnologia:
+            <span>o conhecimento transforma.</span>
+        </h2>
 
-        A compreensão do efeito fotoelétrico representa
-        um marco na história da física.
+        <p>
+            O estudo das ondas eletromagnéticas, da radiação
+            do corpo negro e do efeito fotoelétrico demonstra
+            como descobertas científicas podem modificar
+            nossa compreensão da natureza e impulsionar
+            novas tecnologias.
+        </p>
 
-        A partir do estudo da interação entre luz e matéria,
-        foi possível desenvolver tecnologias que hoje
-        fazem parte do nosso cotidiano.
+        <p>
+            Ao integrar esses conceitos com programação
+            e robótica, conseguimos transformar conhecimentos
+            teóricos em uma experiência prática, demonstrando
+            que a ciência está presente nas soluções que
+            fazem parte do nosso cotidiano.
+        </p>
 
-    </p>
+        <div class="final-message">
+            <span>☀️</span>
+            <strong>
+                A luz ilumina o mundo. A ciência nos permite
+                compreender e transformar essa energia.
+            </strong>
+        </div>
 
-    <p>
-
-        As células fotovoltaicas mostram como a física
-        quântica pode ser aplicada na produção de eletricidade.
-
-        Quando integramos essa tecnologia à robótica,
-        aos sensores e à automação, podemos desenvolver
-        soluções inteligentes para diferentes necessidades.
-
-    </p>
-
-    <p>
-
-        O projeto Piscina Solar Inteligente demonstra
-        que conhecimentos científicos podem ser utilizados
-        para criar soluções práticas, sustentáveis
-        e acessíveis.
-
-    </p>
-
-    <h3>
-        Entender a luz é descobrir novas possibilidades
-        para o futuro da energia.
-    </h3>
-
-    <a href="#inicio" class="btn-primary">
-        Voltar ao início
-        <i data-lucide="arrow-up"></i>
-    </a>
+    </div>
 
 </section>
 
 
 <!-- =====================================================
-     REFERÊNCIAS BIBLIOGRÁFICAS
+     REFERÊNCIAS
 ===================================================== -->
 
-<section class="references-section section-padding"
-         id="referencias">
+<section class="references-section section" id="referencias">
 
     <div class="section-heading">
 
-        <span class="section-tag">
-            BASE CIENTÍFICA DO PROJETO
-        </span>
+        <span class="section-tag">FONTES DE ESTUDO</span>
 
-        <h2>Referências e fontes de pesquisa</h2>
+        <h2>Referências e aprofundamento</h2>
 
         <p>
-
-            O conhecimento científico precisa ser
-            fundamentado em fontes confiáveis.
-
-            Consulte materiais de referência para
-            aprofundar os estudos.
-
+            Materiais para compreender os conceitos científicos
+            apresentados neste projeto.
         </p>
 
     </div>
 
-
-    <div class="reference-list">
+    <div class="references-list">
 
         <article>
-
-            <strong>1. EINSTEIN, Albert.</strong>
-
-            <p>
-                On a Heuristic Point of View Concerning
-                the Production and Transformation of Light.
-                Annalen der Physik, 1905.
-            </p>
-
-            <a href="https://doi.org/10.1002/andp.19053220607"
-               target="_blank"
-               rel="noopener noreferrer">
-                Consultar artigo científico
-            </a>
-
+            <strong>HALLIDAY, David; RESNICK, Robert; WALKER, Jearl.</strong>
+            <p>Fundamentos de Física: Óptica e Física Moderna.</p>
         </article>
 
-
         <article>
-
-            <strong>2. NOBEL PRIZE.</strong>
-
+            <strong>EINSTEIN, Albert.</strong>
             <p>
-                Albert Einstein — Nobel Prize in Physics 1921.
+                Sobre um ponto de vista heurístico relativo à produção
+                e transformação da luz (1905).
             </p>
-
-            <a href="https://www.nobelprize.org/prizes/physics/1921/summary/"
-               target="_blank"
-               rel="noopener noreferrer">
-                Consultar biografia e prêmio
-            </a>
-
         </article>
 
-
         <article>
-
-            <strong>3. OPENSTAX.</strong>
-
+            <strong>PLANCK, Max.</strong>
             <p>
-                University Physics — conceitos de física
-                moderna, radiação e efeito fotoelétrico.
+                Estudos sobre a distribuição de energia no espectro
+                normal (1900).
             </p>
-
-            <a href="https://openstax.org/details/books/university-physics-volume-3"
-               target="_blank"
-               rel="noopener noreferrer">
-                Consultar material educacional
-            </a>
-
         </article>
 
-
         <article>
-
-            <strong>4. NREL — NATIONAL RENEWABLE ENERGY LABORATORY.</strong>
-
+            <strong>ARDUINO.</strong>
             <p>
-                Materiais de pesquisa e educação
-                sobre energia solar fotovoltaica.
+                Documentação oficial sobre programação,
+                placas e projetos de eletrônica.
             </p>
-
-            <a href="https://www.nrel.gov/"
-               target="_blank"
-               rel="noopener noreferrer">
-                Acessar NREL
-            </a>
-
-        </article>
-
-
-        <article>
-
-            <strong>5. DEPARTMENT OF ENERGY — UNITED STATES.</strong>
-
-            <p>
-                Informações sobre tecnologias
-                de energia solar.
-            </p>
-
-            <a href="https://www.energy.gov/eere/solar/solar-energy-technologies-office"
-               target="_blank"
-               rel="noopener noreferrer">
-                Consultar materiais de energia solar
-            </a>
-
-        </article>
-
-
-        <article>
-
-            <strong>6. ARDUINO.</strong>
-
-            <p>
-                Documentação oficial da plataforma,
-                programação e eletrônica.
-            </p>
-
             <a href="https://docs.arduino.cc/"
                target="_blank"
                rel="noopener noreferrer">
-                Consultar documentação Arduino
+                Acessar documentação Arduino →
             </a>
-
-        </article>
-
-
-        <article>
-
-            <strong>7. W3C — WEB ACCESSIBILITY INITIATIVE.</strong>
-
-            <p>
-                Diretrizes internacionais para
-                acessibilidade na web.
-            </p>
-
-            <a href="https://www.w3.org/WAI/standards-guidelines/wcag/"
-               target="_blank"
-               rel="noopener noreferrer">
-                Consultar diretrizes WCAG
-            </a>
-
-        </article>
-
-
-        <article>
-
-            <strong>8. VLibras.</strong>
-
-            <p>
-                Ferramenta de tradução de conteúdos
-                digitais para Língua Brasileira de Sinais.
-            </p>
-
-            <a href="https://www.gov.br/governodigital/pt-br/vlibras"
-               target="_blank"
-               rel="noopener noreferrer">
-                Consultar VLibras
-            </a>
-
         </article>
 
     </div>
 
 </section>
-
-
-<!-- =====================================================
-     MAPA DO SITE
-===================================================== -->
-
-<section class="sitemap-section section-padding" id="mapa">
-
-    <div class="section-heading">
-
-        <span class="section-tag">
-            ORGANIZAÇÃO E NAVEGAÇÃO
-        </span>
-
-        <h2>Mapa do site</h2>
-
-        <p>
-
-            Utilize os links abaixo para acessar
-            rapidamente qualquer conteúdo do projeto.
-
-        </p>
-
-    </div>
-
-
-    <div class="sitemap-grid">
-
-        <a href="#inicio">Página inicial</a>
-
-        <a href="#introducao">Introdução</a>
-
-        <a href="#fundamentos">Fundamentos da luz</a>
-
-        <a href="#quantica">Física quântica</a>
-
-        <a href="#fotoeletrico">Efeito fotoelétrico</a>
-
-        <a href="#corpo-negro">Radiação do corpo negro</a>
-
-        <a href="#fotovoltaica">Células fotovoltaicas</a>
-
-        <a href="#comparacao">Comparação de tecnologias</a>
-
-        <a href="#aplicacoes">Aplicações na piscina</a>
-
-        <a href="#robotica">Robótica e sensores</a>
-
-        <a href="#projeto-robotica">Projeto prático Arduino</a>
-
-        <a href="#laboratorio">Simuladores</a>
-
-        <a href="#sustentabilidade">Sustentabilidade</a>
-
-        <a href="#quiz">Quiz interativo</a>
-
-        <a href="#glossario">Glossário</a>
-
-        <a href="#inclusao">Acessibilidade e inclusão</a>
-
-        <a href="#referencias">Referências</a>
-
-    </div>
-
-</section>
-
 
 </main>
 
@@ -4337,35 +1630,51 @@ void loop() {
 
     <div class="footer-content">
 
-        <a href="#inicio" class="logo footer-logo">
-            ☀ LUZ EM ENERGIA
-        </a>
+        <div class="footer-brand">
 
-        <p>
-            Projeto Integrador CEP • 3º Trimestre
-        </p>
+            <span class="footer-icon">☀</span>
 
-        <p>
-            Física quântica, efeito fotoelétrico,
-            energia solar e robótica.
-        </p>
+            <h3>LUZ EM ENERGIA</h3>
 
-        <div class="footer-links">
-
-            <a href="#mapa">Mapa do site</a>
-
-            <a href="#referencias">Referências</a>
-
-            <a href="#acessibilidade">Acessibilidade</a>
+            <p>
+                Física, tecnologia e inovação em uma
+                experiência de aprendizagem.
+            </p>
 
         </div>
 
-        <span class="footer-copy">
+        <div class="footer-school">
 
-            Projeto educacional desenvolvido
-            para fins de aprendizagem.
+            <h4>PROJETO INTEGRADOR</h4>
 
-        </span>
+            <p>Colégio Estadual do Paraná</p>
+
+            <p>Programação • Tecnociência • Robótica</p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <h4>NAVEGAÇÃO</h4>
+
+            <a href="#inicio">Início</a>
+            <a href="#ondas">Ondas eletromagnéticas</a>
+            <a href="#fotoeletrico">Efeito fotoelétrico</a>
+            <a href="#robotica">Projeto de robótica</a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © <span class="current-year">2026</span>
+            Projeto Luz em Energia.
+            Desenvolvido para fins educacionais.
+        </p>
+
+        <a href="#inicio">Voltar ao início ↑</a>
 
     </div>
 
@@ -4376,36 +1685,17 @@ void loop() {
      BOTÃO VOLTAR AO TOPO
 ===================================================== -->
 
-<button id="backToTop"
-        class="back-to-top"
-        aria-label="Voltar ao início">
-
-    <i data-lucide="arrow-up"></i>
-
+<button class="back-to-top"
+        aria-label="Voltar ao topo">
+    ↑
 </button>
 
 
 <!-- =====================================================
-     VLibras
+     JAVASCRIPT
 ===================================================== -->
 
-<div vw class="enabled">
-
-    <div vw-access-button class="active"></div>
-
-    <div vw-plugin-wrapper>
-
-        <div class="vw-plugin-top-wrapper"></div>
-
-    </div>
-
-</div>
-
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-
-<script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
