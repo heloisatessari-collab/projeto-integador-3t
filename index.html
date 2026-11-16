@@ -1,50 +1,50 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Projeto escolar sobre o efeito fotoelétrico, Física Quântica, energia solar e robótica.">
-    <meta name="author" content="Projeto escolar de Física">
+    <meta name="description" content="Projeto educacional sobre efeito fotoelétrico, Física Quântica, energia solar e robótica.">
 
-    <title>Efeito Fotoelétrico | Física Quântica e Energia Solar</title>
+    <title>Efeito Fotoelétrico | Luz e Energia</title>
 
     <link rel="stylesheet" href="style.css">
+
     <script src="script.js" defer></script>
 </head>
 
 <body>
 
-<a class="skip-link" href="#conteudo">
-    Ir diretamente para o conteúdo
-</a>
+<a class="skip-link" href="#conteudo">Ir diretamente para o conteúdo</a>
 
 <header class="cabecalho">
 
     <div class="topo">
-        <div class="logo">
+
+        <a href="#inicio" class="logo">
             <span class="logo-icon">☀</span>
-            <div>
+
+            <span>
                 <strong>LUZ & ENERGIA</strong>
                 <small>Física Quântica e Robótica</small>
-            </div>
-        </div>
+            </span>
+        </a>
 
-        <button class="menu-toggle"
-                id="menuToggle"
-                aria-label="Abrir menu de navegação"
-                aria-expanded="false">
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Abrir menu" aria-expanded="false">
             ☰
         </button>
+
     </div>
 
     <nav class="navegacao" id="navegacao" aria-label="Menu principal">
         <a href="#inicio">Início</a>
         <a href="#introducao">Introdução</a>
         <a href="#historia">História</a>
-        <a href="#conceitos">Conceitos físicos</a>
-        <a href="#fotoeletrico">Efeito fotoelétrico</a>
-        <a href="#fotovoltaico">Energia solar</a>
+        <a href="#conceitos">Física Quântica</a>
+        <a href="#fotoeletrico">Efeito Fotoelétrico</a>
+        <a href="#fotovoltaico">Energia Solar</a>
         <a href="#robotica">Robótica</a>
         <a href="#simulacoes">Simulações</a>
         <a href="#experimentos">Experimentos</a>
@@ -52,34 +52,13 @@
         <a href="#referencias">Referências</a>
     </nav>
 
-    <div class="acessibilidade" aria-label="Ferramentas de acessibilidade">
-
+    <div class="acessibilidade">
         <span>Acessibilidade:</span>
-
-        <button id="diminuirFonte" type="button"
-                aria-label="Diminuir tamanho da fonte">
-            A-
-        </button>
-
-        <button id="aumentarFonte" type="button"
-                aria-label="Aumentar tamanho da fonte">
-            A+
-        </button>
-
-        <button id="alternarContraste" type="button"
-                aria-pressed="false">
-            Alto contraste
-        </button>
-
-        <button id="alternarLeitura" type="button"
-                aria-pressed="false">
-            Leitura confortável
-        </button>
-
-        <button id="restaurarAcessibilidade" type="button">
-            Restaurar
-        </button>
-
+        <button id="diminuirFonte" type="button">A-</button>
+        <button id="aumentarFonte" type="button">A+</button>
+        <button id="alternarContraste" type="button" aria-pressed="false">Alto contraste</button>
+        <button id="alternarLeitura" type="button" aria-pressed="false">Leitura confortável</button>
+        <button id="restaurarAcessibilidade" type="button">Restaurar</button>
     </div>
 
 </header>
@@ -87,78 +66,51 @@
 
 <main id="conteudo">
 
-    <!-- APRESENTAÇÃO -->
-
     <section class="hero" id="inicio">
 
         <div class="hero-conteudo">
 
             <span class="etiqueta">PROJETO DE FÍSICA E ROBÓTICA</span>
 
-            <h1>
-                Efeito Fotoelétrico e Conversão da Luz em Eletricidade
-            </h1>
+            <h1>Efeito Fotoelétrico e Conversão da Luz em Eletricidade</h1>
 
             <p class="hero-subtitulo">
                 Como a Física Quântica explica a transformação da luz
-                em energia elétrica e como essa tecnologia pode ser
-                aplicada em projetos de robótica.
+                em eletricidade e como esse conhecimento é aplicado
+                na tecnologia, na energia solar e na robótica.
             </p>
 
             <div class="hero-botoes">
-                <a href="#introducao" class="botao botao-principal">
-                    Explorar o conteúdo
-                </a>
-
-                <a href="#robotica" class="botao botao-secundario">
-                    Conhecer o projeto
-                </a>
+                <a href="#introducao" class="botao botao-principal">Explorar conteúdo</a>
+                <a href="#robotica" class="botao botao-secundario">Conhecer o projeto</a>
             </div>
 
         </div>
 
         <div class="hero-ilustracao" aria-hidden="true">
-            <div class="sol">
-                <span>☀</span>
-            </div>
-
-            <div class="raios">
-                <span>✦</span>
-                <span>✦</span>
-                <span>✦</span>
-            </div>
-
+            <div class="sol">☀</div>
             <div class="painel-ilustrativo">
                 <div class="painel-celulas"></div>
             </div>
-
-            <div class="energia-texto">
-                LUZ → ENERGIA
-            </div>
+            <div class="energia-texto">LUZ → ENERGIA</div>
         </div>
 
     </section>
 
 
-    <!-- INTRODUÇÃO -->
-
     <section class="secao" id="introducao">
 
         <div class="titulo-secao">
-            <span>01 — APRESENTAÇÃO DO TEMA</span>
+            <span>01 — APRESENTAÇÃO</span>
             <h2>Introdução</h2>
         </div>
 
         <div class="texto-destaque">
-
-            A luz está presente em praticamente todos os aspectos da
-            nossa vida. Além de permitir que enxerguemos o mundo,
+            A luz está presente em praticamente todos os aspectos
+            da nossa vida. Além de permitir que enxerguemos o mundo,
             ela também pode ser utilizada como fonte de energia.
-
             A transformação da luz em eletricidade é uma das aplicações
-            mais importantes da Física moderna e está diretamente
-            relacionada ao desenvolvimento da tecnologia fotovoltaica.
-
+            mais importantes da Física moderna.
         </div>
 
         <p>
@@ -178,14 +130,14 @@
         <p>
             A explicação desse fenômeno contribuiu para o desenvolvimento
             da Física Quântica e demonstrou que a luz também apresenta
-            comportamento corpuscular, ou seja, pode ser compreendida
-            como formada por partículas chamadas fótons.
+            comportamento corpuscular, podendo ser compreendida como
+            formada por partículas chamadas fótons.
         </p>
 
         <p>
-            Atualmente, os conhecimentos relacionados à interação
-            entre luz e matéria são fundamentais para tecnologias como
-            painéis solares, sensores de luminosidade, câmeras digitais,
+            Atualmente, os conhecimentos sobre a interação entre luz
+            e matéria são fundamentais para tecnologias como painéis
+            solares, sensores de luminosidade, câmeras digitais,
             sistemas automatizados e equipamentos eletrônicos.
         </p>
 
@@ -194,28 +146,19 @@
             <article class="cartao">
                 <span class="cartao-icone">⚛</span>
                 <h3>Física Quântica</h3>
-                <p>
-                    Estuda o comportamento da matéria e da energia
-                    em escalas muito pequenas.
-                </p>
+                <p>Estuda o comportamento da matéria e da energia em escalas muito pequenas.</p>
             </article>
 
             <article class="cartao">
                 <span class="cartao-icone">☀</span>
                 <h3>Energia Solar</h3>
-                <p>
-                    Utiliza a radiação solar para produzir energia,
-                    principalmente por meio de células fotovoltaicas.
-                </p>
+                <p>Utiliza a radiação solar para produzir energia por meio de células fotovoltaicas.</p>
             </article>
 
             <article class="cartao">
                 <span class="cartao-icone">🤖</span>
                 <h3>Robótica</h3>
-                <p>
-                    Integra sensores, circuitos e programação
-                    para desenvolver sistemas inteligentes.
-                </p>
+                <p>Integra sensores, circuitos e programação para desenvolver sistemas inteligentes.</p>
             </article>
 
         </div>
@@ -223,12 +166,10 @@
     </section>
 
 
-    <!-- OBJETIVOS -->
-
     <section class="secao secao-alternada" id="objetivos">
 
         <div class="titulo-secao">
-            <span>02 — FINALIDADE DO ESTUDO</span>
+            <span>02 — FINALIDADE</span>
             <h2>Objetivos do projeto</h2>
         </div>
 
@@ -258,8 +199,6 @@
     </section>
 
 
-    <!-- HISTÓRIA -->
-
     <section class="secao" id="historia">
 
         <div class="titulo-secao">
@@ -282,11 +221,11 @@
         </p>
 
         <p>
-            Em 1900, o físico alemão
-            <strong>Max Planck</strong> apresentou uma hipótese
-            revolucionária: a energia não seria emitida ou absorvida
-            de maneira contínua em determinadas situações, mas em
-            pequenas quantidades discretas, chamadas quanta.
+            Em 1900, o físico alemão <strong>Max Planck</strong>
+            apresentou uma hipótese revolucionária: a energia não
+            seria emitida ou absorvida de maneira contínua em
+            determinadas situações, mas em pequenas quantidades
+            discretas, chamadas quanta.
         </p>
 
         <p>
@@ -299,58 +238,38 @@
 
             <article class="evento-tempo">
                 <span class="ano">1887</span>
-                <h3>Experimentos de Heinrich Hertz</h3>
-                <p>
-                    Hertz observou fenômenos relacionados à emissão
-                    de cargas elétricas quando determinados materiais
-                    eram iluminados.
-                </p>
+                <h3>Heinrich Hertz</h3>
+                <p>Observou fenômenos relacionados à emissão de cargas elétricas quando determinados materiais eram iluminados.</p>
             </article>
 
             <article class="evento-tempo">
                 <span class="ano">1900</span>
                 <h3>Max Planck</h3>
-                <p>
-                    Propôs a quantização da energia para explicar
-                    a radiação do corpo negro.
-                </p>
+                <p>Propôs a quantização da energia para explicar a radiação do corpo negro.</p>
             </article>
 
             <article class="evento-tempo">
                 <span class="ano">1905</span>
                 <h3>Albert Einstein</h3>
-                <p>
-                    Explicou o efeito fotoelétrico utilizando
-                    a hipótese dos quanta de luz.
-                </p>
+                <p>Explicou o efeito fotoelétrico utilizando a hipótese dos quanta de luz.</p>
             </article>
 
             <article class="evento-tempo">
                 <span class="ano">1916</span>
                 <h3>Robert Millikan</h3>
-                <p>
-                    Realizou experimentos detalhados que confirmaram
-                    a relação entre frequência da luz e energia
-                    dos elétrons emitidos.
-                </p>
+                <p>Realizou experimentos detalhados que confirmaram a relação entre frequência da luz e energia dos elétrons emitidos.</p>
             </article>
 
             <article class="evento-tempo">
                 <span class="ano">1921</span>
                 <h3>Prêmio Nobel de Einstein</h3>
-                <p>
-                    Einstein recebeu o Prêmio Nobel de Física,
-                    principalmente por sua explicação do efeito
-                    fotoelétrico.
-                </p>
+                <p>Einstein recebeu o Nobel de Física, principalmente por sua explicação do efeito fotoelétrico.</p>
             </article>
 
         </div>
 
     </section>
 
-
-    <!-- NATUREZA DA LUZ -->
 
     <section class="secao secao-alternada" id="conceitos">
 
@@ -360,36 +279,27 @@
         </div>
 
         <p>
-            A luz é uma forma de radiação eletromagnética que se propaga
-            pelo espaço transportando energia.
+            A luz é uma forma de radiação eletromagnética que se
+            propaga pelo espaço transportando energia.
         </p>
 
         <p>
             A Física demonstra que a luz apresenta uma característica
             chamada dualidade onda-partícula. Isso significa que,
             dependendo do fenômeno estudado e do experimento realizado,
-            ela pode apresentar propriedades ondulatórias ou
-            corpusculares.
+            ela pode apresentar propriedades ondulatórias ou corpusculares.
         </p>
 
         <div class="dupla-cartoes">
 
             <article class="cartao">
                 <h3>Comportamento ondulatório</h3>
-                <p>
-                    A luz apresenta fenômenos como interferência,
-                    difração e polarização, que são explicados
-                    por seu comportamento ondulatório.
-                </p>
+                <p>A luz apresenta fenômenos como interferência, difração e polarização, explicados por seu comportamento ondulatório.</p>
             </article>
 
             <article class="cartao">
                 <h3>Comportamento corpuscular</h3>
-                <p>
-                    Em determinadas interações com a matéria,
-                    a luz transfere energia em pacotes discretos
-                    chamados fótons.
-                </p>
+                <p>Em determinadas interações com a matéria, a luz transfere energia em pacotes discretos chamados fótons.</p>
             </article>
 
         </div>
@@ -397,7 +307,6 @@
         <h3>Principais grandezas da luz</h3>
 
         <div class="tabela-responsiva">
-
             <table>
                 <thead>
                     <tr>
@@ -406,43 +315,19 @@
                         <th>Significado</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    <tr>
-                        <td>Comprimento de onda</td>
-                        <td>λ</td>
-                        <td>Distância entre dois pontos equivalentes de uma onda.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Frequência</td>
-                        <td>f</td>
-                        <td>Número de oscilações por segundo.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Velocidade da luz</td>
-                        <td>c</td>
-                        <td>Velocidade de propagação da luz no vácuo.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Energia do fóton</td>
-                        <td>E</td>
-                        <td>Energia transportada por um fóton.</td>
-                    </tr>
+                    <tr><td>Comprimento de onda</td><td>λ</td><td>Distância entre dois pontos equivalentes de uma onda.</td></tr>
+                    <tr><td>Frequência</td><td>f</td><td>Número de oscilações por segundo.</td></tr>
+                    <tr><td>Velocidade da luz</td><td>c</td><td>Velocidade de propagação da luz no vácuo.</td></tr>
+                    <tr><td>Energia do fóton</td><td>E</td><td>Energia transportada por um fóton.</td></tr>
                 </tbody>
             </table>
-
         </div>
 
         <div class="formula">
             <span>Relação entre velocidade, frequência e comprimento de onda</span>
             <strong>c = λ · f</strong>
-            <p>
-                A velocidade da luz no vácuo é aproximadamente
-                300.000.000 metros por segundo.
-            </p>
+            <p>A velocidade da luz no vácuo é aproximadamente 300.000.000 metros por segundo.</p>
         </div>
 
         <h3>O espectro eletromagnético</h3>
@@ -454,7 +339,6 @@
         </p>
 
         <div class="espectro">
-
             <div class="faixa faixa-radio">Ondas de rádio</div>
             <div class="faixa faixa-micro">Micro-ondas</div>
             <div class="faixa faixa-infra">Infravermelho</div>
@@ -462,13 +346,9 @@
             <div class="faixa faixa-ultra">Ultravioleta</div>
             <div class="faixa faixa-raiox">Raios X</div>
             <div class="faixa faixa-gama">Raios gama</div>
-
         </div>
 
-        <p class="observacao">
-            Da esquerda para a direita, a frequência aumenta
-            e o comprimento de onda diminui.
-        </p>
+        <p class="observacao">Da esquerda para a direita, a frequência aumenta e o comprimento de onda diminui.</p>
 
         <h3>A luz visível</h3>
 
@@ -491,12 +371,10 @@
     </section>
 
 
-    <!-- PLANCK -->
-
     <section class="secao" id="planck">
 
         <div class="titulo-secao">
-            <span>05 — A QUANTIZAÇÃO DA ENERGIA</span>
+            <span>05 — QUANTIZAÇÃO DA ENERGIA</span>
             <h2>Max Planck e os quanta</h2>
         </div>
 
@@ -513,21 +391,12 @@
         </p>
 
         <div class="formula">
-            <span>Energia de um quantum</span>
+            <span>Energia de um fóton</span>
             <strong>E = h · f</strong>
-            <p>
-                h representa a constante de Planck e f representa
-                a frequência da radiação.
-            </p>
+            <p>h representa a constante de Planck e f representa a frequência da radiação.</p>
         </div>
 
-        <p>
-            A constante de Planck possui o valor aproximado:
-        </p>
-
-        <div class="numero-destaque">
-            h = 6,626 × 10⁻³⁴ J·s
-        </div>
+        <div class="numero-destaque">h = 6,626 × 10⁻³⁴ J·s</div>
 
         <p>
             Essa relação demonstra que a energia de um fóton
@@ -538,8 +407,6 @@
 
     </section>
 
-
-    <!-- EFEITO FOTOELÉTRICO -->
 
     <section class="secao secao-alternada" id="fotoeletrico">
 
@@ -564,27 +431,19 @@
         </p>
 
         <div class="imagem-conceitual">
-
-            <div class="metal">
-                <span>SUPERFÍCIE METÁLICA</span>
-                <div class="eletrons-metal">
-                    <i>−</i>
-                    <i>−</i>
-                    <i>−</i>
-                    <i>−</i>
-                    <i>−</i>
-                </div>
-            </div>
-
             <div class="luz-incidente">
                 ↓ ↓ ↓ ↓
                 <span>FÓTONS</span>
             </div>
 
-            <div class="eletrons-emitidos">
-                ↗ e⁻ &nbsp; ↗ e⁻ &nbsp; ↗ e⁻
-            </div>
+            <div class="eletrons-emitidos">↗ e⁻ &nbsp; ↗ e⁻ &nbsp; ↗ e⁻</div>
 
+            <div class="metal">
+                <span>SUPERFÍCIE METÁLICA</span>
+                <div class="eletrons-metal">
+                    <i>−</i><i>−</i><i>−</i><i>−</i><i>−</i>
+                </div>
+            </div>
         </div>
 
         <h3>Como acontece?</h3>
@@ -601,8 +460,8 @@
 
         <p>
             Em 1905, Albert Einstein explicou o efeito fotoelétrico
-            considerando que a luz é formada por partículas
-            chamadas fótons.
+            considerando que a luz é formada por partículas chamadas
+            fótons.
         </p>
 
         <p>
@@ -615,18 +474,13 @@
 
         <p>
             A função trabalho representa a energia mínima necessária
-            para retirar um elétron da superfície de determinado
-            material.
+            para retirar um elétron da superfície de determinado material.
         </p>
 
         <div class="formula">
-            <span>Equação de Einstein para o efeito fotoelétrico</span>
+            <span>Equação de Einstein</span>
             <strong>Eₖ = h · f − Φ</strong>
-            <p>
-                Eₖ é a energia cinética máxima do elétron,
-                h é a constante de Planck,
-                f é a frequência da luz e Φ é a função trabalho.
-            </p>
+            <p>Eₖ é a energia cinética máxima do elétron, h é a constante de Planck, f é a frequência da luz e Φ é a função trabalho.</p>
         </div>
 
         <h3>Frequência de corte</h3>
@@ -648,17 +502,11 @@
         </p>
 
         <div class="caixa-atencao">
-            <strong>Importante:</strong>
-            aumentar a intensidade da luz aumenta a quantidade
-            de fótons incidentes, mas não substitui a necessidade
-            de que cada fóton tenha energia suficiente para
-            provocar a emissão.
+            <strong>Importante:</strong> aumentar a intensidade da luz aumenta a quantidade de fótons incidentes, mas não substitui a necessidade de que cada fóton tenha energia suficiente para provocar a emissão.
         </div>
 
     </section>
 
-
-    <!-- FOTOVOLTAICO -->
 
     <section class="secao" id="fotovoltaico">
 
@@ -704,49 +552,34 @@
         <h3>Como funciona uma placa solar?</h3>
 
         <div class="grade-cartoes">
-
             <article class="cartao">
                 <span class="cartao-icone">☀</span>
                 <h3>1. Incidência da luz</h3>
-                <p>
-                    A radiação solar chega à superfície
-                    das células fotovoltaicas.
-                </p>
+                <p>A radiação solar chega à superfície das células fotovoltaicas.</p>
             </article>
 
             <article class="cartao">
                 <span class="cartao-icone">⚛</span>
                 <h3>2. Absorção de energia</h3>
-                <p>
-                    Os fótons transferem energia ao material
-                    semicondutor.
-                </p>
+                <p>Os fótons transferem energia ao material semicondutor.</p>
             </article>
 
             <article class="cartao">
                 <span class="cartao-icone">⚡</span>
                 <h3>3. Separação de cargas</h3>
-                <p>
-                    O campo elétrico interno favorece
-                    a separação dos portadores de carga.
-                </p>
+                <p>O campo elétrico interno favorece a separação dos portadores de carga.</p>
             </article>
 
             <article class="cartao">
                 <span class="cartao-icone">🔌</span>
                 <h3>4. Corrente elétrica</h3>
-                <p>
-                    A conexão com um circuito externo permite
-                    aproveitar a energia elétrica produzida.
-                </p>
+                <p>A conexão com um circuito externo permite aproveitar a energia produzida.</p>
             </article>
-
         </div>
 
         <h3>Diferença entre efeito fotoelétrico e fotovoltaico</h3>
 
         <div class="tabela-responsiva">
-
             <table>
                 <thead>
                     <tr>
@@ -754,36 +587,29 @@
                         <th>Efeito fotovoltaico</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     <tr>
                         <td>Elétrons são emitidos para fora da superfície do material.</td>
                         <td>A luz gera portadores de carga dentro do semicondutor.</td>
                     </tr>
-
                     <tr>
                         <td>Depende da frequência mínima da radiação.</td>
                         <td>Depende das propriedades do semicondutor e da energia dos fótons.</td>
                     </tr>
-
                     <tr>
                         <td>É explicado pela transferência de energia dos fótons aos elétrons.</td>
                         <td>Produz uma diferença de potencial por meio da separação de cargas.</td>
                     </tr>
-
                     <tr>
                         <td>É estudado em experimentos de emissão eletrônica.</td>
                         <td>É utilizado em células solares para produzir eletricidade.</td>
                     </tr>
                 </tbody>
             </table>
-
         </div>
 
         <div class="caixa-atencao">
-            O efeito fotoelétrico externo e o efeito fotovoltaico
-            são fenômenos relacionados à interação entre luz e matéria,
-            mas não são exatamente a mesma coisa.
+            O efeito fotoelétrico externo e o efeito fotovoltaico são fenômenos relacionados à interação entre luz e matéria, mas não são exatamente a mesma coisa.
         </div>
 
         <h3>Aplicações da energia fotovoltaica</h3>
@@ -800,8 +626,6 @@
 
     </section>
 
-
-    <!-- ROBÓTICA -->
 
     <section class="secao secao-alternada" id="robotica">
 
@@ -827,34 +651,22 @@
         <div class="projeto-destaque">
             <span>PROJETO EXPERIMENTAL</span>
             <h3>Seguidor solar com Arduino e sensores LDR</h3>
-            <p>
-                Um sistema que identifica a diferença de iluminação
-                entre dois sensores e ajusta a posição do painel.
-            </p>
+            <p>Um sistema que identifica a diferença de iluminação entre dois sensores e ajusta a posição do painel.</p>
         </div>
 
         <h3>Imagem ilustrativa do protótipo</h3>
 
         <div class="imagem-prototipo">
+            <img src="robo-prototipo.png"
+                 alt="Protótipo de seguidor solar com painel fotovoltaico, Arduino, sensores LDR e servo motor"
+                 loading="lazy">
 
-            <img
-                src="robo-prototipo.png"
-                alt="Imagem do protótipo de seguidor solar com painel fotovoltaico, Arduino, sensores LDR e servo motor"
-                loading="lazy"
-            >
-
-            <p>
-                Representação do projeto de robótica.
-                A imagem deverá ser substituída pela fotografia
-                ou ilustração final do protótipo.
-            </p>
-
+            <p>Representação do projeto de robótica. Substitua esta imagem pela fotografia final do protótipo.</p>
         </div>
 
         <h3>Materiais necessários</h3>
 
         <div class="tabela-responsiva">
-
             <table>
                 <thead>
                     <tr>
@@ -863,58 +675,17 @@
                         <th>Função</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    <tr>
-                        <td>Arduino Uno</td>
-                        <td>1</td>
-                        <td>Controlar o funcionamento do sistema.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Sensor LDR</td>
-                        <td>2</td>
-                        <td>Identificar a intensidade da luz.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Resistores de 10 kΩ</td>
-                        <td>2</td>
-                        <td>Formar divisores de tensão com os LDRs.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Servo motor</td>
-                        <td>1</td>
-                        <td>Movimentar o suporte do painel.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Mini painel solar</td>
-                        <td>1</td>
-                        <td>Demonstrar a conversão da luz em eletricidade.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Protoboard</td>
-                        <td>1</td>
-                        <td>Montar o circuito sem soldagem.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Jumpers</td>
-                        <td>Conforme necessário</td>
-                        <td>Realizar as conexões elétricas.</td>
-                    </tr>
-
-                    <tr>
-                        <td>Estrutura de suporte</td>
-                        <td>1</td>
-                        <td>Fixar os componentes e permitir o movimento.</td>
-                    </tr>
+                    <tr><td>Arduino Uno</td><td>1</td><td>Controlar o funcionamento do sistema.</td></tr>
+                    <tr><td>Sensor LDR</td><td>2</td><td>Identificar a intensidade da luz.</td></tr>
+                    <tr><td>Resistores de 10 kΩ</td><td>2</td><td>Formar divisores de tensão com os LDRs.</td></tr>
+                    <tr><td>Servo motor</td><td>1</td><td>Movimentar o suporte do painel.</td></tr>
+                    <tr><td>Mini painel solar</td><td>1</td><td>Demonstrar a conversão da luz em eletricidade.</td></tr>
+                    <tr><td>Protoboard</td><td>1</td><td>Montar o circuito sem soldagem.</td></tr>
+                    <tr><td>Jumpers</td><td>Conforme necessário</td><td>Realizar as conexões elétricas.</td></tr>
+                    <tr><td>Estrutura de suporte</td><td>1</td><td>Fixar os componentes e permitir o movimento.</td></tr>
                 </tbody>
             </table>
-
         </div>
 
         <h3>Funcionamento do projeto</h3>
@@ -931,7 +702,6 @@
         <h3>Conexões do Arduino</h3>
 
         <div class="tabela-responsiva">
-
             <table>
                 <thead>
                     <tr>
@@ -939,50 +709,20 @@
                         <th>Conexão</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    <tr>
-                        <td>LDR esquerdo</td>
-                        <td>A0</td>
-                    </tr>
-
-                    <tr>
-                        <td>LDR direito</td>
-                        <td>A1</td>
-                    </tr>
-
-                    <tr>
-                        <td>Sinal do servo</td>
-                        <td>D9</td>
-                    </tr>
-
-                    <tr>
-                        <td>Alimentação dos sensores</td>
-                        <td>5 V e GND, conforme o divisor de tensão.</td>
-                    </tr>
+                    <tr><td>LDR esquerdo</td><td>A0</td></tr>
+                    <tr><td>LDR direito</td><td>A1</td></tr>
+                    <tr><td>Sinal do servo</td><td>D9</td></tr>
+                    <tr><td>Alimentação dos sensores</td><td>5 V e GND, conforme o divisor de tensão.</td></tr>
                 </tbody>
             </table>
-
         </div>
 
         <div class="caixa-atencao">
-            <strong>Segurança elétrica:</strong>
-            o servo motor pode precisar de uma fonte regulada externa
-            compatível com suas especificações. Nesse caso, o GND
-            da fonte deve ser ligado ao GND do Arduino. Não ligue
-            o painel solar diretamente aos pinos do Arduino.
-            Utilize um circuito de regulagem e proteção adequado
-            para aproveitar a energia produzida.
+            <strong>Segurança elétrica:</strong> o servo motor pode precisar de uma fonte regulada externa compatível com suas especificações. Nesse caso, o GND da fonte deve ser ligado ao GND do Arduino. Não ligue o painel solar diretamente aos pinos do Arduino. Utilize um circuito de regulagem e proteção adequado para aproveitar a energia produzida.
         </div>
 
         <h3>Programação do Arduino</h3>
-
-        <p>
-            O código abaixo apresenta uma versão didática de um
-            seguidor solar de um eixo. A posição inicial do servo,
-            a orientação dos sensores e o sentido do movimento
-            deverão ser ajustados durante os testes.
-        </p>
 
         <pre class="codigo"><code>
 #include &lt;Servo.h&gt;
@@ -998,14 +738,10 @@ int posicao = 90;
 const int diferencaMinima = 35;
 
 void setup() {
-
     Serial.begin(9600);
-
     motorSolar.attach(pinoServo);
     motorSolar.write(posicao);
-
     delay(500);
-
 }
 
 void loop() {
@@ -1021,16 +757,11 @@ void loop() {
     Serial.print(" | LDR direito: ");
     Serial.println(luzDireita);
 
-    if (diferenca &gt; diferencaMinima) {
-
+    if (diferenca > diferencaMinima) {
         posicao++;
-
     }
-
-    else if (diferenca &lt; -diferencaMinima) {
-
+    else if (diferenca < -diferencaMinima) {
         posicao--;
-
     }
 
     posicao = constrain(posicao, 0, 180);
@@ -1038,15 +769,14 @@ void loop() {
     motorSolar.write(posicao);
 
     delay(50);
-
 }
         </code></pre>
 
         <p>
-            O valor de diferença mínima evita movimentos
-            excessivos quando os sensores recebem luminosidade
-            semelhante. O programa pode ser aperfeiçoado com
-            calibração, média de leituras e limites mecânicos.
+            O valor de diferença mínima evita movimentos excessivos
+            quando os sensores recebem luminosidade semelhante.
+            O programa pode ser aperfeiçoado com calibração,
+            média de leituras e limites mecânicos.
         </p>
 
         <h3>Resultados esperados</h3>
@@ -1062,8 +792,6 @@ void loop() {
     </section>
 
 
-    <!-- SIMULAÇÕES -->
-
     <section class="secao" id="simulacoes">
 
         <div class="titulo-secao">
@@ -1073,26 +801,11 @@ void loop() {
 
         <h3>Simulação da energia de um fóton</h3>
 
-        <p>
-            Modifique a frequência da radiação para observar
-            como a energia de um fóton varia.
-        </p>
+        <p>Modifique a frequência da radiação para observar como a energia de um fóton varia.</p>
 
         <div class="simulador">
-
-            <label for="frequencia">
-                Frequência da radiação:
-            </label>
-
-            <input
-                type="range"
-                id="frequencia"
-                min="1"
-                max="10"
-                step="0.1"
-                value="5"
-            >
-
+            <label for="frequencia">Frequência da radiação:</label>
+            <input type="range" id="frequencia" min="1" max="10" step="0.1" value="5">
             <output id="valorFrequencia">5 × 10¹⁴ Hz</output>
 
             <div class="resultado-simulacao">
@@ -1100,102 +813,50 @@ void loop() {
                 <strong id="energiaFoton">3,31 × 10⁻¹⁹ J</strong>
             </div>
 
-            <p id="explicacaoFrequencia">
-                Quanto maior a frequência, maior a energia do fóton.
-            </p>
-
+            <p id="explicacaoFrequencia">Quanto maior a frequência, maior a energia do fóton.</p>
         </div>
-
 
         <h3>Simulação do efeito fotoelétrico</h3>
 
-        <p>
-            Escolha uma frequência de luz e observe se ela
-            consegue superar a frequência de corte do material.
-        </p>
+        <p>Escolha uma frequência de luz e observe se ela consegue superar a frequência de corte do material.</p>
 
         <div class="simulador">
-
-            <label for="frequenciaFoto">
-                Frequência da luz:
-            </label>
-
-            <input
-                type="range"
-                id="frequenciaFoto"
-                min="1"
-                max="10"
-                step="0.1"
-                value="4"
-            >
-
+            <label for="frequenciaFoto">Frequência da luz:</label>
+            <input type="range" id="frequenciaFoto" min="1" max="10" step="0.1" value="4">
             <output id="valorFrequenciaFoto">4 × 10¹⁴ Hz</output>
 
             <button id="testarFotoeletrico" class="botao botao-principal">
                 Testar incidência da luz
             </button>
 
-            <div id="resultadoFotoeletrico" class="resultado-simulacao"
-                 aria-live="polite">
+            <div id="resultadoFotoeletrico" class="resultado-simulacao" aria-live="polite">
                 Ajuste a frequência e clique em testar.
             </div>
-
         </div>
-
 
         <h3>Simulação dos sensores LDR</h3>
 
-        <p>
-            Ajuste a luminosidade dos sensores para observar
-            como o sistema de robótica pode identificar
-            qual lado recebe mais luz.
-        </p>
+        <p>Ajuste a luminosidade dos sensores para observar como o sistema identifica qual lado recebe mais luz.</p>
 
         <div class="simulador">
 
-            <label for="luzEsquerda">
-                Luminosidade do sensor esquerdo:
-            </label>
-
-            <input
-                type="range"
-                id="luzEsquerda"
-                min="0"
-                max="1023"
-                value="800"
-            >
-
+            <label for="luzEsquerda">Luminosidade do sensor esquerdo:</label>
+            <input type="range" id="luzEsquerda" min="0" max="1023" value="800">
             <output id="valorLuzEsquerda">800</output>
 
-            <label for="luzDireita">
-                Luminosidade do sensor direito:
-            </label>
-
-            <input
-                type="range"
-                id="luzDireita"
-                min="0"
-                max="1023"
-                value="400"
-            >
-
+            <label for="luzDireita">Luminosidade do sensor direito:</label>
+            <input type="range" id="luzDireita" min="0" max="1023" value="400">
             <output id="valorLuzDireita">400</output>
 
             <div class="resultado-simulacao">
-                <strong id="direcaoSolar">
-                    Maior luminosidade à esquerda
-                </strong>
-                <p id="acaoSolar">
-                    O sistema deve ajustar o painel em direção à esquerda.
-                </p>
+                <strong id="direcaoSolar">Maior luminosidade à esquerda</strong>
+                <p id="acaoSolar">O sistema deve ajustar o painel em direção à esquerda.</p>
             </div>
 
         </div>
 
     </section>
 
-
-    <!-- EXPERIMENTOS -->
 
     <section class="secao secao-alternada" id="experimentos">
 
@@ -1206,55 +867,31 @@ void loop() {
 
         <article class="experimento">
             <h3>Experimento 1 — Comparação de luminosidade</h3>
-
-            <p>
-                Utilize dois sensores LDR e uma fonte de luz.
-                Observe como os valores de leitura mudam quando
-                a luz é aproximada de cada sensor.
-            </p>
-
+            <p>Utilize dois sensores LDR e uma fonte de luz. Observe como os valores de leitura mudam quando a luz é aproximada de cada sensor.</p>
             <strong>Objetivo:</strong>
             compreender o funcionamento dos sensores de luminosidade.
         </article>
 
         <article class="experimento">
             <h3>Experimento 2 — Energia solar</h3>
-
-            <p>
-                Utilize uma pequena célula fotovoltaica e um
-                multímetro para medir a tensão elétrica produzida
-                sob diferentes condições de iluminação.
-            </p>
-
+            <p>Utilize uma pequena célula fotovoltaica e um multímetro para medir a tensão elétrica produzida sob diferentes condições de iluminação.</p>
             <strong>Objetivo:</strong>
-            observar a produção de tensão elétrica pela incidência
-            de luz.
+            observar a produção de tensão elétrica pela incidência de luz.
         </article>
 
         <article class="experimento">
             <h3>Experimento 3 — Seguidor solar</h3>
-
-            <p>
-                Monte o circuito com Arduino, sensores LDR e servo
-                motor. Utilize uma luminária LED como fonte de luz
-                e observe a movimentação do suporte.
-            </p>
-
+            <p>Monte o circuito com Arduino, sensores LDR e servo motor. Utilize uma luminária LED como fonte de luz e observe a movimentação do suporte.</p>
             <strong>Objetivo:</strong>
             aplicar conhecimentos de Física, eletrônica e programação.
         </article>
 
         <div class="caixa-atencao">
-            As atividades devem ser realizadas com supervisão
-            do professor. Não observe diretamente o Sol e não
-            conecte componentes sem verificar suas especificações
-            elétricas.
+            As atividades devem ser realizadas com supervisão do professor. Não observe diretamente o Sol e não conecte componentes sem verificar suas especificações elétricas.
         </div>
 
     </section>
 
-
-    <!-- QUIZ -->
 
     <section class="secao" id="quiz">
 
@@ -1263,202 +900,78 @@ void loop() {
             <h2>Quiz: teste seus conhecimentos</h2>
         </div>
 
-        <p>
-            Responda às questões para verificar o que aprendeu
-            sobre o efeito fotoelétrico, a Física Quântica,
-            a energia solar e a robótica.
-        </p>
+        <p>Responda às questões para verificar o que aprendeu sobre o efeito fotoelétrico, a Física Quântica, a energia solar e a robótica.</p>
 
         <div id="quizContainer" class="quiz-container">
 
             <div class="pergunta-quiz">
                 <h3>1. O que é um fóton?</h3>
-
-                <label>
-                    <input type="radio" name="q1" value="a">
-                    Uma partícula que representa um pacote de energia da luz.
-                </label>
-
-                <label>
-                    <input type="radio" name="q1" value="b">
-                    Um tipo de resistor elétrico.
-                </label>
-
-                <label>
-                    <input type="radio" name="q1" value="c">
-                    Uma onda sonora.
-                </label>
+                <label><input type="radio" name="q1" value="a"> Uma partícula que representa um pacote de energia da luz.</label>
+                <label><input type="radio" name="q1" value="b"> Um tipo de resistor elétrico.</label>
+                <label><input type="radio" name="q1" value="c"> Uma onda sonora.</label>
             </div>
 
             <div class="pergunta-quiz">
                 <h3>2. Quem explicou o efeito fotoelétrico em 1905?</h3>
-
-                <label>
-                    <input type="radio" name="q2" value="a">
-                    Isaac Newton.
-                </label>
-
-                <label>
-                    <input type="radio" name="q2" value="b">
-                    Albert Einstein.
-                </label>
-
-                <label>
-                    <input type="radio" name="q2" value="c">
-                    Galileu Galilei.
-                </label>
+                <label><input type="radio" name="q2" value="a"> Isaac Newton.</label>
+                <label><input type="radio" name="q2" value="b"> Albert Einstein.</label>
+                <label><input type="radio" name="q2" value="c"> Galileu Galilei.</label>
             </div>
 
             <div class="pergunta-quiz">
                 <h3>3. O que representa a frequência da luz?</h3>
-
-                <label>
-                    <input type="radio" name="q3" value="a">
-                    O número de oscilações por segundo.
-                </label>
-
-                <label>
-                    <input type="radio" name="q3" value="b">
-                    A massa do painel solar.
-                </label>
-
-                <label>
-                    <input type="radio" name="q3" value="c">
-                    A temperatura do ambiente.
-                </label>
+                <label><input type="radio" name="q3" value="a"> O número de oscilações por segundo.</label>
+                <label><input type="radio" name="q3" value="b"> A massa do painel solar.</label>
+                <label><input type="radio" name="q3" value="c"> A temperatura do ambiente.</label>
             </div>
 
             <div class="pergunta-quiz">
                 <h3>4. O que acontece no efeito fotoelétrico externo?</h3>
-
-                <label>
-                    <input type="radio" name="q4" value="a">
-                    A luz é transformada em som.
-                </label>
-
-                <label>
-                    <input type="radio" name="q4" value="b">
-                    Elétrons são emitidos da superfície do material.
-                </label>
-
-                <label>
-                    <input type="radio" name="q4" value="c">
-                    O material deixa de conduzir eletricidade.
-                </label>
+                <label><input type="radio" name="q4" value="a"> A luz é transformada em som.</label>
+                <label><input type="radio" name="q4" value="b"> Elétrons são emitidos da superfície do material.</label>
+                <label><input type="radio" name="q4" value="c"> O material deixa de conduzir eletricidade.</label>
             </div>
 
             <div class="pergunta-quiz">
                 <h3>5. Qual é a função de uma célula fotovoltaica?</h3>
-
-                <label>
-                    <input type="radio" name="q5" value="a">
-                    Transformar energia luminosa em energia elétrica.
-                </label>
-
-                <label>
-                    <input type="radio" name="q5" value="b">
-                    Produzir combustível.
-                </label>
-
-                <label>
-                    <input type="radio" name="q5" value="c">
-                    Armazenar apenas energia sonora.
-                </label>
+                <label><input type="radio" name="q5" value="a"> Transformar energia luminosa em energia elétrica.</label>
+                <label><input type="radio" name="q5" value="b"> Produzir combustível.</label>
+                <label><input type="radio" name="q5" value="c"> Armazenar apenas energia sonora.</label>
             </div>
 
             <div class="pergunta-quiz">
                 <h3>6. Qual cientista propôs a quantização da energia em 1900?</h3>
-
-                <label>
-                    <input type="radio" name="q6" value="a">
-                    Max Planck.
-                </label>
-
-                <label>
-                    <input type="radio" name="q6" value="b">
-                    Charles Darwin.
-                </label>
-
-                <label>
-                    <input type="radio" name="q6" value="c">
-                    Michael Faraday.
-                </label>
+                <label><input type="radio" name="q6" value="a"> Max Planck.</label>
+                <label><input type="radio" name="q6" value="b"> Charles Darwin.</label>
+                <label><input type="radio" name="q6" value="c"> Michael Faraday.</label>
             </div>
 
             <div class="pergunta-quiz">
                 <h3>7. O que é um sensor LDR?</h3>
-
-                <label>
-                    <input type="radio" name="q7" value="a">
-                    Um sensor que varia sua resistência conforme a luz.
-                </label>
-
-                <label>
-                    <input type="radio" name="q7" value="b">
-                    Um motor de corrente alternada.
-                </label>
-
-                <label>
-                    <input type="radio" name="q7" value="c">
-                    Uma bateria recarregável.
-                </label>
+                <label><input type="radio" name="q7" value="a"> Um sensor que varia sua resistência conforme a luz.</label>
+                <label><input type="radio" name="q7" value="b"> Um motor de corrente alternada.</label>
+                <label><input type="radio" name="q7" value="c"> Uma bateria recarregável.</label>
             </div>
 
             <div class="pergunta-quiz">
                 <h3>8. Qual é a função do Arduino no projeto?</h3>
-
-                <label>
-                    <input type="radio" name="q8" value="a">
-                    Controlar as leituras dos sensores e o motor.
-                </label>
-
-                <label>
-                    <input type="radio" name="q8" value="b">
-                    Produzir a luz solar.
-                </label>
-
-                <label>
-                    <input type="radio" name="q8" value="c">
-                    Substituir o painel fotovoltaico.
-                </label>
+                <label><input type="radio" name="q8" value="a"> Controlar as leituras dos sensores e o motor.</label>
+                <label><input type="radio" name="q8" value="b"> Produzir a luz solar.</label>
+                <label><input type="radio" name="q8" value="c"> Substituir o painel fotovoltaico.</label>
             </div>
 
             <div class="pergunta-quiz">
                 <h3>9. O que acontece quando a frequência aumenta?</h3>
-
-                <label>
-                    <input type="radio" name="q9" value="a">
-                    A energia individual dos fótons aumenta.
-                </label>
-
-                <label>
-                    <input type="radio" name="q9" value="b">
-                    A energia dos fótons sempre diminui.
-                </label>
-
-                <label>
-                    <input type="radio" name="q9" value="c">
-                    A luz deixa de transportar energia.
-                </label>
+                <label><input type="radio" name="q9" value="a"> A energia individual dos fótons aumenta.</label>
+                <label><input type="radio" name="q9" value="b"> A energia dos fótons sempre diminui.</label>
+                <label><input type="radio" name="q9" value="c"> A luz deixa de transportar energia.</label>
             </div>
 
             <div class="pergunta-quiz">
                 <h3>10. Qual é o principal objetivo do seguidor solar?</h3>
-
-                <label>
-                    <input type="radio" name="q10" value="a">
-                    Ajustar a posição do painel conforme a luminosidade.
-                </label>
-
-                <label>
-                    <input type="radio" name="q10" value="b">
-                    Diminuir a intensidade do Sol.
-                </label>
-
-                <label>
-                    <input type="radio" name="q10" value="c">
-                    Transformar eletricidade em combustível.
-                </label>
+                <label><input type="radio" name="q10" value="a"> Ajustar a posição do painel conforme a luminosidade.</label>
+                <label><input type="radio" name="q10" value="b"> Diminuir a intensidade do Sol.</label>
+                <label><input type="radio" name="q10" value="c"> Transformar eletricidade em combustível.</label>
             </div>
 
             <button id="corrigirQuiz" class="botao botao-principal">
@@ -1471,8 +984,6 @@ void loop() {
 
     </section>
 
-
-    <!-- CONCLUSÃO -->
 
     <section class="secao secao-alternada" id="conclusao">
 
@@ -1512,14 +1023,11 @@ void loop() {
         <p>
             Dessa forma, o trabalho relaciona ciência, tecnologia
             e sustentabilidade, demonstrando a importância da
-            pesquisa científica para a sociedade e para o
-            desenvolvimento de novas soluções energéticas.
+            pesquisa científica para a sociedade.
         </p>
 
     </section>
 
-
-    <!-- REFERÊNCIAS -->
 
     <section class="secao" id="referencias">
 
@@ -1530,41 +1038,23 @@ void loop() {
 
         <ul class="referencias-lista">
 
-            <li>
-                EINSTEIN, Albert. Sobre um ponto de vista heurístico
-                relativo à produção e transformação da luz. 1905.
-            </li>
+            <li>EINSTEIN, Albert. Sobre um ponto de vista heurístico relativo à produção e transformação da luz. 1905.</li>
 
-            <li>
-                PLANCK, Max. Sobre a teoria da lei de distribuição
-                de energia do espectro normal. 1900.
-            </li>
+            <li>PLANCK, Max. Sobre a teoria da lei de distribuição de energia do espectro normal. 1900.</li>
 
             <li>
                 OPENSTAX. University Physics. Disponível em:
-                <a href="https://openstax.org/details/books/university-physics-volume-3"
-                   target="_blank" rel="noopener noreferrer">
-                    OpenStax — University Physics, Volume 3
-                </a>.
+                <a href="https://openstax.org/details/books/university-physics-volume-3" target="_blank" rel="noopener noreferrer">OpenStax — University Physics, Volume 3</a>.
             </li>
 
             <li>
-                KHAN ACADEMY. Física: efeito fotoelétrico.
-                Disponível em:
-                <a href="https://www.khanacademy.org/"
-                   target="_blank" rel="noopener noreferrer">
-                    Khan Academy
-                </a>.
+                KHAN ACADEMY. Física. Disponível em:
+                <a href="https://www.khanacademy.org/" target="_blank" rel="noopener noreferrer">Khan Academy</a>.
             </li>
 
             <li>
-                NASA. Informações científicas sobre energia solar
-                e aplicações espaciais.
-                Disponível em:
-                <a href="https://www.nasa.gov/"
-                   target="_blank" rel="noopener noreferrer">
-                    NASA
-                </a>.
+                NASA. Informações científicas sobre energia solar e aplicações espaciais.
+                <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA</a>.
             </li>
 
         </ul>
@@ -1577,21 +1067,10 @@ void loop() {
 <footer class="rodape">
 
     <div class="rodape-conteudo">
-
         <h2>LUZ & ENERGIA</h2>
-
-        <p>
-            Efeito Fotoelétrico e Conversão da Luz em Eletricidade
-        </p>
-
-        <p>
-            Projeto interdisciplinar de Física, Tecnologia e Robótica.
-        </p>
-
-        <p class="rodape-final">
-            Ciência, conhecimento e inovação para transformar o futuro.
-        </p>
-
+        <p>Efeito Fotoelétrico e Conversão da Luz em Eletricidade</p>
+        <p>Projeto interdisciplinar de Física, Tecnologia e Robótica.</p>
+        <p class="rodape-final">Ciência, conhecimento e inovação para transformar o futuro.</p>
     </div>
 
 </footer>
@@ -1601,6 +1080,22 @@ void loop() {
         aria-label="Voltar ao início da página">
     ↑
 </button>
+
+
+<!-- VLibras -->
+
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
 
 </body>
 </html>
