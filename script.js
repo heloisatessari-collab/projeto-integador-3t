@@ -1,13 +1,11 @@
 
 /* =========================================================
-   PROJETO: EFEITO FOTOELÉTRICO E CONVERSÃO DA LUZ EM ELETRICIDADE
+   PROJETO: EFEITO FOTOELÉTRICO
    JAVASCRIPT COMPLETO
    ========================================================= */
 
 
-/* =========================
-   1. MENU DE NAVEGAÇÃO
-   ========================= */
+/* MENU */
 
 const menuToggle = document.getElementById("menuToggle");
 const navegacao = document.getElementById("navegacao");
@@ -22,14 +20,12 @@ if (menuToggle && navegacao) {
 
         menuToggle.setAttribute(
             "aria-label",
-            aberto ? "Fechar menu de navegação" : "Abrir menu de navegação"
+            aberto ? "Fechar menu" : "Abrir menu"
         );
 
         menuToggle.textContent = aberto ? "✕" : "☰";
 
     });
-
-    // Fecha o menu quando um link é selecionado.
 
     navegacao.querySelectorAll("a").forEach(link => {
 
@@ -39,10 +35,7 @@ if (menuToggle && navegacao) {
 
             menuToggle.setAttribute("aria-expanded", "false");
 
-            menuToggle.setAttribute(
-                "aria-label",
-                "Abrir menu de navegação"
-            );
+            menuToggle.setAttribute("aria-label", "Abrir menu");
 
             menuToggle.textContent = "☰";
 
@@ -53,11 +46,7 @@ if (menuToggle && navegacao) {
 }
 
 
-/* =========================
-   2. ACESSIBILIDADE
-   ========================= */
-
-// Aumentar e diminuir o tamanho da fonte.
+/* ACESSIBILIDADE */
 
 const botaoAumentar = document.getElementById("aumentarFonte");
 const botaoDiminuir = document.getElementById("diminuirFonte");
@@ -77,7 +66,7 @@ if (botaoAumentar) {
 
         if (tamanhoFonte < 24) {
 
-            tamanhoFonte += 1;
+            tamanhoFonte++;
 
             atualizarFonte();
 
@@ -93,7 +82,7 @@ if (botaoDiminuir) {
 
         if (tamanhoFonte > 12) {
 
-            tamanhoFonte -= 1;
+            tamanhoFonte--;
 
             atualizarFonte();
 
@@ -104,7 +93,7 @@ if (botaoDiminuir) {
 }
 
 
-// Alto contraste.
+/* ALTO CONTRASTE */
 
 const botaoContraste = document.getElementById("alternarContraste");
 
@@ -124,7 +113,7 @@ if (botaoContraste) {
 }
 
 
-// Leitura confortável.
+/* LEITURA CONFORTÁVEL */
 
 const botaoLeitura = document.getElementById("alternarLeitura");
 
@@ -144,7 +133,7 @@ if (botaoLeitura) {
 }
 
 
-// Restaurar configurações de acessibilidade.
+/* RESTAURAR ACESSIBILIDADE */
 
 if (botaoRestaurar) {
 
@@ -159,15 +148,11 @@ if (botaoRestaurar) {
         document.body.classList.remove("leitura-confortavel");
 
         if (botaoContraste) {
-
             botaoContraste.setAttribute("aria-pressed", "false");
-
         }
 
         if (botaoLeitura) {
-
             botaoLeitura.setAttribute("aria-pressed", "false");
-
         }
 
     });
@@ -175,9 +160,7 @@ if (botaoRestaurar) {
 }
 
 
-/* =========================
-   3. BOTÃO VOLTAR AO TOPO
-   ========================= */
+/* VOLTAR AO TOPO */
 
 const voltarTopo = document.getElementById("voltarTopo");
 
@@ -209,33 +192,21 @@ if (voltarTopo) {
 }
 
 
-/* =========================
-   4. CONSTANTES DA FÍSICA
-   ========================= */
-
-// Constante de Planck em joules por segundo.
+/* CONSTANTES DA FÍSICA */
 
 const PLANCK = 6.62607015e-34;
 
-// Velocidade da luz no vácuo em metros por segundo.
-
 const VELOCIDADE_LUZ = 299792458;
-
-// Conversão de elétron-volt para joule.
 
 const ELETRON_VOLT = 1.602176634e-19;
 
 
-/* =========================
-   5. FORMATAÇÃO CIENTÍFICA
-   ========================= */
+/* FORMATAÇÃO CIENTÍFICA */
 
 function formatarCientifico(valor, casas = 2) {
 
     if (!Number.isFinite(valor)) {
-
         return "Valor inválido";
-
     }
 
     return valor.toExponential(casas).replace(".", ",");
@@ -243,9 +214,7 @@ function formatarCientifico(valor, casas = 2) {
 }
 
 
-/* =========================
-   6. SIMULAÇÃO DA ENERGIA DO FÓTON
-   ========================= */
+/* SIMULAÇÃO DA ENERGIA DO FÓTON */
 
 const controleFrequencia = document.getElementById("frequencia");
 
@@ -260,20 +229,16 @@ function atualizarEnergiaFoton() {
 
     if (!controleFrequencia) return;
 
-    const frequenciaEscala = Number(controleFrequencia.value);
+    const escala = Number(controleFrequencia.value);
 
-    // A frequência é representada em unidades de 10¹⁴ Hz.
-
-    const frequenciaReal = frequenciaEscala * 1e14;
-
-    // Equação de Planck: E = h × f.
+    const frequenciaReal = escala * 1e14;
 
     const energia = PLANCK * frequenciaReal;
 
     if (valorFrequencia) {
 
         valorFrequencia.textContent =
-            frequenciaEscala.toFixed(1).replace(".", ",") +
+            escala.toFixed(1).replace(".", ",") +
             " × 10¹⁴ Hz";
 
     }
@@ -287,12 +252,12 @@ function atualizarEnergiaFoton() {
 
     if (explicacaoFrequencia) {
 
-        if (frequenciaEscala < 3) {
+        if (escala < 3) {
 
             explicacaoFrequencia.textContent =
                 "A frequência está relativamente baixa. A energia individual de cada fóton também é menor.";
 
-        } else if (frequenciaEscala < 7) {
+        } else if (escala < 7) {
 
             explicacaoFrequencia.textContent =
                 "A frequência aumentou e, consequentemente, cada fóton transporta mais energia.";
@@ -310,19 +275,14 @@ function atualizarEnergiaFoton() {
 
 if (controleFrequencia) {
 
-    controleFrequencia.addEventListener(
-        "input",
-        atualizarEnergiaFoton
-    );
+    controleFrequencia.addEventListener("input", atualizarEnergiaFoton);
 
     atualizarEnergiaFoton();
 
 }
 
 
-/* =========================
-   7. SIMULAÇÃO DO EFEITO FOTOELÉTRICO
-   ========================= */
+/* SIMULAÇÃO DO EFEITO FOTOELÉTRICO */
 
 const frequenciaFoto = document.getElementById("frequenciaFoto");
 
@@ -332,10 +292,7 @@ const botaoTestarFoto = document.getElementById("testarFotoeletrico");
 
 const resultadoFoto = document.getElementById("resultadoFotoeletrico");
 
-
-// Para esta demonstração, adotamos um material hipotético
-// com frequência de corte de 5 × 10¹⁴ Hz.
-// Esse valor é didático, não representa todos os metais.
+// Frequência de corte hipotética para fins didáticos.
 
 const FREQUENCIA_CORTE = 5e14;
 
@@ -357,22 +314,17 @@ function atualizarFrequenciaFoto() {
 
 if (frequenciaFoto) {
 
-    frequenciaFoto.addEventListener(
-        "input",
-        atualizarFrequenciaFoto
-    );
+    frequenciaFoto.addEventListener("input", atualizarFrequenciaFoto);
 
     atualizarFrequenciaFoto();
 
 }
 
-
 if (botaoTestarFoto) {
 
     botaoTestarFoto.addEventListener("click", () => {
 
-        const frequencia =
-            Number(frequenciaFoto.value) * 1e14;
+        const frequencia = Number(frequenciaFoto.value) * 1e14;
 
         const energiaFotonJ = PLANCK * frequencia;
 
@@ -412,9 +364,7 @@ if (botaoTestarFoto) {
 }
 
 
-/* =========================
-   8. SIMULAÇÃO DOS SENSORES LDR
-   ========================= */
+/* SIMULAÇÃO DOS SENSORES LDR */
 
 const luzEsquerda = document.getElementById("luzEsquerda");
 
@@ -440,15 +390,11 @@ function atualizarSensores() {
     const diferenca = esquerda - direita;
 
     if (valorLuzEsquerda) {
-
         valorLuzEsquerda.textContent = esquerda;
-
     }
 
     if (valorLuzDireita) {
-
         valorLuzDireita.textContent = direita;
-
     }
 
     if (!direcaoSolar || !acaoSolar) return;
@@ -479,36 +425,23 @@ function atualizarSensores() {
 }
 
 if (luzEsquerda) {
-
-    luzEsquerda.addEventListener(
-        "input",
-        atualizarSensores
-    );
-
+    luzEsquerda.addEventListener("input", atualizarSensores);
 }
 
 if (luzDireita) {
-
-    luzDireita.addEventListener(
-        "input",
-        atualizarSensores
-    );
-
+    luzDireita.addEventListener("input", atualizarSensores);
 }
 
 atualizarSensores();
 
 
-/* =========================
-   9. QUIZ INTERATIVO
-   ========================= */
+/* QUIZ */
 
 const botaoCorrigir = document.getElementById("corrigirQuiz");
 
 const resultadoQuiz = document.getElementById("resultadoQuiz");
 
 const respostasCorretas = {
-
     q1: "a",
     q2: "b",
     q3: "a",
@@ -519,7 +452,6 @@ const respostasCorretas = {
     q8: "a",
     q9: "a",
     q10: "a"
-
 };
 
 
@@ -531,11 +463,9 @@ if (botaoCorrigir) {
 
         let respondidas = 0;
 
-        const totalQuestoes = Object.keys(respostasCorretas).length;
+        const total = Object.keys(respostasCorretas).length;
 
         const perguntas = document.querySelectorAll(".pergunta-quiz");
-
-        // Remove as marcações anteriores.
 
         perguntas.forEach(pergunta => {
 
@@ -548,9 +478,6 @@ if (botaoCorrigir) {
             });
 
         });
-
-
-        // Verifica cada resposta.
 
         for (const [questao, respostaCorreta] of
             Object.entries(respostasCorretas)) {
@@ -568,20 +495,14 @@ if (botaoCorrigir) {
                 respondidas++;
 
                 if (selecionada.value === respostaCorreta) {
-
                     acertos++;
-
                 }
 
             }
 
-            // Destaca a alternativa correta.
-
             if (pergunta) {
 
-                const opcoes = pergunta.querySelectorAll("label");
-
-                opcoes.forEach(label => {
+                pergunta.querySelectorAll("label").forEach(label => {
 
                     const input = label.querySelector("input");
 
@@ -591,10 +512,7 @@ if (botaoCorrigir) {
 
                         label.style.background = "#e2f8e9";
 
-                    } else if (
-                        selecionada &&
-                        input.checked
-                    ) {
+                    } else if (selecionada && input.checked) {
 
                         label.style.border = "2px solid #c63c3c";
 
@@ -608,19 +526,16 @@ if (botaoCorrigir) {
 
         }
 
-
-        const percentual = Math.round(
-            (acertos / totalQuestoes) * 100
-        );
+        const percentual = Math.round((acertos / total) * 100);
 
         resultadoQuiz.className = "";
 
-        if (respondidas < totalQuestoes) {
+        if (respondidas < total) {
 
             resultadoQuiz.classList.add("resultado-negativo");
 
             resultadoQuiz.innerHTML = `
-                <strong>Você respondeu ${respondidas} de ${totalQuestoes} questões.</strong>
+                <strong>Você respondeu ${respondidas} de ${total} questões.</strong>
                 <br>
                 Acertos até agora: ${acertos}.
                 <br>
@@ -634,7 +549,7 @@ if (botaoCorrigir) {
             resultadoQuiz.innerHTML = `
                 <strong>Excelente resultado!</strong>
                 <br>
-                Você acertou ${acertos} de ${totalQuestoes} questões.
+                Você acertou ${acertos} de ${total} questões.
                 <br>
                 Aproveitamento: ${percentual}%.
                 <br>
@@ -648,7 +563,7 @@ if (botaoCorrigir) {
             resultadoQuiz.innerHTML = `
                 <strong>Bom trabalho!</strong>
                 <br>
-                Você acertou ${acertos} de ${totalQuestoes} questões.
+                Você acertou ${acertos} de ${total} questões.
                 <br>
                 Aproveitamento: ${percentual}%.
                 <br>
@@ -662,7 +577,7 @@ if (botaoCorrigir) {
             resultadoQuiz.innerHTML = `
                 <strong>Continue estudando!</strong>
                 <br>
-                Você acertou ${acertos} de ${totalQuestoes} questões.
+                Você acertou ${acertos} de ${total} questões.
                 <br>
                 Aproveitamento: ${percentual}%.
                 <br>
@@ -676,16 +591,9 @@ if (botaoCorrigir) {
 }
 
 
-/* =========================
-   10. NAVEGAÇÃO POR TECLADO
-   ========================= */
+/* NAVEGAÇÃO POR TECLADO */
 
-// O HTML utiliza links, botões, campos e controles nativos,
-// que já permitem navegação pelo teclado.
-// Este trecho oferece uma ajuda adicional ao fechar o menu
-// com a tecla Escape.
-
-document.addEventListener("keydown", (evento) => {
+document.addEventListener("keydown", evento => {
 
     if (evento.key === "Escape" && navegacao && menuToggle) {
 
@@ -693,10 +601,7 @@ document.addEventListener("keydown", (evento) => {
 
         menuToggle.setAttribute("aria-expanded", "false");
 
-        menuToggle.setAttribute(
-            "aria-label",
-            "Abrir menu de navegação"
-        );
+        menuToggle.setAttribute("aria-label", "Abrir menu");
 
         menuToggle.textContent = "☰";
 
@@ -707,18 +612,12 @@ document.addEventListener("keydown", (evento) => {
 });
 
 
-/* =========================
-   11. VERIFICAÇÃO INICIAL
-   ========================= */
+/* CONFIRMAÇÃO DE CARREGAMENTO */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    console.log(
-        "Projeto Física Quântica carregado com sucesso!"
-    );
+    console.log("Projeto Luz & Energia carregado com sucesso!");
 
-    console.log(
-        "Simulações de fótons, efeito fotoelétrico e sensores LDR disponíveis."
-    );
+    console.log("Simulações e recursos de acessibilidade disponíveis.");
 
 });
