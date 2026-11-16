@@ -1,687 +1,724 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+/* =========================================================
+   PROJETO: EFEITO FOTOELÉTRICO E CONVERSÃO DA LUZ EM ELETRICIDADE
+   JAVASCRIPT COMPLETO
+   ========================================================= */
 
-    const PLANCK = 6.62607015e-34;
-    const LIGHT_SPEED = 299792458;
-    const WIEN = 2.897771955e-3;
 
-    const formatarCientifico = (valor, casas = 2) => {
-        if (!Number.isFinite(valor)) return "—";
-        return valor.toExponential(casas)
-            .replace(".", ",")
-            .replace("e+", " × 10^")
-            .replace("e-", " × 10⁻")
-            .replace(" × 10^", " × 10^");
-    };
+/* =========================
+   1. MENU DE NAVEGAÇÃO
+   ========================= */
 
-    const formatarNumero = (valor, casas = 2) =>
-        valor.toLocaleString("pt-BR", {
-            maximumFractionDigits: casas
-        });
+const menuToggle = document.getElementById("menuToggle");
+const navegacao = document.getElementById("navegacao");
 
-    /* MENU RESPONSIVO */
+if (menuToggle && navegacao) {
 
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+    menuToggle.addEventListener("click", () => {
 
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener("click", () => {
-            mainNav.classList.toggle("active");
-            menuToggle.textContent =
-                mainNav.classList.contains("active") ? "✕" : "☰";
-        });
+        const aberto = navegacao.classList.toggle("aberto");
 
-        mainNav.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                mainNav.classList.remove("active");
-                menuToggle.textContent = "☰";
-            });
-        });
-    }
+        menuToggle.setAttribute("aria-expanded", String(aberto));
 
-    /* ANO DO RODAPÉ */
+        menuToggle.setAttribute(
+            "aria-label",
+            aberto ? "Fechar menu de navegação" : "Abrir menu de navegação"
+        );
 
-    document.querySelectorAll(".current-year").forEach(element => {
-        element.textContent = new Date().getFullYear();
+        menuToggle.textContent = aberto ? "✕" : "☰";
+
     });
 
-    /* BOTÃO VOLTAR AO TOPO */
+    // Fecha o menu quando um link é selecionado.
 
-    const backToTop = document.getElementById("backToTop");
+    navegacao.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navegacao.classList.remove("aberto");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Abrir menu de navegação"
+            );
+
+            menuToggle.textContent = "☰";
+
+        });
+
+    });
+
+}
+
+
+/* =========================
+   2. ACESSIBILIDADE
+   ========================= */
+
+// Aumentar e diminuir o tamanho da fonte.
+
+const botaoAumentar = document.getElementById("aumentarFonte");
+const botaoDiminuir = document.getElementById("diminuirFonte");
+const botaoRestaurar = document.getElementById("restaurarAcessibilidade");
+
+let tamanhoFonte = 16;
+
+function atualizarFonte() {
+
+    document.documentElement.style.fontSize = tamanhoFonte + "px";
+
+}
+
+if (botaoAumentar) {
+
+    botaoAumentar.addEventListener("click", () => {
+
+        if (tamanhoFonte < 24) {
+
+            tamanhoFonte += 1;
+
+            atualizarFonte();
+
+        }
+
+    });
+
+}
+
+if (botaoDiminuir) {
+
+    botaoDiminuir.addEventListener("click", () => {
+
+        if (tamanhoFonte > 12) {
+
+            tamanhoFonte -= 1;
+
+            atualizarFonte();
+
+        }
+
+    });
+
+}
+
+
+// Alto contraste.
+
+const botaoContraste = document.getElementById("alternarContraste");
+
+if (botaoContraste) {
+
+    botaoContraste.addEventListener("click", () => {
+
+        const ativado = document.body.classList.toggle("alto-contraste");
+
+        botaoContraste.setAttribute(
+            "aria-pressed",
+            String(ativado)
+        );
+
+    });
+
+}
+
+
+// Leitura confortável.
+
+const botaoLeitura = document.getElementById("alternarLeitura");
+
+if (botaoLeitura) {
+
+    botaoLeitura.addEventListener("click", () => {
+
+        const ativado = document.body.classList.toggle("leitura-confortavel");
+
+        botaoLeitura.setAttribute(
+            "aria-pressed",
+            String(ativado)
+        );
+
+    });
+
+}
+
+
+// Restaurar configurações de acessibilidade.
+
+if (botaoRestaurar) {
+
+    botaoRestaurar.addEventListener("click", () => {
+
+        tamanhoFonte = 16;
+
+        atualizarFonte();
+
+        document.body.classList.remove("alto-contraste");
+
+        document.body.classList.remove("leitura-confortavel");
+
+        if (botaoContraste) {
+
+            botaoContraste.setAttribute("aria-pressed", "false");
+
+        }
+
+        if (botaoLeitura) {
+
+            botaoLeitura.setAttribute("aria-pressed", "false");
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   3. BOTÃO VOLTAR AO TOPO
+   ========================= */
+
+const voltarTopo = document.getElementById("voltarTopo");
+
+if (voltarTopo) {
 
     window.addEventListener("scroll", () => {
-        if (backToTop) {
-            backToTop.classList.toggle("visible", window.scrollY > 450);
+
+        if (window.scrollY > 400) {
+
+            voltarTopo.classList.add("visivel");
+
+        } else {
+
+            voltarTopo.classList.remove("visivel");
+
         }
+
+    }, { passive: true });
+
+    voltarTopo.addEventListener("click", () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
     });
 
-    if (backToTop) {
-        backToTop.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
+}
+
+
+/* =========================
+   4. CONSTANTES DA FÍSICA
+   ========================= */
+
+// Constante de Planck em joules por segundo.
+
+const PLANCK = 6.62607015e-34;
+
+// Velocidade da luz no vácuo em metros por segundo.
+
+const VELOCIDADE_LUZ = 299792458;
+
+// Conversão de elétron-volt para joule.
+
+const ELETRON_VOLT = 1.602176634e-19;
+
+
+/* =========================
+   5. FORMATAÇÃO CIENTÍFICA
+   ========================= */
+
+function formatarCientifico(valor, casas = 2) {
+
+    if (!Number.isFinite(valor)) {
+
+        return "Valor inválido";
+
     }
 
-    /* ESPECTRO ELETROMAGNÉTICO */
+    return valor.toExponential(casas).replace(".", ",");
 
-    const spectrumData = {
-        radio: {
-            title: "Ondas de rádio",
-            text: "Possuem comprimentos de onda relativamente grandes e são utilizadas em transmissões de rádio, televisão, comunicação e sistemas de transmissão de sinais."
-        },
-        micro: {
-            title: "Micro-ondas",
-            text: "São utilizadas em fornos de micro-ondas, radares, sistemas de comunicação e redes sem fio. Em um forno, a radiação transfere energia principalmente a materiais que absorvem essa frequência."
-        },
-        infra: {
-            title: "Infravermelho",
-            text: "Está relacionado à radiação térmica emitida por corpos. É utilizado em controles remotos, câmeras térmicas, sensores e equipamentos de medição de temperatura."
-        },
-        visible: {
-            title: "Luz visível",
-            text: "É a faixa do espectro que pode ser percebida pelo olho humano. Inclui as cores que vão aproximadamente do vermelho ao violeta."
-        },
-        uv: {
-            title: "Ultravioleta",
-            text: "Possui frequência maior que a luz violeta. Está presente na radiação solar e pode provocar reações fotoquímicas. Parte da radiação ultravioleta é absorvida pela atmosfera."
-        },
-        xray: {
-            title: "Raios X",
-            text: "São radiações de alta energia utilizadas em exames de imagem e em diversas aplicações científicas e industriais. Podem atravessar materiais de maneiras diferentes."
-        },
-        gamma: {
-            title: "Raios gama",
-            text: "São radiações eletromagnéticas de frequência muito elevada, associadas a processos nucleares e fenômenos astrofísicos. Possuem grande capacidade de penetração."
+}
+
+
+/* =========================
+   6. SIMULAÇÃO DA ENERGIA DO FÓTON
+   ========================= */
+
+const controleFrequencia = document.getElementById("frequencia");
+
+const valorFrequencia = document.getElementById("valorFrequencia");
+
+const energiaFoton = document.getElementById("energiaFoton");
+
+const explicacaoFrequencia = document.getElementById("explicacaoFrequencia");
+
+
+function atualizarEnergiaFoton() {
+
+    if (!controleFrequencia) return;
+
+    const frequenciaEscala = Number(controleFrequencia.value);
+
+    // A frequência é representada em unidades de 10¹⁴ Hz.
+
+    const frequenciaReal = frequenciaEscala * 1e14;
+
+    // Equação de Planck: E = h × f.
+
+    const energia = PLANCK * frequenciaReal;
+
+    if (valorFrequencia) {
+
+        valorFrequencia.textContent =
+            frequenciaEscala.toFixed(1).replace(".", ",") +
+            " × 10¹⁴ Hz";
+
+    }
+
+    if (energiaFoton) {
+
+        energiaFoton.textContent =
+            formatarCientifico(energia) + " J";
+
+    }
+
+    if (explicacaoFrequencia) {
+
+        if (frequenciaEscala < 3) {
+
+            explicacaoFrequencia.textContent =
+                "A frequência está relativamente baixa. A energia individual de cada fóton também é menor.";
+
+        } else if (frequenciaEscala < 7) {
+
+            explicacaoFrequencia.textContent =
+                "A frequência aumentou e, consequentemente, cada fóton transporta mais energia.";
+
+        } else {
+
+            explicacaoFrequencia.textContent =
+                "A frequência está elevada. Cada fóton possui uma quantidade maior de energia.";
+
         }
-    };
 
-    const spectrumInfo = document.getElementById("spectrumInfo");
+    }
 
-    document.querySelectorAll("[data-spectrum]").forEach(button => {
-        button.addEventListener("click", () => {
-            const item = spectrumData[button.dataset.spectrum];
-            if (!item || !spectrumInfo) return;
+}
 
-            document.querySelectorAll("[data-spectrum]").forEach(btn => {
-                btn.classList.remove("active");
-            });
+if (controleFrequencia) {
 
-            button.classList.add("active");
+    controleFrequencia.addEventListener(
+        "input",
+        atualizarEnergiaFoton
+    );
 
-            spectrumInfo.innerHTML = `
-                <h4>${item.title}</h4>
-                <p>${item.text}</p>
+    atualizarEnergiaFoton();
+
+}
+
+
+/* =========================
+   7. SIMULAÇÃO DO EFEITO FOTOELÉTRICO
+   ========================= */
+
+const frequenciaFoto = document.getElementById("frequenciaFoto");
+
+const valorFrequenciaFoto = document.getElementById("valorFrequenciaFoto");
+
+const botaoTestarFoto = document.getElementById("testarFotoeletrico");
+
+const resultadoFoto = document.getElementById("resultadoFotoeletrico");
+
+
+// Para esta demonstração, adotamos um material hipotético
+// com frequência de corte de 5 × 10¹⁴ Hz.
+// Esse valor é didático, não representa todos os metais.
+
+const FREQUENCIA_CORTE = 5e14;
+
+function atualizarFrequenciaFoto() {
+
+    if (!frequenciaFoto) return;
+
+    const frequencia = Number(frequenciaFoto.value);
+
+    if (valorFrequenciaFoto) {
+
+        valorFrequenciaFoto.textContent =
+            frequencia.toFixed(1).replace(".", ",") +
+            " × 10¹⁴ Hz";
+
+    }
+
+}
+
+if (frequenciaFoto) {
+
+    frequenciaFoto.addEventListener(
+        "input",
+        atualizarFrequenciaFoto
+    );
+
+    atualizarFrequenciaFoto();
+
+}
+
+
+if (botaoTestarFoto) {
+
+    botaoTestarFoto.addEventListener("click", () => {
+
+        const frequencia =
+            Number(frequenciaFoto.value) * 1e14;
+
+        const energiaFotonJ = PLANCK * frequencia;
+
+        const energiaCorteJ = PLANCK * FREQUENCIA_CORTE;
+
+        const energiaCinetica = energiaFotonJ - energiaCorteJ;
+
+        if (frequencia >= FREQUENCIA_CORTE) {
+
+            const energiaEV = energiaCinetica / ELETRON_VOLT;
+
+            resultadoFoto.innerHTML = `
+                <strong>Emissão de elétrons!</strong>
+                A frequência da luz superou a frequência de corte.
+                A energia cinética máxima calculada é aproximadamente
+                ${formatarCientifico(energiaCinetica)} J
+                (${energiaEV.toFixed(3).replace(".", ",")} eV).
             `;
-        });
+
+            resultadoFoto.style.borderLeftColor = "#24964c";
+
+        } else {
+
+            resultadoFoto.innerHTML = `
+                <strong>Não ocorre emissão de elétrons.</strong>
+                A frequência escolhida é inferior à frequência de corte
+                do material utilizado nesta simulação.
+                É necessário aumentar a frequência da luz.
+            `;
+
+            resultadoFoto.style.borderLeftColor = "#d58b26";
+
+        }
+
     });
 
-    /* SIMULADOR DE ONDAS */
+}
 
-    const wavelength = document.getElementById("wavelength");
 
-    function atualizarOnda() {
-        if (!wavelength) return;
+/* =========================
+   8. SIMULAÇÃO DOS SENSORES LDR
+   ========================= */
 
-        const nm = Number(wavelength.value);
-        const metros = nm * 1e-9;
-        const frequencia = LIGHT_SPEED / metros;
+const luzEsquerda = document.getElementById("luzEsquerda");
 
-        document.getElementById("wavelengthValue").textContent =
-            nm + " nm";
+const luzDireita = document.getElementById("luzDireita");
 
-        document.getElementById("frequencyValue").textContent =
-            frequencia.toExponential(2).replace(".", ",") + " Hz";
+const valorLuzEsquerda = document.getElementById("valorLuzEsquerda");
 
-        let regiao = "Luz visível";
+const valorLuzDireita = document.getElementById("valorLuzDireita");
 
-        if (nm < 400) regiao = "Próxima do ultravioleta";
-        if (nm > 700) regiao = "Próxima do infravermelho";
+const direcaoSolar = document.getElementById("direcaoSolar");
 
-        document.getElementById("waveResult").textContent = regiao;
+const acaoSolar = document.getElementById("acaoSolar");
 
-        const wave = document.querySelector(".wave-line");
 
-        if (wave) {
-            const frequenciaVisual = 2 + (750 - nm) / 35;
-            wave.style.backgroundSize =
-                `${Math.max(12, frequenciaVisual * 5)}px 100%`;
-        }
+function atualizarSensores() {
+
+    if (!luzEsquerda || !luzDireita) return;
+
+    const esquerda = Number(luzEsquerda.value);
+
+    const direita = Number(luzDireita.value);
+
+    const diferenca = esquerda - direita;
+
+    if (valorLuzEsquerda) {
+
+        valorLuzEsquerda.textContent = esquerda;
+
     }
 
-    if (wavelength) {
-        wavelength.addEventListener("input", atualizarOnda);
-        atualizarOnda();
+    if (valorLuzDireita) {
+
+        valorLuzDireita.textContent = direita;
+
     }
 
-    /* RADIAÇÃO DO CORPO NEGRO */
+    if (!direcaoSolar || !acaoSolar) return;
 
-    const temperature = document.getElementById("temperature");
+    if (Math.abs(diferenca) <= 35) {
 
-    function atualizarTemperatura() {
-        if (!temperature) return;
+        direcaoSolar.textContent = "Luminosidade semelhante";
 
-        const t = Number(temperature.value);
-        const pico = WIEN / t;
-        const picoNm = pico * 1e9;
+        acaoSolar.textContent =
+            "Os dois sensores recebem quantidades próximas de luz. O painel pode permanecer parado.";
 
-        document.getElementById("temperatureValue").textContent =
-            t + " K";
+    } else if (diferenca > 35) {
 
-        document.getElementById("temperatureResult").textContent =
-            t + " K";
+        direcaoSolar.textContent = "Maior luminosidade à esquerda";
 
-        document.getElementById("wienResult").textContent =
-            picoNm >= 1000
-                ? formatarNumero(picoNm / 1000) + " µm"
-                : formatarNumero(picoNm) + " nm";
+        acaoSolar.textContent =
+            "O sistema deve ajustar o painel em direção à esquerda.";
 
-        const objeto = document.getElementById("temperatureObject");
+    } else {
 
-        let cor;
-        let descricao;
+        direcaoSolar.textContent = "Maior luminosidade à direita";
 
-        if (t < 1500) {
-            cor = "radial-gradient(circle, #fff2c1, #a94c32 55%, #421d25)";
-            descricao = "A maior parte da emissão está no infravermelho. O objeto pode não apresentar brilho visível intenso.";
-        } else if (t < 2500) {
-            cor = "radial-gradient(circle, #fff1b5, #f07839 55%, #6d2430)";
-            descricao = "O objeto pode apresentar brilho avermelhado, enquanto grande parte da radiação ainda está no infravermelho.";
-        } else if (t < 4000) {
-            cor = "radial-gradient(circle, #fff6d2, #ffb13d 55%, #8e2834)";
-            descricao = "A emissão visível se torna mais significativa, com aparência amarelada ou alaranjada.";
-        } else if (t < 5500) {
-            cor = "radial-gradient(circle, #ffffff, #fff0bd 55%, #df8c4c)";
-            descricao = "A emissão possui uma parcela importante na região visível, com aparência mais clara.";
-        } else {
-            cor = "radial-gradient(circle, #ffffff, #dcecff 55%, #7694d9)";
-            descricao = "O pico de emissão se desloca para comprimentos de onda menores, em direção à região visível e ultravioleta.";
-        }
+        acaoSolar.textContent =
+            "O sistema deve ajustar o painel em direção à direita.";
 
-        objeto.style.background = cor;
-        objeto.style.boxShadow = `0 0 ${Math.min(t / 100, 60)}px rgba(255, 166, 80, .45)`;
-
-        document.getElementById("blackbodyResult").textContent = descricao;
     }
 
-    if (temperature) {
-        temperature.addEventListener("input", atualizarTemperatura);
-        atualizarTemperatura();
-    }
+}
 
-    /* EFEITO FOTOELÉTRICO */
+if (luzEsquerda) {
 
-    const photoFrequency = document.getElementById("photoFrequency");
-    const workFunction = document.getElementById("workFunction");
+    luzEsquerda.addEventListener(
+        "input",
+        atualizarSensores
+    );
 
-    function atualizarFotoeletrico() {
-        if (!photoFrequency || !workFunction) return;
+}
 
-        const escalaFrequencia = Number(photoFrequency.value);
-        const frequencia = escalaFrequencia * 1e12;
-        const escalaTrabalho = Number(workFunction.value);
-        const phi = escalaTrabalho * 1e-19;
+if (luzDireita) {
 
-        const energiaFoton = PLANCK * frequencia;
-        const energiaCinetica = energiaFoton - phi;
-        const frequenciaCorte = phi / PLANCK;
+    luzDireita.addEventListener(
+        "input",
+        atualizarSensores
+    );
 
-        document.getElementById("photoFrequencyValue").textContent =
-            frequencia.toExponential(2).replace(".", ",") + " Hz";
+}
 
-        document.getElementById("workFunctionValue").textContent =
-            phi.toExponential(2).replace(".", ",") + " J";
+atualizarSensores();
 
-        const status = document.getElementById("photoelectricStatus");
-        const resultado = document.getElementById("photoelectricResult");
-        const eletrons = document.querySelectorAll(".electron");
 
-        if (energiaCinetica > 0) {
-            status.textContent = "Efeito fotoelétrico: emissão possível";
-            status.className = "result-status success";
+/* =========================
+   9. QUIZ INTERATIVO
+   ========================= */
 
-            resultado.textContent =
-                `A energia do fóton é ${energiaFoton.toExponential(2)} J. ` +
-                `Ela supera a função trabalho. A energia cinética máxima ` +
-                `dos elétrons é aproximadamente ${energiaCinetica.toExponential(2)} J. ` +
-                `A frequência de corte é ${frequenciaCorte.toExponential(2)} Hz.`;
+const botaoCorrigir = document.getElementById("corrigirQuiz");
 
-            eletrons.forEach(el => {
-                el.style.display = "block";
+const resultadoQuiz = document.getElementById("resultadoQuiz");
+
+const respostasCorretas = {
+
+    q1: "a",
+    q2: "b",
+    q3: "a",
+    q4: "b",
+    q5: "a",
+    q6: "a",
+    q7: "a",
+    q8: "a",
+    q9: "a",
+    q10: "a"
+
+};
+
+
+if (botaoCorrigir) {
+
+    botaoCorrigir.addEventListener("click", () => {
+
+        let acertos = 0;
+
+        let respondidas = 0;
+
+        const totalQuestoes = Object.keys(respostasCorretas).length;
+
+        const perguntas = document.querySelectorAll(".pergunta-quiz");
+
+        // Remove as marcações anteriores.
+
+        perguntas.forEach(pergunta => {
+
+            pergunta.querySelectorAll("label").forEach(label => {
+
+                label.style.border = "";
+
+                label.style.background = "";
+
             });
-        } else {
-            status.textContent = "Frequência abaixo do limite";
-            status.className = "result-status warning";
 
-            resultado.textContent =
-                `A energia do fóton é ${energiaFoton.toExponential(2)} J, ` +
-                `menor que a função trabalho de ${phi.toExponential(2)} J. ` +
-                `Nesse modelo, não ocorre emissão de fotoelétrons. ` +
-                `A frequência de corte é ${frequenciaCorte.toExponential(2)} Hz.`;
-
-            eletrons.forEach(el => {
-                el.style.display = "none";
-            });
-        }
-    }
-
-    if (photoFrequency && workFunction) {
-        photoFrequency.addEventListener("input", atualizarFotoeletrico);
-        workFunction.addEventListener("input", atualizarFotoeletrico);
-        atualizarFotoeletrico();
-    }
-
-    /* ENERGIA DO FÓTON */
-
-    const photonFrequency = document.getElementById("photonFrequency");
-
-    function atualizarFoton() {
-        if (!photonFrequency) return;
-
-        const escala = Number(photonFrequency.value);
-        const frequencia = escala * 1e14;
-        const energia = PLANCK * frequencia;
-
-        document.getElementById("photonFrequencyValue").textContent =
-            frequencia.toExponential(2).replace(".", ",") + " Hz";
-
-        document.getElementById("photonEnergyValue").textContent =
-            energia.toExponential(2).replace(".", ",") + " J";
-
-        let regiao = "Luz visível";
-
-        if (frequencia < 4e14) regiao = "Infravermelho ou região próxima";
-        else if (frequencia < 7.5e14) regiao = "Luz visível";
-        else if (frequencia < 3e16) regiao = "Ultravioleta";
-        else if (frequencia < 3e19) regiao = "Raios X";
-        else regiao = "Raios gama ou região próxima";
-
-        document.getElementById("photonRegion").textContent = regiao;
-
-        document.getElementById("photonResult").textContent =
-            `Cada fóton possui energia aproximada de ${energia.toExponential(3)} joules. ` +
-            `Aumentar a frequência aumenta a energia individual dos fótons.`;
-    }
-
-    if (photonFrequency) {
-        photonFrequency.addEventListener("input", atualizarFoton);
-        atualizarFoton();
-    }
-
-    /* COMPONENTES DO CIRCUITO */
-
-    const componentesCircuito = {
-        arduino: {
-            titulo: "Arduino Uno",
-            descricao: "É a unidade de controle do projeto. Recebe os valores analógicos dos sensores LDR, compara as leituras e determina o movimento necessário para orientar o painel.",
-            conexoes: "LDR esquerdo em A0; LDR direito em A1; sinal do servo em D9; alimentação dos sensores em 5 V e GND."
-        },
-        ldr1: {
-            titulo: "Sensor LDR esquerdo",
-            descricao: "O LDR é um resistor dependente de luz. Sua resistência varia conforme a iluminação. Neste projeto, ele identifica a luminosidade do lado esquerdo do painel.",
-            conexoes: "Um terminal no 5 V e outro no ponto de leitura A0. O ponto A0 também se conecta a um resistor de 10 kΩ ligado ao GND."
-        },
-        ldr2: {
-            titulo: "Sensor LDR direito",
-            descricao: "Este sensor mede a iluminação do lado direito. A comparação entre os dois sensores permite identificar a direção de maior luminosidade.",
-            conexoes: "Um terminal no 5 V e outro no ponto de leitura A1. O ponto A1 também se conecta a um resistor de 10 kΩ ligado ao GND."
-        },
-        resistors: {
-            titulo: "Resistores de 10 kΩ",
-            descricao: "Os resistores formam divisores de tensão com os LDRs. Como a resistência do LDR varia com a luz, a tensão no ponto de leitura também muda.",
-            conexoes: "Um resistor para cada LDR, conectado entre o ponto de leitura analógica e o GND."
-        },
-        servo: {
-            titulo: "Servomotor",
-            descricao: "O servomotor transforma o comando do Arduino em movimento mecânico. Ele gira o suporte do painel para ajustar sua orientação.",
-            conexoes: "Sinal no pino D9; alimentação em fonte regulada compatível; GND da fonte conectado ao GND do Arduino."
-        },
-        panel: {
-            titulo: "Painel fotovoltaico",
-            descricao: "O painel contém células fotovoltaicas que convertem energia luminosa em energia elétrica. A orientação pode influenciar a quantidade de luz recebida.",
-            conexoes: "Terminais positivo e negativo ligados a uma carga ou circuito regulador apropriado. Não conectar diretamente aos pinos do Arduino."
-        },
-        power: {
-            titulo: "Alimentação",
-            descricao: "Os sensores podem ser alimentados pelo 5 V do Arduino. O servomotor pode exigir uma fonte externa capaz de fornecer a corrente necessária.",
-            conexoes: "Fonte regulada compatível com o servo e GND comum entre a fonte e o Arduino."
-        },
-        breadboard: {
-            titulo: "Protoboard",
-            descricao: "A protoboard permite montar circuitos sem solda. Facilita testes, alterações e correções durante a construção do protótipo.",
-            conexoes: "Utilizada para organizar os dois divisores de tensão dos sensores LDR e as conexões de alimentação."
-        }
-    };
-
-    const botoesComponentes = document.querySelectorAll(".circuit-component");
-
-    botoesComponentes.forEach(botao => {
-        botao.addEventListener("click", () => {
-            const componente = componentesCircuito[botao.dataset.component];
-            if (!componente) return;
-
-            botoesComponentes.forEach(item => item.classList.remove("active"));
-            botao.classList.add("active");
-
-            document.getElementById("componentTitle").textContent =
-                componente.titulo;
-
-            document.getElementById("componentDescription").textContent =
-                componente.descricao;
-
-            document.getElementById("componentConnections").textContent =
-                componente.conexoes;
         });
+
+
+        // Verifica cada resposta.
+
+        for (const [questao, respostaCorreta] of
+            Object.entries(respostasCorretas)) {
+
+            const selecionada = document.querySelector(
+                `input[name="${questao}"]:checked`
+            );
+
+            const pergunta = document.querySelector(
+                `input[name="${questao}"]`
+            )?.closest(".pergunta-quiz");
+
+            if (selecionada) {
+
+                respondidas++;
+
+                if (selecionada.value === respostaCorreta) {
+
+                    acertos++;
+
+                }
+
+            }
+
+            // Destaca a alternativa correta.
+
+            if (pergunta) {
+
+                const opcoes = pergunta.querySelectorAll("label");
+
+                opcoes.forEach(label => {
+
+                    const input = label.querySelector("input");
+
+                    if (input.value === respostaCorreta) {
+
+                        label.style.border = "2px solid #24964c";
+
+                        label.style.background = "#e2f8e9";
+
+                    } else if (
+                        selecionada &&
+                        input.checked
+                    ) {
+
+                        label.style.border = "2px solid #c63c3c";
+
+                        label.style.background = "#fff0f0";
+
+                    }
+
+                });
+
+            }
+
+        }
+
+
+        const percentual = Math.round(
+            (acertos / totalQuestoes) * 100
+        );
+
+        resultadoQuiz.className = "";
+
+        if (respondidas < totalQuestoes) {
+
+            resultadoQuiz.classList.add("resultado-negativo");
+
+            resultadoQuiz.innerHTML = `
+                <strong>Você respondeu ${respondidas} de ${totalQuestoes} questões.</strong>
+                <br>
+                Acertos até agora: ${acertos}.
+                <br>
+                Complete todas as perguntas para finalizar o quiz.
+            `;
+
+        } else if (acertos >= 8) {
+
+            resultadoQuiz.classList.add("resultado-positivo");
+
+            resultadoQuiz.innerHTML = `
+                <strong>Excelente resultado!</strong>
+                <br>
+                Você acertou ${acertos} de ${totalQuestoes} questões.
+                <br>
+                Aproveitamento: ${percentual}%.
+                <br>
+                Você demonstrou ótimo conhecimento sobre o tema!
+            `;
+
+        } else if (acertos >= 5) {
+
+            resultadoQuiz.classList.add("resultado-positivo");
+
+            resultadoQuiz.innerHTML = `
+                <strong>Bom trabalho!</strong>
+                <br>
+                Você acertou ${acertos} de ${totalQuestoes} questões.
+                <br>
+                Aproveitamento: ${percentual}%.
+                <br>
+                Revise alguns conceitos para melhorar ainda mais.
+            `;
+
+        } else {
+
+            resultadoQuiz.classList.add("resultado-negativo");
+
+            resultadoQuiz.innerHTML = `
+                <strong>Continue estudando!</strong>
+                <br>
+                Você acertou ${acertos} de ${totalQuestoes} questões.
+                <br>
+                Aproveitamento: ${percentual}%.
+                <br>
+                Revise o conteúdo e tente novamente.
+            `;
+
+        }
+
     });
 
-    /* SIMULADOR DE LUMINOSIDADE E SERVO */
+}
 
-    const leftLight = document.getElementById("leftLight");
-    const rightLight = document.getElementById("rightLight");
 
-    function atualizarCircuito() {
-        if (!leftLight || !rightLight) return;
+/* =========================
+   10. NAVEGAÇÃO POR TECLADO
+   ========================= */
 
-        const esquerda = Number(leftLight.value);
-        const direita = Number(rightLight.value);
-        const diferenca = esquerda - direita;
+// O HTML utiliza links, botões, campos e controles nativos,
+// que já permitem navegação pelo teclado.
+// Este trecho oferece uma ajuda adicional ao fechar o menu
+// com a tecla Escape.
 
-        document.getElementById("leftLightValue").textContent = esquerda;
-        document.getElementById("rightLightValue").textContent = direita;
+document.addEventListener("keydown", (evento) => {
 
-        document.getElementById("leftSensorReading").textContent = esquerda + "%";
-        document.getElementById("rightSensorReading").textContent = direita + "%";
+    if (evento.key === "Escape" && navegacao && menuToggle) {
 
-        document.getElementById("leftMeter").style.width = esquerda + "%";
-        document.getElementById("rightMeter").style.width = direita + "%";
+        navegacao.classList.remove("aberto");
 
-        const painel = document.getElementById("simulatedPanel");
-        const decisao = document.getElementById("servoDecision");
-        const explicacao = document.getElementById("servoExplanation");
-        const anguloTexto = document.getElementById("servoAngle");
+        menuToggle.setAttribute("aria-expanded", "false");
 
-        let angulo = 90;
+        menuToggle.setAttribute(
+            "aria-label",
+            "Abrir menu de navegação"
+        );
 
-        if (Math.abs(diferenca) <= 8) {
-            decisao.textContent = "Painel alinhado com a luz";
-            explicacao.textContent =
-                "Os sensores recebem quantidades semelhantes de luz. O Arduino entende que não é necessário realizar um novo movimento.";
-        } else if (diferenca > 8) {
-            angulo = 90 - Math.min(diferenca * 0.6, 90);
+        menuToggle.textContent = "☰";
 
-            decisao.textContent = "Movimentando para a esquerda";
-            explicacao.textContent =
-                "O sensor esquerdo recebe mais luz. O Arduino identifica a diferença e envia um comando ao servomotor para orientar o painel para esse lado.";
-        } else {
-            angulo = 90 + Math.min(Math.abs(diferenca) * 0.6, 90);
+        menuToggle.focus();
 
-            decisao.textContent = "Movimentando para a direita";
-            explicacao.textContent =
-                "O sensor direito recebe mais luz. O Arduino compara os valores e orienta o servomotor para movimentar o painel em direção à maior luminosidade.";
-        }
-
-        angulo = Math.max(0, Math.min(180, angulo));
-
-        painel.style.transform =
-            `rotate(${(angulo - 90) * 0.5}deg)`;
-
-        anguloTexto.textContent = Math.round(angulo);
     }
 
-    if (leftLight && rightLight) {
-        leftLight.addEventListener("input", atualizarCircuito);
-        rightLight.addEventListener("input", atualizarCircuito);
+});
 
-        document.getElementById("resetCircuit").addEventListener("click", () => {
-            leftLight.value = 80;
-            rightLight.value = 30;
-            atualizarCircuito();
-        });
 
-        atualizarCircuito();
-    }
+/* =========================
+   11. VERIFICAÇÃO INICIAL
+   ========================= */
 
-    /* QUIZ */
+document.addEventListener("DOMContentLoaded", () => {
 
-    const perguntas = [
-        {
-            pergunta: "O que é o efeito fotoelétrico?",
-            opcoes: [
-                "A emissão de elétrons de um material quando recebe luz adequada",
-                "A transformação de calor em som",
-                "A reflexão total da luz",
-                "A formação de ondas mecânicas"
-            ],
-            correta: 0,
-            explicacao: "O efeito fotoelétrico ocorre quando fótons transferem energia a elétrons e podem permitir que eles escapem da superfície."
-        },
-        {
-            pergunta: "Quem explicou o efeito fotoelétrico utilizando a ideia dos quanta de luz?",
-            opcoes: [
-                "Isaac Newton",
-                "Albert Einstein",
-                "Galileu Galilei",
-                "James Watt"
-            ],
-            correta: 1,
-            explicacao: "Einstein publicou sua explicação em 1905 e recebeu o Nobel de Física de 1921 principalmente por essa contribuição."
-        },
-        {
-            pergunta: "O que determina a energia de um fóton?",
-            opcoes: [
-                "Somente sua cor percebida",
-                "A massa do material iluminado",
-                "Sua frequência",
-                "A distância até a fonte de luz"
-            ],
-            correta: 2,
-            explicacao: "A energia de um fóton é dada pela relação E = h × f."
-        },
-        {
-            pergunta: "Qual é a constante presente na equação E = h × f?",
-            opcoes: [
-                "Constante gravitacional",
-                "Constante de Planck",
-                "Constante de Wien",
-                "Constante elástica"
-            ],
-            correta: 1,
-            explicacao: "A letra h representa a constante de Planck, aproximadamente 6,626 × 10⁻³⁴ J·s."
-        },
-        {
-            pergunta: "O que acontece quando a frequência da luz está abaixo da frequência de corte?",
-            opcoes: [
-                "O material sempre emite mais elétrons",
-                "A luz desaparece",
-                "Ocorre emissão de raios X",
-                "Os fótons não possuem energia suficiente para liberar elétrons"
-            ],
-            correta: 3,
-            explicacao: "A energia individual dos fótons precisa alcançar ou superar a função trabalho do material."
-        },
-        {
-            pergunta: "O que é o efeito fotovoltaico?",
-            opcoes: [
-                "A produção de tensão elétrica em um material pela incidência de luz",
-                "A produção de som pela luz",
-                "A reflexão da luz em espelhos",
-                "A evaporação da água"
-            ],
-            correta: 0,
-            explicacao: "No efeito fotovoltaico, a luz contribui para gerar e separar cargas elétricas em um dispositivo."
-        },
-        {
-            pergunta: "Qual é a função dos sensores LDR no seguidor solar?",
-            opcoes: [
-                "Armazenar energia",
-                "Medir a luminosidade",
-                "Girar o painel diretamente",
-                "Aumentar a tensão do painel"
-            ],
-            correta: 1,
-            explicacao: "O LDR altera sua resistência de acordo com a iluminação e permite que o Arduino compare os níveis de luz."
-        },
-        {
-            pergunta: "Qual componente controla o movimento do painel no protótipo?",
-            opcoes: [
-                "Resistor",
-                "Protoboard",
-                "Servomotor",
-                "LDR"
-            ],
-            correta: 2,
-            explicacao: "O servomotor transforma os comandos elétricos em movimento mecânico."
-        },
-        {
-            pergunta: "O que acontece com a energia de um fóton quando sua frequência aumenta?",
-            opcoes: [
-                "Diminui",
-                "Permanece sempre igual",
-                "Aumenta",
-                "Torna-se zero"
-            ],
-            correta: 2,
-            explicacao: "Como E = h × f, a energia é diretamente proporcional à frequência."
-        },
-        {
-            pergunta: "Qual é a diferença entre efeito fotoelétrico externo e efeito fotovoltaico?",
-            opcoes: [
-                "São exatamente o mesmo fenômeno",
-                "No externo há emissão de elétrons; no fotovoltaico há geração de tensão e corrente no dispositivo",
-                "O efeito fotovoltaico só acontece no escuro",
-                "O efeito fotoelétrico só acontece na água"
-            ],
-            correta: 1,
-            explicacao: "Os fenômenos são relacionados à interação entre luz e matéria, mas descrevem processos físicos diferentes."
-        }
-    ];
+    console.log(
+        "Projeto Física Quântica carregado com sucesso!"
+    );
 
-    let perguntaAtual = 0;
-    let pontuacao = 0;
-    let respondida = false;
-
-    const quizQuestion = document.getElementById("quizQuestion");
-    const quizOptions = document.getElementById("quizOptions");
-    const quizFeedback = document.getElementById("quizFeedback");
-    const nextQuestion = document.getElementById("nextQuestion");
-    const progressBar = document.getElementById("progressBar");
-    const quizProgress = document.getElementById("quizProgress");
-    const quizScore = document.getElementById("quizScore");
-
-    function carregarPergunta() {
-        if (!quizQuestion || perguntaAtual >= perguntas.length) {
-            mostrarResultado();
-            return;
-        }
-
-        respondida = false;
-
-        const atual = perguntas[perguntaAtual];
-
-        quizQuestion.textContent = atual.pergunta;
-        quizOptions.innerHTML = "";
-        quizFeedback.textContent = "";
-
-        quizProgress.textContent =
-            `Questão ${perguntaAtual + 1} de ${perguntas.length}`;
-
-        quizScore.textContent = `Pontuação: ${pontuacao}`;
-
-        progressBar.style.width =
-            `${(perguntaAtual / perguntas.length) * 100}%`;
-
-        nextQuestion.disabled = true;
-        nextQuestion.textContent =
-            perguntaAtual === perguntas.length - 1
-                ? "Ver resultado"
-                : "Próxima questão";
-
-        atual.opcoes.forEach((opcao, indice) => {
-            const botao = document.createElement("button");
-            botao.className = "quiz-option";
-            botao.textContent = opcao;
-
-            botao.addEventListener("click", () => {
-                responder(indice);
-            });
-
-            quizOptions.appendChild(botao);
-        });
-    }
-
-    function responder(indice) {
-        if (respondida) return;
-        respondida = true;
-
-        const atual = perguntas[perguntaAtual];
-        const botoes = quizOptions.querySelectorAll("button");
-
-        botoes.forEach((botao, i) => {
-            botao.disabled = true;
-
-            if (i === atual.correta) {
-                botao.classList.add("correct");
-            }
-
-            if (i === indice && i !== atual.correta) {
-                botao.classList.add("incorrect");
-            }
-        });
-
-        if (indice === atual.correta) {
-            pontuacao++;
-            quizFeedback.textContent =
-                "Correto! " + atual.explicacao;
-        } else {
-            quizFeedback.textContent =
-                "Não foi dessa vez. " + atual.explicacao;
-        }
-
-        quizScore.textContent = `Pontuação: ${pontuacao}`;
-        progressBar.style.width =
-            `${((perguntaAtual + 1) / perguntas.length) * 100}%`;
-
-        nextQuestion.disabled = false;
-    }
-
-    function mostrarResultado() {
-        quizProgress.textContent = "Quiz concluído";
-        quizScore.textContent = `Pontuação: ${pontuacao}`;
-
-        quizQuestion.textContent = "Parabéns por concluir o desafio!";
-
-        quizOptions.innerHTML = `
-            <div class="quiz-final-result">
-                <p>Você acertou</p>
-                <strong>${pontuacao} de ${perguntas.length}</strong>
-                <p>${pontuacao >= 8
-                    ? "Excelente! Você demonstrou ótimo entendimento dos conceitos."
-                    : pontuacao >= 5
-                    ? "Muito bem! Revise alguns conteúdos e tente novamente."
-                    : "Continue estudando! Explore as seções e tente novamente."}</p>
-            </div>
-        `;
-
-        quizFeedback.textContent = "";
-        progressBar.style.width = "100%";
-        nextQuestion.disabled = false;
-        nextQuestion.textContent = "Refazer quiz";
-    }
-
-    if (nextQuestion) {
-        carregarPergunta();
-
-        nextQuestion.addEventListener("click", () => {
-            if (perguntaAtual >= perguntas.length) {
-                perguntaAtual = 0;
-                pontuacao = 0;
-                carregarPergunta();
-                return;
-            }
-
-            if (!respondida) return;
-
-            perguntaAtual++;
-            carregarPergunta();
-        });
-    }
+    console.log(
+        "Simulações de fótons, efeito fotoelétrico e sensores LDR disponíveis."
+    );
 
 });
